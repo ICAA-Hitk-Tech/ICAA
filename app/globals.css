@@ -1,26 +1,58 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+
+  /* ── Canvas ───────────────────────────────── */
+  --color-paper:       #F5F0E8;   /* warm off-white base          */
+  --color-surface:     #ECEAE0;   /* raised card / panel          */
+  --color-border:      #C4C0B2;   /* hard separators              */
+
+  /* ── Ink ──────────────────────────────────── */
+  --color-ink:         #151510;   /* warm near-black body text    */
+  --color-ink-dim:     #4A4940;   /* secondary / captions         */
+  --color-ink-ghost:   #9A9888;   /* placeholder / disabled       */
+
+  /* ── Forest · Dark Greens ────────────────── */
+  --color-grove-950:   #0B2018;   /* near-black green             */
+  --color-grove-800:   #173D28;   /* very dark forest             */
+  --color-grove-600:   #235A3A;   /* primary forest green         */
+  --color-grove-400:   #38865A;   /* accessible mid-green         */
+
+  /* ── Sea Greens ──────────────────────────── */
+  --color-sea-700:     #1A6857;   /* deep teal-green              */
+  --color-sea-500:     #278E74;   /* sea green anchor             */
+  --color-sea-300:     #43AF92;   /* bright sea / highlights      */
+
+  /* ── Blue · Abyss ────────────────────────── */
+  --color-abyss-900:   #0B1D32;   /* near-black blue              */
+  --color-abyss-700:   #153352;   /* deep navy                    */
+  --color-abyss-500:   #1C4E7A;   /* primary blue                 */
+  --color-abyss-300:   #2B71B6;   /* link / interactive blue      */
+
+  /* ── Gamboge · Chrome Yellow ─────────────── */
+  --color-gamboge:     #C68800;   /* classic gamboge pigment      */
+  --color-chrome-600:  #D99800;   /* chrome yellow mid            */
+  --color-chrome-400:  #F0AA00;   /* bright chrome accent         */
+  --color-chrome-200:  #FAC830;   /* light chrome / tag fills     */
+
+  /* ── Semantic roles ──────────────────────── */
+  --color-brand:       var(--color-grove-600);
+  --color-cta:         var(--color-abyss-500);
+  --color-accent:      var(--color-gamboge);
+  --color-success:     var(--color-sea-500);
+  --color-warning:     var(--color-chrome-400);
+  --color-destructive: #B03A2E;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-dm-serif);
+  --font-sans: var(--font-spline);
+  --font-mono: var(--font-roboto-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
