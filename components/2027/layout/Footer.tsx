@@ -24,9 +24,7 @@ const Footer = () => {
       {/* Top Header Section */}
       <div className="relative px-6 py-12 text-center border-b border-ink/30 bg-paper/50 overflow-hidden">
         {/* Background Image Layer with low opacity and responsive sizing */}
-        <div 
-          className="absolute inset-0 z-0 opacity-35 pointer-events-none bg-[url('/2027/footer.png')] bg-repeat-x bg-bottom bg-contain"
-        />
+        <div className="absolute inset-0 z-0 opacity-35 pointer-events-none bg-[url('/2027/footer.png')] bg-repeat-x bg-bottom bg-contain" />
         <div className="relative z-10">
           <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl font-bold text-ink tracking-tight">
             Department of Computer Science and Engineering
@@ -50,16 +48,16 @@ const Footer = () => {
               <Image
                 src="/2027/heritage.png"
                 alt="Heritage logo"
-                width={48}
-                height={48}
+                width={64}
+                height={64}
                 className="rounded-full object-cover"
               />
               <Image
                 src="/2027/icaa.png"
                 alt="ICAA logo"
-                width={96}
-                height={48}
-                className="rounded-full  object-contain  px-2"
+                width={120}
+                height={60}
+                className="rounded-full object-contain px-2"
               />
             </div>
             <div>
@@ -231,7 +229,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <a 
+            <a
               href="https://www.google.com/maps/place/The+Heritage+College,+Kolkata/@22.5184079,88.4143146,17z/data=!4m6!3m5!1s0x3a0273f58b9feec5:0x30f8067b73c45d8!8m2!3d22.5184079!4d88.4168895!16zL20vMGJnZjRx?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D"
               target="_blank"
               rel="noopener noreferrer"

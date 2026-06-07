@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { FaUniversity, FaLaptopCode } from "react-icons/fa";
 import {
-	SECTION_LABEL,
 	SECTION_HEADING,
 	INSTITUTE_NAME,
 	INSTITUTE_TAGLINE,
@@ -66,7 +65,7 @@ const OrganizedBy = () => {
 			</div>
 
 			{/* ── Info cards ── */}
-			<div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
+			<div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
 				<InfoCard
 					icon={<FaLaptopCode />}
 					headerLabel="About the Department"
