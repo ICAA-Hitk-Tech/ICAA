@@ -24,9 +24,7 @@ const Footer = () => {
       {/* Top Header Section */}
       <div className="relative px-6 py-12 text-center border-b border-ink/30 bg-paper/50 overflow-hidden">
         {/* Background Image Layer with low opacity and responsive sizing */}
-        <div 
-          className="absolute inset-0 z-0 opacity-35 pointer-events-none bg-[url('/2027/footer.png')] bg-repeat-x bg-bottom bg-contain md:bg-[length:auto_100%]"
-        />
+        <div className="absolute inset-0 z-0 opacity-35 pointer-events-none bg-[url('/2027/footer.png')] bg-repeat-x bg-bottom bg-contain" />
         <div className="relative z-10">
           <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl font-bold text-ink tracking-tight">
             Department of Computer Science and Engineering
@@ -50,16 +48,16 @@ const Footer = () => {
               <Image
                 src="/2027/heritage.png"
                 alt="Heritage logo"
-                width={48}
-                height={48}
+                width={64}
+                height={64}
                 className="rounded-full object-cover"
               />
               <Image
                 src="/2027/icaa.png"
                 alt="ICAA logo"
-                width={96}
-                height={48}
-                className="rounded-full  object-contain  px-2"
+                width={120}
+                height={60}
+                className="rounded-full object-contain px-2"
               />
             </div>
             <div>
@@ -196,9 +194,9 @@ const Footer = () => {
 
         {/* Horizontal Contact Card Below (mobile-friendly cards) */}
         <div className="mt-12 pt-8 border-t border-border/60">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 md:p-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 p-4 bg-paper/80 rounded-md border border-border/60 hover:bg-paper hover:shadow-[4px_4px_0px_0px_var(--color-ink)] hover:-translate-y-0.5 transition-all duration-200 group">
-              <div className="flex items-center justify-center w-10 h-10 rounded-full bg-grove-600 text-paper shrink-0 group-hover:scale-110 transition-transform duration-200">
+              <div className="flex items-center justify-center size-8 lg:size-10 rounded-full bg-grove-600 text-paper shrink-0 group-hover:scale-110 transition-transform duration-200">
                 <FaEnvelope className="w-4 h-4" />
               </div>
               <div className="min-w-0">
@@ -207,7 +205,7 @@ const Footer = () => {
                 </h5>
                 <a
                   href="mailto:icaa@heritageit.edu"
-                  className="text-sm font-medium text-ink-dim hover:text-grove-600 hover:font-bold break-words inline-block transition-all duration-200"
+                  className="text-xs lg:text-sm font-medium text-ink-dim hover:text-grove-600 hover:font-bold wrap-break-word inline-block transition-all duration-200"
                 >
                   icaa@heritageit.edu
                 </a>
@@ -215,7 +213,7 @@ const Footer = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 p-4 bg-paper/80 rounded-md border border-border/60 hover:bg-paper hover:shadow-[4px_4px_0px_0px_var(--color-ink)] hover:-translate-y-0.5 transition-all duration-200 group">
-              <div className="flex items-center justify-center w-10 h-10 rounded-full bg-grove-600 text-paper shrink-0 group-hover:scale-110 transition-transform duration-200">
+              <div className="flex items-center justify-center size-8 lg:size-10 rounded-full bg-grove-600 text-paper shrink-0 group-hover:scale-110 transition-transform duration-200">
                 <FaPhone className="w-4 h-4" />
               </div>
               <div className="min-w-0">
@@ -224,27 +222,27 @@ const Footer = () => {
                 </h5>
                 <a
                   href="tel:+913366270502"
-                  className="text-sm font-medium text-ink-dim hover:text-grove-600 hover:font-bold inline-block transition-all duration-200"
+                  className="text-xs lg:text-sm font-medium text-ink-dim hover:text-grove-600 hover:font-bold inline-block transition-all duration-200"
                 >
                   +91 33 6627 0502
                 </a>
               </div>
             </div>
 
-            <a 
+            <a
               href="https://www.google.com/maps/place/The+Heritage+College,+Kolkata/@22.5184079,88.4143146,17z/data=!4m6!3m5!1s0x3a0273f58b9feec5:0x30f8067b73c45d8!8m2!3d22.5184079!4d88.4168895!16zL20vMGJnZjRx?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D"
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col sm:flex-row items-start sm:items-center gap-3 p-4 bg-paper/80 rounded-md border border-border/60 hover:bg-paper hover:shadow-[4px_4px_0px_0px_var(--color-ink)] hover:-translate-y-0.5 transition-all duration-200 group cursor-pointer"
             >
-              <div className="flex items-center justify-center w-10 h-10 rounded-full bg-grove-600 text-paper shrink-0 group-hover:scale-110 transition-transform duration-200">
+              <div className="flex items-center justify-center size-8 lg:size-10 rounded-full bg-grove-600 text-paper shrink-0 group-hover:scale-110 transition-transform duration-200">
                 <FaLocationDot className="w-4 h-4" />
               </div>
               <div className="min-w-0">
                 <h5 className="font-bold text-xs uppercase tracking-wider text-ink">
                   Location
                 </h5>
-                <address className="not-italic text-sm font-medium text-ink-dim leading-snug group-hover:text-grove-600 transition-colors duration-200">
+                <address className="not-italic text-xs lg:text-sm font-medium text-ink-dim leading-snug group-hover:text-grove-600 transition-colors duration-200">
                   Chowbaga Rd, Anandapur, Mundapara
                   <br />
                   Kolkata, West Bengal 700107
