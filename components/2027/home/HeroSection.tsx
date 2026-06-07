@@ -54,7 +54,7 @@ const HeroSection = () => {
             </div>
             {/* Floating Sticker / Tag at bottom-left */}
             <div className="absolute -bottom-4 -left-4 bg-abyss-500 text-paper text-xs font-mono font-bold px-3 py-1.5 border-2 border-ink shadow-[2px_2px_0px_0px_var(--color-ink)] -rotate-6 uppercase">
-              ICAA 20277!!
+              ICAA 2027!!
             </div>
           </div>
         </div>
