@@ -231,7 +231,12 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 p-4 bg-paper/80 rounded-md border border-border/60 hover:bg-paper hover:shadow-[4px_4px_0px_0px_var(--color-ink)] hover:-translate-y-0.5 transition-all duration-200 group">
+            <a 
+              href="https://www.google.com/maps/place/The+Heritage+College,+Kolkata/@22.5184079,88.4143146,17z/data=!4m6!3m5!1s0x3a0273f58b9feec5:0x30f8067b73c45d8!8m2!3d22.5184079!4d88.4168895!16zL20vMGJnZjRx?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col sm:flex-row items-start sm:items-center gap-3 p-4 bg-paper/80 rounded-md border border-border/60 hover:bg-paper hover:shadow-[4px_4px_0px_0px_var(--color-ink)] hover:-translate-y-0.5 transition-all duration-200 group cursor-pointer"
+            >
               <div className="flex items-center justify-center w-10 h-10 rounded-full bg-grove-600 text-paper shrink-0 group-hover:scale-110 transition-transform duration-200">
                 <FaLocationDot className="w-4 h-4" />
               </div>
@@ -239,13 +244,13 @@ const Footer = () => {
                 <h5 className="font-bold text-xs uppercase tracking-wider text-ink">
                   Location
                 </h5>
-                <address className="not-italic text-sm font-medium text-ink-dim leading-snug">
+                <address className="not-italic text-sm font-medium text-ink-dim leading-snug group-hover:text-grove-600 transition-colors duration-200">
                   Chowbaga Rd, Anandapur, Mundapara
                   <br />
                   Kolkata, West Bengal 700107
                 </address>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>

@@ -19,7 +19,6 @@
 
 # production
 /build
-*.py
 
 # misc
 .DS_Store
