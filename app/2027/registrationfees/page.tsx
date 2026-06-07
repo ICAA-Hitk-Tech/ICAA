@@ -1,0 +1,15 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = { title: "Registration Fees — ICAA 2027" };
+
+export default function RegistrationFeesPage() {
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center px-6 pt-24 gap-4">
+      <span className="font-mono text-xs uppercase tracking-widest text-ink-ghost border border-border px-3 py-1">Registration Fees</span>
+      <h1 className="text-4xl font-serif font-bold text-ink text-center">To be announced soon!</h1>
+      <p className="text-ink-dim text-center max-w-md">
+        Fee structure for ICAA 2027 participants will be published here shortly.
+      </p>
+    </div>
+  );
+}
