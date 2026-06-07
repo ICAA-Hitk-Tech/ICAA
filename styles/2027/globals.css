@@ -56,3 +56,10 @@
     color: var(--color-ink);
   }
 }
+
+/* ── Utilities ─────────────────────────────── */
+.glassmorphic {
+  background-color: rgba(245, 240, 232, 0.99) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
