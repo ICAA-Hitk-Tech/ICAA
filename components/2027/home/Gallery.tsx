@@ -46,6 +46,7 @@ const GRID_STYLE: React.CSSProperties = {
     "e f f g"
   `,
   gap: "4px",
+  backgroundColor: "var(--color-border)", // gap gutters
 };
 
 const AREAS = ["a", "b", "c", "d", "e", "f", "g"] as const;
@@ -268,31 +269,9 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
 
   return (
     <section className="w-full px-4 sm:px-6 md:px-12 lg:px-16 py-10 md:py-16">
-      {/* ── Section header ──────────────────────────────────────────────── */}
-      {/* <div className="flex flex-col items-center gap-2 mb-6 md:mb-10">
-        <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-ink text-center leading-tight">
-          Gallery
-        </h2>
-        <div className="flex items-center gap-2 mt-1">
-          <div className="h-0.5 w-14 md:w-16 bg-abyss-500" />
-          <div className="h-0.5 w-3 bg-chrome-400" />
-        </div>
-        <p className="font-sans text-xs sm:text-sm text-ink-dim text-center max-w-xs sm:max-w-md mt-1">
-          A glimpse into the ICAA experience — campus, sessions, and moments
-          from past editions.
-        </p>
-      </div> */}
-
-      {/* ── Gallery container ────────────────────────────────────────────── */}
-      {/*
-        Aspect ratio adapts per breakpoint:
-          mobile  → 4:3  (taller, more visible image area)
-          tablet  → 16:9
-          desktop → 16:7 (original wide panoramic feel)
-      */}
       <div
         ref={containerRef}
-        className="relative w-full border-2 overflow-hidden aspect-[4/3] sm:aspect-[16/9] lg:aspect-[16/7]"
+        className="relative w-full border-2 overflow-hidden aspect-4/3 sm:aspect-video lg:aspect-16/7"
       >
         {/* Bottom layer — always blurred & darkened */}
         <div
@@ -320,7 +299,7 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
           <BentoGrid images={images} />
         </div>
 
-        {/* Lens border — width/height set by runLoop via style */}
+        {/* Lens frame — corner brackets only, no enclosing border */}
         <div
           ref={lensRef}
           className="absolute pointer-events-none"
@@ -330,27 +309,22 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
             height: LENS_MIN,
             top: 0,
             left: 0,
-            border: "2px solid rgba(245,240,232,0.75)",
-            boxShadow:
-              "0 0 0 1px rgba(21,21,16,0.35), " +
-              "inset 0 0 0 1px rgba(21,21,16,0.15), " +
-              "0 4px 24px rgba(0,0,0,0.4)",
             willChange: "transform, opacity",
           }}
         >
-          {/* Corner brackets */}
+          {/* Corner brackets — yellow, heavier stroke, no surrounding box */}
           {[
-            { top: 0, left: 0, borderWidth: "2px 0 0 2px" },
-            { top: 0, right: 0, borderWidth: "2px 2px 0 0" },
-            { bottom: 0, left: 0, borderWidth: "0 0 2px 2px" },
-            { bottom: 0, right: 0, borderWidth: "0 2px 2px 0" },
+            { top: -3, left: -3, borderWidth: "4px 0 0 4px" },
+            { top: -3, right: -1, borderWidth: "4px 4px 0 0" },
+            { bottom: -1, left: -3, borderWidth: "0 0 4px 4px" },
+            { bottom: -1, right: -1, borderWidth: "0 4px 4px 0" },
           ].map((style, i) => (
             <span
               key={i}
               style={{
                 position: "absolute",
-                width: 12,
-                height: 12,
+                width: 24,
+                height: 24,
                 borderColor: "var(--color-chrome-400)",
                 borderStyle: "solid",
                 ...style,
