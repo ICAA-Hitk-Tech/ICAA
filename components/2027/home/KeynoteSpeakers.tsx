@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { FaMicrophone } from "react-icons/fa";
 import { KEYNOTE_SPEAKERS } from "../../../constants/2027/keynoteSpeakers";
 
 const KeynoteSpeakers = () => {
