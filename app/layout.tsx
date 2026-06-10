@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `International Conference on Applied Algorithms (ICAA) ${ACTIVE_YEAR}`,
     description: `The International Conference on Applied Algorithms (ICAA) brings together researchers, practitioners, and students interested in all aspects of algorithm design and analysis.`,
-    images: [{ url: images.footer, width: 1200, height: 630 }],
+    images: [{ url: images.hero, width: 1200, height: 630 }],
   },
 };
 
