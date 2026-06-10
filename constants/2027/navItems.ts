@@ -39,7 +39,7 @@ export const getNavItems = (year: number): NavItem[] => [
       { label: "Visa Application", href: `/${year}/visa_application` },
     ],
   },
-  { label: "Contact", href: `/${year}#contact` },
+  { label: "Contact", href: `#contact` },
 ];
 
 export const navItems = getNavItems(ACTIVE_YEAR);
