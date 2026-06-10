@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import {images} from "@/constants/2027/cloudinary_images";
 import {
   FaArrowLeft,
   FaCircleInfo,
@@ -152,6 +154,22 @@ export default function PaperSubmissionPage() {
                 <span>Submit your Paper</span>
                 <FaPaperPlane className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </button>
+            </div>
+          </div>
+
+          {/* Dedicated CMT Platform Capsule */}
+          <div className="mt-5 border-2 border-ink bg-surface/40 p-4 shadow-[4px_4px_0px_0px_var(--color-ink)] flex items-center justify-between gap-4">
+            <span className="font-mono text-xs font-black text-ink uppercase tracking-wider">
+              Platform
+            </span>
+            <div className="relative w-28 h-8">
+              <Image
+                src={images.cmt}
+                alt="Microsoft CMT Logo"
+                fill
+                sizes="7rem"
+                className="object-contain"
+              />
             </div>
           </div>
         </div>

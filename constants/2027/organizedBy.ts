@@ -1,10 +1,11 @@
+import { images} from "./cloudinary_images";
 export const SECTION_HEADING = "Organised By";
 
 export const INSTITUTE_NAME = "Heritage Institute of Technology, Kolkata";
 export const INSTITUTE_TAGLINE =
     "An Autonomous Institute affiliated to MAKAUT | Accredited \"A\" by NAAC";
 export const DEPARTMENT_NAME = "Department of Computer Science and Engineering";
-export const INSTITUTE_LOGO_SRC = "/2027/heritage.png";
+export const INSTITUTE_LOGO_SRC = images.heritage;
 export const INSTITUTE_LOGO_ALT =
     "Heritage Institute of Technology - 25 years logo";
 export const INSTITUTE_EST_TAG = "Est. 2001";

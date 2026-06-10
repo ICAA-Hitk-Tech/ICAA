@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import {images} from "@/constants/2027/cloudinary_images";
 import { FaLaptop, FaArrowRight, FaFileLines } from "react-icons/fa6";
 
 const HeroSection = () => {
@@ -51,7 +52,7 @@ const HeroSection = () => {
         <div className="w-full lg:w-1/2 flex justify-center items-center">
           <div className="relative w-full max-w-md md:max-w-xl lg:max-w-[90%] bg-surface border-2 border-ink p-2.5 shadow-[8px_8px_0px_0px_var(--color-ink)] hover:shadow-[12px_12px_0px_0px_var(--color-ink)] -rotate-1 hover:rotate-0 hover:-translate-y-1 transition-all duration-300 ease-out select-none">
             <Image
-              src="/2027/hero.png"
+              src={images.hero}
               alt="ICAA 2027 Campus"
               width={800}
               height={533}
@@ -100,7 +101,7 @@ const HeroSection = () => {
         <div className="w-full flex justify-center items-center">
           <div className="relative w-full max-w-sm md:max-w-xl bg-surface border-2 border-ink p-2 md:p-2.5 shadow-[6px_6px_0px_0px_var(--color-ink)] md:shadow-[8px_8px_0px_0px_var(--color-ink)] -rotate-1 select-none">
             <Image
-              src="/2027/hero.png"
+              src={images.hero}
               alt="ICAA 2027 Campus"
               width={800}
               height={533}

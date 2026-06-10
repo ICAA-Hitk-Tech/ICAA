@@ -1,3 +1,4 @@
+import { images} from "./cloudinary_images";
 // ─── Lens sizing ──────────────────────────────────────────────────────────────
 /** Fraction of the shorter gallery side used to compute the lens size */
 export const LENS_RATIO = 0.38;
@@ -118,11 +119,11 @@ export const GALLERY_LABEL = "City of Joy ❤️";
 //   [6]    g      Small square cell        (bottom-right)
  
 export const GALLERY_IMAGES: string[] = [
-  "/2027/gallery/durga.jpeg",
-  "/2027/gallery/howrah.jpeg",
-  "/2027/gallery/dakshineshwar.jpg",
-  "/2027/gallery/victoria.jpg",
-  "/2027/gallery/taxi.jpeg",
-  "/2027/gallery/bridge.jpg",
-  "/2027/gallery/tram.jpeg",
+  images.durga,
+  images.howrah,
+  images.dakshineshwar,
+  images.victoria,
+  images.taxi,
+  images.bridge,
+  images.tram,
 ];

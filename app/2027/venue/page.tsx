@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { FaArrowLeft } from "react-icons/fa6";
+import {images} from "@/constants/2027/cloudinary_images";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -38,7 +39,7 @@ export default function VenuePage() {
             <div className="border-2 border-ink bg-surface p-4 shadow-[6px_6px_0px_0px_var(--color-ink)] hover:shadow-[8px_8px_0px_0px_var(--color-ink)] hover:-translate-y-0.5 transition-all duration-200">
               <div className="relative w-20 h-20 md:w-28 md:h-28">
                 <Image
-                  src="/2027/heritage.png"
+                  src={images.heritage}
                   alt="Heritage logo"
                   fill
                   sizes="(max-width: 768px) 5rem, 7rem"
@@ -79,7 +80,7 @@ export default function VenuePage() {
           </div>
 
           {/* Map Body (Google Maps Iframe) */}
-          <div className="w-full h-[450px] md:h-[500px] bg-paper">
+          <div className="w-full h-112.5 md:h-125 bg-paper">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.426210408544!2d88.41431461142512!3d22.518407879440622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0273f58b9feec5%3A0x30f8067b73c45d8!2sThe%20Heritage%20College%2C%20Kolkata!5e0!3m2!1sen!2sin!4v1717800000000!5m2!1sen!2sin"
               width="100%"
