@@ -75,10 +75,10 @@ const HeroSection = () => {
       <div className="flex lg:hidden flex-col px-6 pt-24 pb-12 gap-8 w-full">
         {/* Title & Description */}
         <div className="flex flex-col gap-4 w-full md:max-w-2xl md:mx-auto">
-          <span className="text-abyss-500 font-mono font-bold md:text-md tracking-wider uppercase">
-            January 06, 2027 – January 08, 2027
+          <span className="text-abyss-500 font-mono font-bold text-sm md:text-base tracking-wider uppercase">
+            January 06, 2027 - January 08, 2027
           </span>
-          <span className="text-grove-800 font-sans font-bold md:text-xl tracking-wider">
+          <span className="text-grove-800 font-sans font-bold text-base md:text-lg tracking-wider">
             Heritage Institute of Technology, Kolkata
           </span>
           <h1 className="text-2xl md:text-4xl font-serif font-bold text-ink leading-tight">

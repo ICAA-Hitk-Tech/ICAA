@@ -28,7 +28,7 @@ const Footer = () => {
         <div
           className="absolute inset-0 z-0 opacity-35 pointer-events-none bg-repeat-x bg-bottom bg-contain"
           style={{
-            backgroundImage: images.footer,
+            backgroundImage: `url(${images.footer})`,
           }}
         />
         <div className="relative z-10">
@@ -115,7 +115,7 @@ const Footer = () => {
 
           {/* Column 2: Information */}
           <div>
-            <h4 className="font-serif text-lg font-bold text-ink mb-4 relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-8 after:bg-grove-600 pb-1">
+            <h4 className="font-serif text-lg font-bold text-ink mb-4 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-8 after:bg-grove-600 pb-1">
               Information
             </h4>
             {infoSection?.children && (
@@ -136,7 +136,7 @@ const Footer = () => {
 
           {/* Column 3: Call for Papers */}
           <div>
-            <h4 className="font-serif text-lg font-bold text-ink mb-4 relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-8 after:bg-grove-600 pb-1">
+            <h4 className="font-serif text-lg font-bold text-ink mb-4 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-8 after:bg-grove-600 pb-1">
               Call for Papers
             </h4>
             {cfpSection?.children && (
@@ -157,7 +157,7 @@ const Footer = () => {
 
           {/* Column 4: Registration */}
           <div>
-            <h4 className="font-serif text-lg font-bold text-ink mb-4 relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-8 after:bg-grove-600 pb-1">
+            <h4 className="font-serif text-lg font-bold text-ink mb-4 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-8 after:bg-grove-600 pb-1">
               Registration
             </h4>
             {regSection?.children && (
@@ -178,7 +178,7 @@ const Footer = () => {
 
           {/* Column 5: Venue & Travel */}
           <div>
-            <h4 className="font-serif text-lg font-bold text-ink mb-4 relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-8 after:bg-grove-600 pb-1">
+            <h4 className="font-serif text-lg font-bold text-ink mb-4 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-8 after:bg-grove-600 pb-1">
               Venue & Travel
             </h4>
             {venueSection?.children && (

@@ -21,7 +21,7 @@ const Announcements = () => {
   };
 
   return (
-    <section className="w-full px-6 sm:px-10 py-12 bg-paper">
+    <section className="w-full px-6 sm:px-10 py-8 bg-paper">
       <div className="max-w-6xl mx-auto">
         {/* Center-aligned Section Header */}
         <div className="flex flex-col items-center gap-3 mb-10 text-center">

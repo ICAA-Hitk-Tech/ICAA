@@ -395,10 +395,10 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
   }, []);
 
   return (
-    <section className="w-full px-4 sm:px-6 md:px-12 lg:px-16 py-10 md:py-16">
+    <section className="w-full px-4 sm:px-6 md:px-12 lg:px-16 py-8 mb-10">
       <div
         ref={containerRef}
-        className="relative w-full border-2 overflow-hidden aspect-4/3 sm:aspect-video lg:aspect-[16/7]"
+        className="relative w-full border-2 overflow-hidden aspect-4/3 sm:aspect-video lg:aspect-16/7"
       >
         {/* Bottom layer — always blurred & darkened */}
         <div

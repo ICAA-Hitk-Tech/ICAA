@@ -1,12 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { FaArrowLeft } from "react-icons/fa6";
-import {images} from "@/constants/2027/cloudinary_images";
+import { images } from "@/constants/2027/cloudinary_images";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Venue — ICAA 2027",
-  description: "Location and interactive campus map for The Heritage College, Kolkata, the host venue of ICAA 2027.",
+  description:
+    "Location and interactive campus map for The Heritage College, Kolkata, the host venue of ICAA 2027.",
 };
 
 export default function VenuePage() {
@@ -23,13 +24,13 @@ export default function VenuePage() {
           </h1>
         </div>
 
-        <Link href="/2027">
-          <button className="group flex items-center gap-2 px-6 py-3 border-2 border-ink bg-surface text-ink font-bold -translate-x-1 -translate-y-1 shadow-[4px_4px_0px_0px_var(--color-ink)] hover:bg-border active:translate-x-0 active:translate-y-0 active:shadow-none transition-all duration-150 cursor-pointer">
-            <FaArrowLeft className="w-4 h-4 transition-transform duration-200 group-hover:-translate-x-1" />
-            <span>Back to Home</span>
-          </button>
-        </Link>
-      </div>
+          <Link className="hidden md:block" href="/2027">
+            <button className="group flex items-center gap-2 px-6 py-3 border-2 border-ink bg-surface text-ink font-bold -translate-x-1 -translate-y-1 shadow-[4px_4px_0px_0px_var(--color-ink)] hover:bg-border active:translate-x-0 active:translate-y-0 active:shadow-none transition-all duration-150 cursor-pointer">
+              <FaArrowLeft className="w-4 h-4 transition-transform duration-200 group-hover:-translate-x-1" />
+              <span>Back to Home</span>
+            </button>
+          </Link>
+        </div>
 
       {/* Content Section */}
       <div className="flex flex-col items-center gap-12 w-full">
