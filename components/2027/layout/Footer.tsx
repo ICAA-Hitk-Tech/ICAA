@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ACTIVE_YEAR } from "@/lib/config";
+import { images } from "@/constants/2027/cloudinary_images";
 import { navItems } from "@/constants/2027/navItems";
 import {
   FaFacebookF,
@@ -20,11 +21,16 @@ const Footer = () => {
   const venueSection = navItems.find((item) => item.label === "Venue & Travel");
 
   return (
-    <footer id = "contact" className="mt-auto border-t-4 border-ink bg-border/50">
+    <footer id="contact" className="mt-auto border-t-4 border-ink bg-border/50">
       {/* Top Header Section */}
       <div className="relative px-6 py-12 text-center border-b border-ink/30 bg-paper/50 overflow-hidden">
         {/* Background Image Layer with low opacity and responsive sizing */}
-        <div className="absolute inset-0 z-0 opacity-35 pointer-events-none bg-[url('/2027/footer.png')] bg-repeat-x bg-bottom bg-contain" />
+        <div
+          className="absolute inset-0 z-0 opacity-35 pointer-events-none bg-repeat-x bg-bottom bg-contain"
+          style={{
+            backgroundImage: images.footer,
+          }}
+        />
         <div className="relative z-10">
           <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl font-bold text-ink tracking-tight">
             Department of Computer Science and Engineering
@@ -46,14 +52,14 @@ const Footer = () => {
           <div className="sm:col-span-2 md:col-span-4 lg:col-span-1 flex flex-col gap-6">
             <div className="flex items-center gap-4">
               <Image
-                src="/2027/heritage.png"
+                src={images.heritage}
                 alt="Heritage logo"
                 width={64}
                 height={64}
                 className="rounded-full object-cover"
               />
               <Image
-                src="/2027/icaa.png"
+                src={images.icaa}
                 alt="ICAA logo"
                 width={120}
                 height={60}
