@@ -1,6 +1,15 @@
-export const metadata = {
-  title: "ICAA — International Conference on Applied Algorithms",
-  description: "The International Conference on Applied Algorithms (ICAA) brings together researchers, practitioners, and students interested in all aspects of algorithm design and analysis.",
+import type { Metadata } from "next";
+import { ACTIVE_YEAR } from "@/lib/config";
+import { images} from "@/constants/2027/cloudinary_images";
+
+export const metadata: Metadata = {
+  title: `International Conference on Applied Algorithms (ICAA) ${ACTIVE_YEAR}`,
+  description: `The International Conference on Applied Algorithms (ICAA) brings together researchers, practitioners, and students interested in all aspects of algorithm design and analysis.`,
+  openGraph: {
+    title: `International Conference on Applied Algorithms (ICAA) ${ACTIVE_YEAR}`,
+    description: `The International Conference on Applied Algorithms (ICAA) brings together researchers, practitioners, and students interested in all aspects of algorithm design and analysis.`,
+    images: [{ url: images.footer, width: 1200, height: 630 }],
+  },
 };
 
 export default function RootLayout({
