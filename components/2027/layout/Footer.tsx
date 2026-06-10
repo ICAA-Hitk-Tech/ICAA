@@ -20,7 +20,7 @@ const Footer = () => {
   const venueSection = navItems.find((item) => item.label === "Venue & Travel");
 
   return (
-    <footer className="mt-auto border-t-4 border-ink bg-border/50">
+    <footer id = "contact" className="mt-auto border-t-4 border-ink bg-border/50">
       {/* Top Header Section */}
       <div className="relative px-6 py-12 text-center border-b border-ink/30 bg-paper/50 overflow-hidden">
         {/* Background Image Layer with low opacity and responsive sizing */}
