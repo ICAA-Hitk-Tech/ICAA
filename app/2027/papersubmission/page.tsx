@@ -87,20 +87,28 @@ export default function PaperSubmissionPage() {
 
             {SUBMISSION_INSTRUCTIONS.guidelines.length > 0 && (
               <div className="space-y-3 mt-6">
-                {SUBMISSION_INSTRUCTIONS.guidelines.map((guide, idx) => (
-                  <div
-                    key={idx}
-                    className="flex gap-3 items-start bg-surface/40 p-4 border border-border shadow-sm hover:border-ink-ghost transition-colors duration-150"
-                  >
-                    <span className="w-2.5 h-2.5 bg-grove-600 border border-ink rotate-45 shrink-0 mt-1.5" />
-                    <div className="text-sm leading-normal">
-                      <span className="font-bold text-ink font-mono">
-                        {guide.label}:
-                      </span>{" "}
-                      <span className="text-ink-dim">{guide.desc}</span>
+                {SUBMISSION_INSTRUCTIONS.guidelines.map((guide, idx) => {
+                  const g = guide as { label?: string; desc?: string };
+
+                  return (
+                    <div
+                      key={idx}
+                      className="flex gap-3 items-start bg-surface/40 p-4 border border-border shadow-sm hover:border-ink-ghost transition-colors duration-150"
+                    >
+                      <span className="w-2.5 h-2.5 bg-grove-600 border border-ink rotate-45 shrink-0 mt-1.5" />
+                      <div className="text-sm leading-normal">
+                        {g.label ? (
+                          <span className="font-bold text-ink font-mono">
+                            {g.label}:
+                          </span>
+                        ) : null}{" "}
+                        {g.desc ? (
+                          <span className="text-ink-dim">{g.desc}</span>
+                        ) : null}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             )}
           </div>
