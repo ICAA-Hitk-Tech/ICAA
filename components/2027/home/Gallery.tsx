@@ -4,19 +4,34 @@ import React, { useRef, useEffect } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 
-// ─── Constants ───────────────────────────────────────────────────────────────
-// LENS_SIZE is now computed at runtime from the container — see getLensSize().
-const LENS_RATIO       = 0.38;  // fraction of the shorter gallery side
-const LENS_MIN         = 80;    // px — smallest the lens ever gets (tiny phones)
-const LENS_MAX         = 320;   // px — largest the lens ever gets (big desktops)
-const PAN_DURATION     = 1.4;   // sec
-const HOLD_DURATION    = 2.5;   // sec
-const PAN_COUNT        = 4;
-const EXPAND_DURATION  = 1.6;   // sec — lens → full reveal
-const FULL_REVEAL_HOLD = 8;     // sec
-const CONTRACT_DURATION = 1.6;  // sec — full reveal → new lens (no snap!)
-const BLUR_AMOUNT      = 7;     // px
-// ─────────────────────────────────────────────────────────────────────────────
+import {
+  LENS_RATIO,
+  LENS_MIN,
+  LENS_MAX,
+  PAN_DURATION,
+  HOLD_DURATION,
+  PAN_COUNT,
+  EXPAND_DURATION,
+  FULL_REVEAL_HOLD,
+  CONTRACT_DURATION,
+  BLUR_AMOUNT,
+  BLUR_BRIGHTNESS,
+  BLUR_SCALE,
+  INIT_DELAY_MS,
+  GRID_TEMPLATE_AREAS,
+  GRID_COLS,
+  GRID_ROWS,
+  GRID_GAP,
+  GRID_AREAS,
+  CELL_ANCHORS,
+  BRACKET_SIZE,
+  BRACKET_STROKE,
+  BRACKET_OFFSET,
+  GALLERY_LABEL,
+  type GridArea,
+} from "../../../constants/2027/gallery";
+
+// ─── Types ────────────────────────────────────────────────────────────────────
 
 export interface GalleryProps {
   /**
@@ -32,29 +47,101 @@ export interface GalleryProps {
   images: string[];
 }
 
-// ─── Shared bento-grid style ─────────────────────────────────────────────────
-// Defined once at module level — both layers get identical CSS for pixel-perfect overlap.
+// ─── Shared grid style ────────────────────────────────────────────────────────
+
 const GRID_STYLE: React.CSSProperties = {
   display: "grid",
   width: "100%",
   height: "100%",
-  gridTemplateColumns: "repeat(4, 1fr)",
-  gridTemplateRows: "repeat(3, 1fr)",
-  gridTemplateAreas: `
-    "a a b c"
-    "a a d d"
-    "e f f g"
-  `,
-  gap: "4px",
-  backgroundColor: "var(--color-border)", // gap gutters
+  gridTemplateColumns: GRID_COLS,
+  gridTemplateRows: GRID_ROWS,
+  gridTemplateAreas: GRID_TEMPLATE_AREAS,
+  gap: GRID_GAP,
 };
 
-const AREAS = ["a", "b", "c", "d", "e", "f", "g"] as const;
+// ─── Corner bracket positions ─────────────────────────────────────────────────
+
+const BRACKETS: React.CSSProperties[] = [
+  {
+    top: -BRACKET_OFFSET,
+    left: -BRACKET_OFFSET,
+    borderWidth: `${BRACKET_STROKE}px 0 0 ${BRACKET_STROKE}px`,
+  },
+  {
+    top: -BRACKET_OFFSET,
+    right: -(BRACKET_OFFSET - 2),
+    borderWidth: `${BRACKET_STROKE}px ${BRACKET_STROKE}px 0 0`,
+  },
+  {
+    bottom: -(BRACKET_OFFSET - 2),
+    left: -BRACKET_OFFSET,
+    borderWidth: `0 0 ${BRACKET_STROKE}px ${BRACKET_STROKE}px`,
+  },
+  {
+    bottom: -(BRACKET_OFFSET - 2),
+    right: -(BRACKET_OFFSET - 2),
+    borderWidth: `0 ${BRACKET_STROKE}px ${BRACKET_STROKE}px 0`,
+  },
+];
+
+// ─── Pure helpers ─────────────────────────────────────────────────────────────
+
+/** Lens size adapts to the container — always clamped between LENS_MIN and LENS_MAX */
+function getLensSize(W: number, H: number): number {
+  const raw = Math.min(W, H) * LENS_RATIO;
+  return Math.round(Math.min(Math.max(raw, LENS_MIN), LENS_MAX));
+}
+
+/**
+ * Fisher-Yates shuffle — returns a new shuffled copy of the array.
+ * Used to build a fresh cell deck each cycle so no cell repeats
+ * until all others have been visited.
+ */
+function shuffle<T>(arr: readonly T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+/**
+ * Converts a cell's normalised anchor (cx, cy) into a pixel lens position
+ * so the lens is centred on that cell, clamped inside the gallery boundary.
+ */
+function anchorToPos(
+  cx: number,
+  cy: number,
+  W: number,
+  H: number,
+  ls: number,
+): { x: number; y: number } {
+  const x = Math.min(Math.max(cx * W - ls / 2, 0), W - ls);
+  const y = Math.min(Math.max(cy * H - ls / 2, 0), H - ls);
+  return { x, y };
+}
+
+/**
+ * Converts a lens (x, y) position into a CSS clip-path inset() string
+ * that reveals only the lens square on the sharp top layer.
+ */
+function toInset(
+  x: number,
+  y: number,
+  W: number,
+  H: number,
+  ls: number,
+): string {
+  return `inset(${y}px ${W - x - ls}px ${H - y - ls}px ${x}px)`;
+}
+
+// ─── Sub-components ───────────────────────────────────────────────────────────
 
 function BentoGrid({ images }: { images: string[] }) {
   return (
     <div style={GRID_STYLE}>
-      {AREAS.map((area, i) => (
+      {GRID_AREAS.map((area, i) => (
         <div
           key={area}
           style={{ gridArea: area, position: "relative", overflow: "hidden" }}
@@ -69,25 +156,8 @@ function BentoGrid({ images }: { images: string[] }) {
               draggable={false}
             />
           ) : (
-            <div
-              style={{
-                width: "100%",
-                height: "100%",
-                background: "var(--color-surface)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: "var(--font-mono, monospace)",
-                  fontSize: "0.6rem",
-                  color: "var(--color-ink-ghost)",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.08em",
-                }}
-              >
+            <div className="w-full h-full bg-neutral-800 flex items-center justify-center">
+              <span className="font-mono text-[0.6rem] text-neutral-500 uppercase tracking-widest">
                 {i + 1}
               </span>
             </div>
@@ -98,105 +168,157 @@ function BentoGrid({ images }: { images: string[] }) {
   );
 }
 
-// ─── Pure helpers ─────────────────────────────────────────────────────────────
-
-/** Lens size adapts to the container — clamped so it always fits */
-function getLensSize(W: number, H: number): number {
-  const raw = Math.min(W, H) * LENS_RATIO;
-  return Math.round(Math.min(Math.max(raw, LENS_MIN), LENS_MAX));
+function LensFrame() {
+  return (
+    <>
+      {BRACKETS.map((style, i) => (
+        <span
+          key={i}
+          style={{
+            position: "absolute",
+            width: BRACKET_SIZE,
+            height: BRACKET_SIZE,
+            borderColor: "var(--color-chrome-400, #facc15)",
+            borderStyle: "solid",
+            ...style,
+          }}
+        />
+      ))}
+    </>
+  );
 }
 
-/** Random lens position guaranteed to keep the entire lens inside the gallery */
-function randPos(W: number, H: number, ls: number) {
-  return {
-    x: Math.random() * Math.max(0, W - ls),
-    y: Math.random() * Math.max(0, H - ls),
-  };
-}
+// ─── Main component ───────────────────────────────────────────────────────────
 
-/** clip-path: inset(top right bottom left) revealing only the lens square */
-function toInset(x: number, y: number, W: number, H: number, ls: number) {
-  return `inset(${y}px ${W - x - ls}px ${H - y - ls}px ${x}px)`;
-}
-
-// ─── Component ───────────────────────────────────────────────────────────────
 const Gallery: React.FC<GalleryProps> = ({ images }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const sharpRef     = useRef<HTMLDivElement>(null);
-  const lensRef      = useRef<HTMLDivElement>(null);
+  const sharpRef = useRef<HTMLDivElement>(null);
+  const lensRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let alive = true;
     let activeTween: gsap.core.Tween | null = null;
 
     // ── Animation primitives ──────────────────────────────────────────────
+
     function tweenProxy<T extends object>(
       proxy: T,
       toVars: Omit<gsap.TweenVars, "onUpdate" | "onComplete">,
-      onFrame: (p: T) => void
+      onFrame: (p: T) => void,
     ): Promise<void> {
       return new Promise((resolve) => {
-        if (!alive) { resolve(); return; }
+        if (!alive) {
+          resolve();
+          return;
+        }
         activeTween?.kill();
         activeTween = gsap.to(proxy, {
           ...toVars,
-          onUpdate() { if (alive) onFrame(proxy); },
-          onComplete() { resolve(); },
+          onUpdate() {
+            if (alive) onFrame(proxy);
+          },
+          onComplete() {
+            resolve();
+          },
         });
       });
     }
 
     function wait(secs: number): Promise<void> {
       return new Promise((resolve) => {
-        if (!alive) { resolve(); return; }
+        if (!alive) {
+          resolve();
+          return;
+        }
         activeTween?.kill();
         activeTween = gsap.to({}, { duration: secs, onComplete: resolve });
       });
     }
 
+    // ── Cell deck ─────────────────────────────────────────────────────────
+    // A shuffled copy of all grid areas. We pop from it each pan so every
+    // cell is visited exactly once before the deck is re-shuffled.
+    // Guaranteed: the first cell of the new deck is never the same as the
+    // last cell of the previous deck (we re-shuffle until it differs).
+
+    let deck: GridArea[] = [];
+    let lastCell: GridArea | null = null;
+
+    function nextCell(): GridArea {
+      if (deck.length === 0) {
+        // Refill and shuffle — ensure new deck's first card != last visited
+        do {
+          deck = shuffle(GRID_AREAS);
+        } while (lastCell !== null && deck[0] === lastCell);
+      }
+      const cell = deck.pop()!;
+      lastCell = cell;
+      return cell;
+    }
+
     // ── Main animation loop ───────────────────────────────────────────────
+
     async function runLoop() {
       const container = containerRef.current;
-      const sharp     = sharpRef.current;
-      const lens      = lensRef.current;
+      const sharp = sharpRef.current;
+      const lens = lensRef.current;
       if (!container || !sharp || !lens) return;
 
-      let W  = container.offsetWidth;
-      let H  = container.offsetHeight;
+      let W = container.offsetWidth;
+      let H = container.offsetHeight;
       let ls = getLensSize(W, H);
 
-      // Apply computed lens size to the DOM element
-      lens.style.width  = `${ls}px`;
+      lens.style.width = `${ls}px`;
       lens.style.height = `${ls}px`;
+      lens.style.opacity = "1";
 
-      // One-time initial snap to a random position
-      let pos = randPos(W, H, ls);
-      lens.style.transform = `translate(${pos.x}px,${pos.y}px)`;
-      lens.style.opacity   = "1";
+      // Initial snap to the first cell — no tween on first frame
+      const firstCell = nextCell();
+      let pos = anchorToPos(
+        CELL_ANCHORS[firstCell].cx,
+        CELL_ANCHORS[firstCell].cy,
+        W,
+        H,
+        ls,
+      );
+      lens.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
       sharp.style.clipPath = toInset(pos.x, pos.y, W, H, ls);
 
       while (alive) {
-        // Re-measure on every cycle — handles window resize gracefully
-        W  = container.offsetWidth;
-        H  = container.offsetHeight;
+        W = container.offsetWidth;
+        H = container.offsetHeight;
         ls = getLensSize(W, H);
-        lens.style.width  = `${ls}px`;
+        lens.style.width = `${ls}px`;
         lens.style.height = `${ls}px`;
 
-        // ── Phase 1: PAN through PAN_COUNT random positions ───────────────
+        // ── Phase 1: Pan through PAN_COUNT unique cells ───────────────────
+        // nextCell() pops from a shuffled deck — guaranteed no repeat
+        // until all 7 cells have been visited.
         for (let i = 0; i < PAN_COUNT; i++) {
           if (!alive) return;
 
-          const dst   = randPos(W, H, ls);
+          const cell = nextCell();
+          const dst = anchorToPos(
+            CELL_ANCHORS[cell].cx,
+            CELL_ANCHORS[cell].cy,
+            W,
+            H,
+            ls,
+          );
           const proxy = { x: pos.x, y: pos.y };
 
           await tweenProxy(
             proxy,
-            { x: dst.x, y: dst.y, duration: PAN_DURATION, ease: "power2.inOut" },
+            {
+              x: dst.x,
+              y: dst.y,
+              duration: PAN_DURATION,
+              ease: "power2.inOut",
+            },
             ({ x, y }) => {
-              lens.style.transform = `translate(${x}px,${y}px)`;
+              lens.style.transform = `translate(${x}px, ${y}px)`;
               sharp.style.clipPath = toInset(x, y, W, H, ls);
-            }
+            },
           );
           pos = dst;
 
@@ -204,7 +326,7 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
           await wait(HOLD_DURATION);
         }
 
-        // ── Phase 2: EXPAND — current lens grows to cover entire gallery ───
+        // ── Phase 2: Expand — lens grows to cover the entire gallery ──────
         if (!alive) return;
         {
           const { x: ox, y: oy } = pos;
@@ -216,29 +338,35 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
             ({ t }) => {
               const inv = 1 - t;
               sharp.style.clipPath = `inset(${oy * inv}px ${(W - ox - ls) * inv}px ${(H - oy - ls) * inv}px ${ox * inv}px)`;
-              lens.style.opacity   = String(inv);
-            }
+              lens.style.opacity = String(inv);
+            },
           );
         }
 
-        // Clamp to exact full-reveal
         sharp.style.clipPath = "inset(0px 0px 0px 0px)";
-        lens.style.opacity   = "0";
+        lens.style.opacity = "0";
 
-        // ── Phase 3: HOLD the full-sharp view ─────────────────────────────
+        // ── Phase 3: Hold the full-sharp view ─────────────────────────────
         if (!alive) return;
         await wait(FULL_REVEAL_HOLD);
 
-        // ── Phase 4: CONTRACT — the full view closes down into a new lens ──
+        // ── Phase 4: Contract — full view closes into the next cell ───────
         if (!alive) return;
-        // Re-measure again — user may have resized during the 8s hold
-        W  = container.offsetWidth;
-        H  = container.offsetHeight;
+
+        W = container.offsetWidth;
+        H = container.offsetHeight;
         ls = getLensSize(W, H);
-        lens.style.width  = `${ls}px`;
+        lens.style.width = `${ls}px`;
         lens.style.height = `${ls}px`;
 
-        const nxt   = randPos(W, H, ls);
+        const nextC = nextCell();
+        const nxt = anchorToPos(
+          CELL_ANCHORS[nextC].cx,
+          CELL_ANCHORS[nextC].cy,
+          W,
+          H,
+          ls,
+        );
         const proxy = { t: 0 };
 
         await tweenProxy(
@@ -246,19 +374,18 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
           { t: 1, duration: CONTRACT_DURATION, ease: "power2.inOut" },
           ({ t }) => {
             sharp.style.clipPath = `inset(${nxt.y * t}px ${(W - nxt.x - ls) * t}px ${(H - nxt.y - ls) * t}px ${nxt.x * t}px)`;
-            lens.style.transform = `translate(${nxt.x}px,${nxt.y}px)`;
-            lens.style.opacity   = String(t);
-          }
+            lens.style.transform = `translate(${nxt.x}px, ${nxt.y}px)`;
+            lens.style.opacity = String(t);
+          },
         );
         pos = nxt;
 
         if (!alive) return;
         await wait(HOLD_DURATION);
-        // → while continues: pans again from pos = nxt, no snap ever
       }
     }
 
-    const id = setTimeout(runLoop, 150);
+    const id = setTimeout(runLoop, INIT_DELAY_MS);
 
     return () => {
       alive = false;
@@ -271,14 +398,14 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
     <section className="w-full px-4 sm:px-6 md:px-12 lg:px-16 py-10 md:py-16">
       <div
         ref={containerRef}
-        className="relative w-full border-2 overflow-hidden aspect-4/3 sm:aspect-video lg:aspect-16/7"
+        className="relative w-full border-2 overflow-hidden aspect-4/3 sm:aspect-video lg:aspect-[16/7]"
       >
         {/* Bottom layer — always blurred & darkened */}
         <div
           className="absolute inset-0"
           style={{
-            filter: `blur(${BLUR_AMOUNT}px) brightness(0.5)`,
-            transform: "scale(1.06)",
+            filter: `blur(${BLUR_AMOUNT}px) brightness(${BLUR_BRIGHTNESS})`,
+            transform: `scale(${BLUR_SCALE})`,
             transformOrigin: "center center",
           }}
           aria-hidden
@@ -299,12 +426,11 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
           <BentoGrid images={images} />
         </div>
 
-        {/* Lens frame — corner brackets only, no enclosing border */}
+        {/* Lens frame — corner brackets only */}
         <div
           ref={lensRef}
           className="absolute pointer-events-none"
           style={{
-            // Initial size; overwritten by runLoop before first paint
             width: LENS_MIN,
             height: LENS_MIN,
             top: 0,
@@ -312,33 +438,15 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
             willChange: "transform, opacity",
           }}
         >
-          {/* Corner brackets — yellow, heavier stroke, no surrounding box */}
-          {[
-            { top: -3, left: -3, borderWidth: "4px 0 0 4px" },
-            { top: -3, right: -1, borderWidth: "4px 4px 0 0" },
-            { bottom: -1, left: -3, borderWidth: "0 0 4px 4px" },
-            { bottom: -1, right: -1, borderWidth: "0 4px 4px 0" },
-          ].map((style, i) => (
-            <span
-              key={i}
-              style={{
-                position: "absolute",
-                width: 24,
-                height: 24,
-                borderColor: "var(--color-chrome-400)",
-                borderStyle: "solid",
-                ...style,
-              }}
-            />
-          ))}
+          <LensFrame />
         </div>
 
-        {/* Neo-brutalist label */}
+        {/* Neo-brutalist stamp label */}
         <div
           className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 bg-chrome-400 text-ink text-[10px] sm:text-xs font-mono font-bold px-2 sm:px-3 py-0.5 sm:py-1 border-2 border-ink shadow-[2px_2px_0px_0px_var(--color-ink)] tracking-widest pointer-events-none select-none"
           style={{ zIndex: 10 }}
         >
-          City of Joy ❤️
+          {GALLERY_LABEL}
         </div>
       </div>
     </section>
