@@ -17,9 +17,9 @@ export default function ImpDatesPage() {
         </div>
 
         <div className="hidden md:block shrink-0">
-          <Link href="/2027">
-            <button className="group flex items-center gap-2 px-6 py-3 border-2 border-ink bg-surface text-ink font-mono font-bold text-xs uppercase tracking-widest -translate-x-1 -translate-y-1 shadow-[4px_4px_0px_0px_var(--color-ink)] hover:bg-chrome-400 hover:shadow-[6px_6px_0px_0px_var(--color-ink)] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0 active:translate-y-0 active:shadow-none transition-all duration-150 cursor-pointer">
-              <FaArrowLeft className="w-3.5 h-3.5 transition-transform duration-200 group-hover:-translate-x-1" />
+          <Link className="hidden md:block" href="/2027">
+            <button className="group flex items-center gap-2 px-6 py-3 border-2 border-ink bg-surface text-ink font-bold -translate-x-1 -translate-y-1 shadow-[4px_4px_0px_0px_var(--color-ink)] hover:bg-border active:translate-x-0 active:translate-y-0 active:shadow-none transition-all duration-150 cursor-pointer">
+              <FaArrowLeft className="w-4 h-4 transition-transform duration-200 group-hover:-translate-x-1" />
               <span>Back to Home</span>
             </button>
           </Link>
@@ -74,7 +74,10 @@ export default function ImpDatesPage() {
 
       {/* Actions / Navigation */}
       <div className="flex justify-center border-t-2 border-ink pt-8">
-        <Link href="/2027/papersubmission" className="w-full sm:w-auto flex justify-center">
+        <Link
+          href="/2027/papersubmission"
+          className="w-full sm:w-auto flex justify-center"
+        >
           <button className="group w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 border-2 border-ink bg-abyss-500 text-paper font-bold text-xs uppercase tracking-widest -translate-x-0.5 -translate-y-0.5 shadow-[3px_3px_0px_0px_var(--color-ink)] hover:bg-abyss-700 active:translate-x-0 active:translate-y-0 active:shadow-none transition-all duration-150 cursor-pointer">
             <FaFileLines className="w-3.5 h-3.5" />
             <span>Paper Submission Details</span>
