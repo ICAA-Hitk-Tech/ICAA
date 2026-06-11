@@ -6,7 +6,7 @@ export type Announcement = {
 export const ANNOUNCEMENTS: Announcement[] = [
   {
     date: "Jan 06, 2027 - Jan 08, 2027",
-    description: "Welcome to the International Conference on Applied Alogorithms (ICAA) 2027, at Heritage Institute of Technology, Kolkata!",
+    description: "Welcome to the International Conference on Applied Algorithms (ICAA) 2027, at Heritage Institute of Technology, Kolkata!",
   },
   {
     date: "TBA",

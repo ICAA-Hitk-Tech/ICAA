@@ -40,7 +40,7 @@ export const TOPICS_OF_INTEREST = [
   "Heuristic Search",
   "Generative AI",
   "Recommender Systems",
-  "Computer Vision and Image Processing",
+  "Image Processing",
   "Natural Language Processing",
   "Computer Vision",
   "Data Mining",
