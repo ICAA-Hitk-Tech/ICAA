@@ -8,14 +8,21 @@ export const metadata: Metadata = { title: "ICAA 2027 Important Dates" };
 export default function ImpDatesPage() {
   return (
     <div className="min-h-screen bg-paper text-ink px-6 pt-24 pb-24 max-w-4xl mx-auto flex flex-col gap-12">
-      {/* Centered Page Header */}
-      <div className="flex flex-col items-center text-center gap-3 border-b-2 border-ink pb-8">
-        <h1 className="text-4xl md:text-5xl font-serif font-black text-ink leading-tight">
-          Important Dates
-        </h1>
-        <div className="flex items-center gap-2 mt-2">
-          <div className="h-1 w-16 bg-abyss-500" />
-          <div className="h-1 w-3 bg-chrome-400" />
+      {/* Header section */}
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b-2 border-ink pb-8">
+        <div>
+          <h1 className="text-4xl md:text-5xl font-serif font-black text-ink mt-3">
+            Important Dates
+          </h1>
+        </div>
+
+        <div className="hidden md:block shrink-0">
+          <Link href="/2027">
+            <button className="group flex items-center gap-2 px-6 py-3 border-2 border-ink bg-surface text-ink font-mono font-bold text-xs uppercase tracking-widest -translate-x-1 -translate-y-1 shadow-[4px_4px_0px_0px_var(--color-ink)] hover:bg-chrome-400 hover:shadow-[6px_6px_0px_0px_var(--color-ink)] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0 active:translate-y-0 active:shadow-none transition-all duration-150 cursor-pointer">
+              <FaArrowLeft className="w-3.5 h-3.5 transition-transform duration-200 group-hover:-translate-x-1" />
+              <span>Back to Home</span>
+            </button>
+          </Link>
         </div>
       </div>
 
@@ -66,14 +73,8 @@ export default function ImpDatesPage() {
       </div>
 
       {/* Actions / Navigation */}
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 border-t-2 border-ink pt-8">
-        <Link href="/2027" className="w-full sm:w-auto">
-          <button className="group w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 border-2 border-ink bg-surface text-ink font-bold text-xs uppercase tracking-widest -translate-x-0.5 -translate-y-0.5 shadow-[3px_3px_0px_0px_var(--color-ink)] hover:bg-border active:translate-x-0 active:translate-y-0 active:shadow-none transition-all duration-150 cursor-pointer">
-            <FaArrowLeft className="w-3.5 h-3.5 transition-transform duration-200 group-hover:-translate-x-1" />
-            <span>Back to Home</span>
-          </button>
-        </Link>
-        <Link href="/2027/papersubmission" className="w-full sm:w-auto">
+      <div className="flex justify-center border-t-2 border-ink pt-8">
+        <Link href="/2027/papersubmission" className="w-full sm:w-auto flex justify-center">
           <button className="group w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 border-2 border-ink bg-abyss-500 text-paper font-bold text-xs uppercase tracking-widest -translate-x-0.5 -translate-y-0.5 shadow-[3px_3px_0px_0px_var(--color-ink)] hover:bg-abyss-700 active:translate-x-0 active:translate-y-0 active:shadow-none transition-all duration-150 cursor-pointer">
             <FaFileLines className="w-3.5 h-3.5" />
             <span>Paper Submission Details</span>
