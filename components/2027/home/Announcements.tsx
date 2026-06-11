@@ -41,15 +41,18 @@ const Announcements = () => {
               {ANNOUNCEMENTS.map((a, idx) => (
                 <article
                   key={`mobile-${a.date}-${idx}`}
-                  className="group flex flex-col gap-4 p-6 border border-ink bg-surface shadow-[2px_2px_0px_0px_var(--color-ink)]"
+                  className="group flex flex-col gap-3 p-6 border border-ink bg-surface shadow-[2px_2px_0px_0px_var(--color-ink)]"
                 >
                   <div>
-                    <span className="inline-block font-serif text-sm font-black tracking-wider uppercase bg-chrome-400 text-ink px-3 py-1.5 border-2 border-ink shadow-[1px_1px_0px_0px_var(--color-ink)] -rotate-1">
+                    <span className="inline-block font-serif text-sm font-black tracking-wider uppercase bg-chrome-400 text-ink px-3 py-1.5 border border-ink shadow-[1px_1px_0px_0px_var(--color-ink)] -rotate-1">
                       {a.date}
                     </span>
                   </div>
-                  <p className="font-mono text-md text-ink leading-snug">
-                    {a.description}
+                  <h3 className="font-serif text-xl font-bold text-ink mt-2 leading-snug">
+                    {a.header}
+                  </h3>
+                  <p className="font-sans text-sm text-ink-dim/95 leading-relaxed mt-1">
+                    {a.desc}
                   </p>
                 </article>
               ))}
@@ -71,20 +74,23 @@ const Announcements = () => {
                     >
                       {ANNOUNCEMENTS.slice(
                         pageIdx * itemsPerPage,
-                        (pageIdx + 1) * itemsPerPage,
+                        (pageIdx + 1) * itemsPerPage
                       ).map((a, idx) => (
                         <article
                           key={`desktop-${a.date}-${idx}`}
-                          className="group flex flex-col justify-between min-h-40 p-6 border border-ink bg-surface shadow-[4px_4px_0px_0px_var(--color-ink)]  hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300"
+                          className="group flex flex-col justify-between h-full p-6 border border-ink bg-surface shadow-[4px_4px_0px_0px_var(--color-ink)] hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300"
                         >
                           <div>
-                            <span className="inline-block font-serif text-md font-black tracking-wider uppercase bg-chrome-400 text-ink px-3 py-1.5 border border-ink shadow-[2px_2px_0px_0px_var(--color-ink)] -rotate-1 group-hover:rotate-[1.5deg] transition-transform duration-300">
+                            <span className="inline-block font-serif text-sm font-black tracking-wider uppercase bg-chrome-400 text-ink px-3 py-1.5 border border-ink shadow-[2px_2px_0px_0px_var(--color-ink)] -rotate-1 group-hover:rotate-[1.5deg] transition-transform duration-300">
                               {a.date}
                             </span>
+                            <h3 className="font-serif text-xl font-black text-ink leading-snug mt-4 ">
+                              {a.header}
+                            </h3>
+                            <p className="font-sans text-sm text-ink-dim/95 leading-relaxed mt-2">
+                              {a.desc}
+                            </p>
                           </div>
-                          <p className="font-mono text-lg text-justify text-ink leading-snug mt-4 group-hover:text-grove-600 transition-colors duration-200">
-                            {a.description}
-                          </p>
                         </article>
                       ))}
                     </div>

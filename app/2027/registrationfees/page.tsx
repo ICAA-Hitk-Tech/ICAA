@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa6";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = { title: "Registration Fees — ICAA 2027" };
+export const metadata: Metadata = { title: "ICAA 2027 Registration Fees" };
 
 export default function RegistrationFeesPage() {
   return (

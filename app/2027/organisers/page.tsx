@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa6";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = { title: "Organisers — ICAA 2027" };
+export const metadata: Metadata = { title: "ICAA 2027 Organisers" };
 
 export default function OrganisersPage() {
   return (

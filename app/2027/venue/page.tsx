@@ -5,7 +5,7 @@ import { images } from "@/constants/2027/cloudinary_images";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Venue — ICAA 2027",
+  title: "ICAA 2027 Venue",
   description:
     "Location and interactive campus map for The Heritage College, Kolkata, the host venue of ICAA 2027.",
 };

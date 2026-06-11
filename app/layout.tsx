@@ -3,7 +3,7 @@ import { ACTIVE_YEAR } from "@/lib/config";
 import { images} from "@/constants/2027/cloudinary_images";
 
 export const metadata: Metadata = {
-  title: `International Conference on Applied Algorithms (ICAA) ${ACTIVE_YEAR}`,
+  title: `ICAA ${ACTIVE_YEAR}`,
   description: `The International Conference on Applied Algorithms (ICAA) brings together researchers, practitioners, and students interested in all aspects of algorithm design and analysis.`,
   openGraph: {
     title: `International Conference on Applied Algorithms (ICAA) ${ACTIVE_YEAR}`,
