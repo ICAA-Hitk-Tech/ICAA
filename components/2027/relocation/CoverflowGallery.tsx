@@ -15,105 +15,121 @@ interface CoverflowGalleryProps {
   images: GalleryImage[];
 }
 
+// ─── Per-breakpoint card dimensions ──────────────────────────────────────────
+const CARD = {
+  mobile: { w: 200, h: 260 },
+  tablet: { w: 240, h: 300 },
+  desktop: { w: 300, h: 370 },
+} as const;
+
+// Side-card x spacing from centre card edge (px)
+const SIDE_SPREAD = {
+  mobile: 130,
+  tablet: 160,
+  desktop: 200,
+} as const;
+
+// Arrow button shared base classes — size injected per breakpoint
+const ARROW_BASE =
+  "flex items-center justify-center border-2 border-ink bg-surface text-ink " +
+  "font-bold shadow-[2px_2px_0px_0px_var(--color-ink)] " +
+  "hover:bg-chrome-400 hover:-translate-x-0.5 hover:-translate-y-0.5 " +
+  "hover:shadow-[3px_3px_0px_0px_var(--color-ink)] " +
+  "active:translate-x-0 active:translate-y-0 active:shadow-none " +
+  "transition-all duration-150 cursor-pointer";
+
 export default function CoverflowGallery({ images }: CoverflowGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [dragStart, setDragStart] = useState<number | null>(null);
-  const [deviceType, setDeviceType] = useState<"mobile" | "tablet" | "desktop">("desktop");
+  const [deviceType, setDeviceType] = useState<"mobile" | "tablet" | "desktop">(
+    "desktop",
+  );
   const wheelCooldown = useRef(false);
 
   const totalImages = images.length;
+  const handlePrev = () =>
+    setActiveIndex((p) => (p - 1 + totalImages) % totalImages);
+  const handleNext = () => setActiveIndex((p) => (p + 1) % totalImages);
 
-  const handlePrev = () => {
-    setActiveIndex((prev) => (prev - 1 + totalImages) % totalImages);
-  };
-
-  const handleNext = () => {
-    setActiveIndex((prev) => (prev + 1) % totalImages);
-  };
-
-  // Screen size detection
+  // ── Breakpoint detection ────────────────────────────────────────────────────
   useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      if (width < 640) {
-        setDeviceType("mobile");
-      } else if (width < 1024) {
-        setDeviceType("tablet");
-      } else {
-        setDeviceType("desktop");
-      }
+    const onResize = () => {
+      const w = window.innerWidth;
+      setDeviceType(w < 640 ? "mobile" : w < 1024 ? "tablet" : "desktop");
     };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    onResize();
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  // Keyboard navigation
+  // ── Keyboard ────────────────────────────────────────────────────────────────
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
+    const onKey = (e: KeyboardEvent) => {
       if (e.key === "ArrowLeft") handlePrev();
-      else if (e.key === "ArrowRight") handleNext();
+      if (e.key === "ArrowRight") handleNext();
     };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, [activeIndex, totalImages]);
 
-  // Autoplay
+  // ── Autoplay ────────────────────────────────────────────────────────────────
   useEffect(() => {
     if (!isPlaying) return;
-    const interval = setInterval(() => {
-      handleNext();
-    }, 5000);
-    return () => clearInterval(interval);
+    const id = setInterval(handleNext, 5000);
+    return () => clearInterval(id);
   }, [isPlaying, activeIndex, totalImages]);
 
-  // Wheel scrolling
+  // ── Wheel ───────────────────────────────────────────────────────────────────
   const handleWheel = (e: React.WheelEvent) => {
     if (wheelCooldown.current) return;
-    const scrollDelta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
-    if (Math.abs(scrollDelta) > 20) {
+    const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+    if (Math.abs(delta) > 20) {
       wheelCooldown.current = true;
-      if (scrollDelta > 0) handleNext();
-      else handlePrev();
+      delta > 0 ? handleNext() : handlePrev();
       setTimeout(() => {
         wheelCooldown.current = false;
       }, 700);
     }
   };
 
-  // Mouse Drag navigation
-  const handleMouseDown = (e: React.MouseEvent) => {
-    setDragStart(e.clientX);
-  };
-
+  // ── Mouse drag ──────────────────────────────────────────────────────────────
+  const handleMouseDown = (e: React.MouseEvent) => setDragStart(e.clientX);
   const handleMouseMove = (e: React.MouseEvent) => {
     if (dragStart === null) return;
     const diff = e.clientX - dragStart;
     if (Math.abs(diff) > 100) {
-      if (diff > 0) handlePrev();
-      else handleNext();
+      diff > 0 ? handlePrev() : handleNext();
       setDragStart(e.clientX);
     }
   };
-
   const handleMouseUp = () => setDragStart(null);
 
-  // Position offset wrapper
-  const getWrappedOffset = (index: number) => {
-    let diff = index - activeIndex;
-    const half = Math.floor(totalImages / 2);
-    while (diff > half) diff -= totalImages;
-    while (diff < -half) diff += totalImages;
-    return diff;
+  // ── Circular offset ─────────────────────────────────────────────────────────
+  const getOffset = (index: number) => {
+    let d = index - activeIndex;
+    const h = Math.floor(totalImages / 2);
+    while (d > h) d -= totalImages;
+    while (d < -h) d += totalImages;
+    return d;
   };
 
-  const isMobile = deviceType === "mobile";
-  const isTablet = deviceType === "tablet";
+  const bp = deviceType;
+  const card = CARD[bp];
+  const spread = SIDE_SPREAD[bp];
+  const containerH = card.h + 60;
+
+  // Arrow size: small on mobile, normal on tablet+
+  const arrowCls =
+    bp === "mobile"
+      ? `w-7 h-7 ${ARROW_BASE}` // 28px — compact for phone
+      : `w-10 h-10 ${ARROW_BASE}`; // 40px — standard
+
+  const iconCls = bp === "mobile" ? "w-3 h-3" : "w-4 h-4";
 
   return (
     <div
-      className="relative w-full flex flex-col justify-between select-none py-8 bg-transparent overflow-hidden"
+      className="relative w-full flex flex-col select-none py-8 bg-transparent overflow-hidden"
       onWheel={handleWheel}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
@@ -121,72 +137,99 @@ export default function CoverflowGallery({ images }: CoverflowGalleryProps) {
       onMouseLeave={handleMouseUp}
       onMouseEnter={() => setIsPlaying(false)}
     >
-      {/* Blurred background glow */}
+      {/* ── Ambient glow ────────────────────────────────────────────────── */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <div
-          className="absolute inset-x-0 top-1/2 -translate-y-1/2 mx-auto w-150 h-75 bg-cover bg-center transition-all duration-1000 blur-[120px] opacity-15 scale-110"
-          style={{ backgroundImage: `url(${images[activeIndex].url})` }}
+          className="absolute inset-x-0 top-1/2 -translate-y-1/2 mx-auto bg-cover bg-center transition-all duration-1000 blur-[120px] scale-110"
+          style={{
+            backgroundImage: `url(${images[activeIndex].url})`,
+            width:
+              bp === "desktop" ? "600px" : bp === "tablet" ? "320px" : "200px",
+            height:
+              bp === "desktop" ? "300px" : bp === "tablet" ? "220px" : "160px",
+            opacity: bp === "desktop" ? 0.15 : bp === "tablet" ? 0.07 : 0.05,
+          }}
         />
       </div>
 
-      {/* 3D Coverflow Container */}
+      {/* ── Coverflow stage ─────────────────────────────────────────────── */}
+      {/*
+        Desktop: no arrows here — they live in the dots row below.
+        Mobile + Tablet: arrows are absolute left/right inside the stage,
+        vertically centred alongside the card stack.
+      */}
       <div
-        className={`relative w-full flex items-center justify-center z-10 ${
-          isMobile ? "h-84" : isTablet ? "h-94" : "h-115"
-        }`}
-        style={{ perspective: "1200px", transformStyle: "preserve-3d" }}
+        className="relative w-full flex items-center justify-center z-10"
+        style={{
+          height: containerH,
+          perspective: "1200px",
+          transformStyle: "preserve-3d",
+        }}
       >
+        {/* Stage arrows — mobile & tablet only */}
+        {bp !== "desktop" && (
+          <>
+            <button
+              onClick={handlePrev}
+              className={`absolute left-3 z-30 ${arrowCls}`}
+              aria-label="Previous"
+            >
+              <FaChevronLeft className={iconCls} />
+            </button>
+            <button
+              onClick={handleNext}
+              className={`absolute right-3 z-30 ${arrowCls}`}
+              aria-label="Next"
+            >
+              <FaChevronRight className={iconCls} />
+            </button>
+          </>
+        )}
+
+        {/* Card stack */}
         <div
-          className={`relative flex items-center justify-center ${
-            isMobile ? "w-60 h-76" : isTablet ? "w-72 h-88" : "w-85 h-100"
-          }`}
-          style={{ transformStyle: "preserve-3d" }}
+          className="relative flex items-center justify-center"
+          style={{
+            width: card.w,
+            height: card.h,
+            transformStyle: "preserve-3d",
+          }}
         >
           {images.map((img, index) => {
-            const d = getWrappedOffset(index);
+            const d = getOffset(index);
             const isCenter = d === 0;
 
-            // Positioning calculations for neat overlap and 3D angle
-            const rotateYValue = isCenter ? 0 : d > 0 ? -45 : 45;
             const xOffset = isCenter
               ? 0
               : d > 0
-              ? d * (isMobile || isTablet ? 0 : 135) + (isMobile || isTablet ? 0 : 150)
-              : d * (isMobile || isTablet ? 0 : 135) - (isMobile || isTablet ? 0 : 150);
-            const zOffset = isCenter ? 150 : -150 - Math.abs(d) * 50;
-            const cardScale = isCenter ? 1.05 : 0.82;
-            
-            // Hide adjacent cards entirely on mobile and tablet to remove background clutter/shadows
-            const cardOpacity = isCenter
+                ? (d - 1) * (card.w * 0.3) + spread
+                : -((-d - 1) * (card.w * 0.3) + spread);
+
+            const rotateY = isCenter ? 0 : d > 0 ? -42 : 42;
+            const zOffset = isCenter ? 120 : -100 - Math.abs(d) * 40;
+            const scale = isCenter
+              ? 1.05
+              : Math.max(0.65, 0.8 - Math.abs(d) * 0.06);
+            const opacity = isCenter
               ? 1
-              : isMobile || isTablet
-              ? 0
-              : Math.max(0.1, 0.7 - Math.abs(d) * 0.25);
-            const cardBlur = isCenter ? "0px" : `${Math.abs(d) * 2}px`;
+              : Math.max(0.08, 0.6 - Math.abs(d) * 0.18);
+            const cardBlur = isCenter
+              ? "0px"
+              : `${Math.min(Math.abs(d) * 1.5, 4)}px`;
 
             return (
               <motion.div
                 key={index}
-                animate={{
-                  rotateY: rotateYValue,
-                  x: xOffset,
-                  z: zOffset,
-                  scale: cardScale,
-                  opacity: cardOpacity,
-                }}
-                transition={{
-                  type: "spring",
-                  stiffness: 240,
-                  damping: 26,
-                }}
+                animate={{ rotateY, x: xOffset, z: zOffset, scale, opacity }}
+                transition={{ type: "spring", stiffness: 240, damping: 26 }}
                 style={{
                   transformStyle: "preserve-3d",
                   position: "absolute",
-                  width: isMobile ? "240px" : isTablet ? "280px" : "300px",
-                  height: isMobile ? "300px" : isTablet ? "340px" : "370px",
+                  width: card.w,
+                  height: card.h,
                   zIndex: 20 - Math.abs(d),
                   filter: `blur(${cardBlur})`,
-                  pointerEvents: isCenter ? "auto" : (isMobile || isTablet) ? "none" : "auto",
+                  pointerEvents: "auto",
                 }}
                 onClick={(e) => {
                   if (!isCenter) {
@@ -194,26 +237,19 @@ export default function CoverflowGallery({ images }: CoverflowGalleryProps) {
                     setActiveIndex(index);
                   }
                 }}
-                className={`group border-3 border-ink bg-surface overflow-hidden cursor-pointer transition-shadow ${
-                  isMobile || isTablet
-                    ? "shadow-none"
-                    : "shadow-[2px_2px_0px_0px_var(--color-ink)]"
-                }`}
+                className="group border-3 border-ink bg-surface overflow-hidden cursor-pointer shadow-[2px_2px_0px_0px_var(--color-ink)]"
               >
-                {/* Image layout */}
-                <div className="relative w-full h-full bg-white">
+                <div className="relative w-full h-full">
                   <Image
                     src={img.url}
                     alt={img.title}
                     fill
-                    sizes={isMobile ? "240px" : isTablet ? "280px" : "300px"}
+                    sizes={`${card.w}px`}
                     className="object-cover transition-transform duration-500 group-hover:scale-102 pointer-events-none"
                     priority={isCenter}
                   />
-
-                  {/* Dark shade on unfocused cards */}
                   {!isCenter && (
-                    <div className="absolute inset-0 bg-ink/35 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-ink/40 transition-opacity duration-300" />
                   )}
                 </div>
               </motion.div>
@@ -222,19 +258,23 @@ export default function CoverflowGallery({ images }: CoverflowGalleryProps) {
         </div>
       </div>
 
-      {/* Nav Controls & Text Details Container */}
-      <div className={`z-10 flex flex-col items-center gap-6 ${isMobile ? "mt-8" : "mt-4"}`}>
-        {/* Navigation block */}
+      {/* ── Dots row + text ──────────────────────────────────────────────── */}
+      <div className="z-10 flex flex-col items-center gap-5 mt-6">
+        {/*
+          Desktop: arrows flank the dots here in the bottom row.
+          Mobile + Tablet: dots only — arrows already live in the stage above.
+        */}
         <div className="flex items-center gap-4">
-          <button
-            onClick={handlePrev}
-            className="group flex items-center justify-center w-10 h-10 border-2 border-ink bg-surface text-ink font-bold shadow-[2px_2px_0px_0px_var(--color-ink)] hover:bg-chrome-400 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[3px_3px_0px_0px_var(--color-ink)] active:translate-x-0 active:translate-y-0 active:shadow-none transition-all duration-150 cursor-pointer"
-            aria-label="Previous Attraction"
-          >
-            <FaChevronLeft className="w-4 h-4" />
-          </button>
-          
-          {/* Pagination dots */}
+          {bp === "desktop" && (
+            <button
+              onClick={handlePrev}
+              className={arrowCls}
+              aria-label="Previous"
+            >
+              <FaChevronLeft className={iconCls} />
+            </button>
+          )}
+
           <div className="flex items-center gap-2">
             {images.map((_, i) => (
               <button
@@ -250,16 +290,14 @@ export default function CoverflowGallery({ images }: CoverflowGalleryProps) {
             ))}
           </div>
 
-          <button
-            onClick={handleNext}
-            className="group flex items-center justify-center w-10 h-10 border-2 border-ink bg-surface text-ink font-bold shadow-[2px_2px_0px_0px_var(--color-ink)] hover:bg-chrome-400 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[3px_3px_0px_0px_var(--color-ink)] active:translate-x-0 active:translate-y-0 active:shadow-none transition-all duration-150 cursor-pointer"
-            aria-label="Next Attraction"
-          >
-            <FaChevronRight className="w-4 h-4" />
-          </button>
+          {bp === "desktop" && (
+            <button onClick={handleNext} className={arrowCls} aria-label="Next">
+              <FaChevronRight className={iconCls} />
+            </button>
+          )}
         </div>
 
-        {/* Central Clean, Fully-Visible Text Block below the slider */}
+        {/* Title + description */}
         <div className="w-full max-w-xl text-center px-6 min-h-22.5 flex flex-col justify-center">
           <AnimatePresence mode="wait">
             <motion.div

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "ICAA 2027 Travel & Relocation",
+  title: "Travel & Relocation",
   description:
-    "Travel and relocation information for the International Conference on Applied Algorithms (ICAA) 2027.",
+    "Travel and relocation information for ICAA — hotels near the venue, local attractions, visa assistance, and emergency contacts.",
 };
 
 export default function TravelAndRelocationLayout({

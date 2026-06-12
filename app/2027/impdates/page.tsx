@@ -3,7 +3,10 @@ import { FaArrowLeft, FaCalendarDays, FaClock, FaFileLines } from "react-icons/f
 import type { Metadata } from "next";
 import { IMPORTANT_DATES, DEADLINE_NOTE, TIMEZONE_INFO } from "@/constants/2027/importantDates";
 
-export const metadata: Metadata = { title: "ICAA 2027 Important Dates" };
+export const metadata: Metadata = {
+  title: "Important Dates",
+  description: "Key submission deadlines, notification dates, and camera-ready deadlines for ICAA — plan your research timeline.",
+};
 
 export default function ImpDatesPage() {
   return (

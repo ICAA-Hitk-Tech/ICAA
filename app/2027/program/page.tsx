@@ -2,7 +2,10 @@ import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa6";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = { title: "ICAA 2027 Program Schedule" };
+export const metadata: Metadata = {
+  title: "Program Schedule",
+  description: "Full conference schedule for ICAA — session timings, keynote talks, paper presentations, and special events.",
+};
 
 export default function ProgramPage() {
   return (

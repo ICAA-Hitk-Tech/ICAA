@@ -2,7 +2,10 @@ import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa6";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = { title: "ICAA 2027 Accepted Papers" };
+export const metadata: Metadata = {
+  title: "Accepted Papers",
+  description: "Browse the accepted papers and research contributions selected for presentation at ICAA.",
+};
 
 export default function AcceptedPapersPage() {
   return (

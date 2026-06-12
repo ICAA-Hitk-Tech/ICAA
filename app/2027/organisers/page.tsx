@@ -2,7 +2,10 @@ import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa6";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = { title: "ICAA 2027 Organisers" };
+export const metadata: Metadata = {
+  title: "Organisers",
+  description: "General chairs, program chairs, and the organizing committee of ICAA at Heritage Institute of Technology, Kolkata.",
+};
 
 export default function OrganisersPage() {
   return (
