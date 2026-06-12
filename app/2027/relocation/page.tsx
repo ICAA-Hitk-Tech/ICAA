@@ -2,9 +2,12 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { images } from "@/constants/2027/cloudinary_images";
+import CoverflowGallery from "@/components/2027/relocation/CoverflowGallery";
 import Image from "next/image";
 import { FaArrowLeft, FaPhone, FaGlobe, FaLocationDot, FaEnvelope, FaMapLocationDot } from "react-icons/fa6";
 import { HOTELS } from "@/constants/2027/hotels";
+import { ATTRACTIONS } from "@/constants/2027/attractions";
 import {
   DISCLAIMER_ACCOMMODATION,
   TRAVEL_CLOSING_TEXT,
@@ -175,6 +178,24 @@ export default function RelocationPage() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Local Attractions Section */}
+      <section className="space-y-6">
+        <div>
+          <span className="font-mono text-xs uppercase tracking-widest text-grove-600 font-bold">
+            Explore Kolkata
+          </span>
+          <h2 className="font-serif text-2xl md:text-3xl font-black text-ink leading-tight mt-1">
+            Local Attractions
+          </h2>
+          <div className="flex items-center gap-2 mt-3">
+            <div className="h-0.75 w-16 bg-abyss-500" />
+            <div className="h-0.75 w-3 bg-chrome-400" />
+          </div>
+        </div>
+
+        <CoverflowGallery images={ATTRACTIONS} />
       </section>
 
       {/* Travel Guidelines & Assistance (Unified Card) */}
