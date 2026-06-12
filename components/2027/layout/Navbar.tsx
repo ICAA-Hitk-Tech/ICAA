@@ -288,20 +288,29 @@ const Navbar = () => {
       >
         {/* Logos */}
         <div className="flex items-center gap-3 lg:gap-6 shrink-0">
-          <Image
-            src={images.heritage}
-            alt="Heritage logo"
-            width={60}
-            height={60}
-            className="w-10 h-10 lg:w-15 lg:h-15 rounded-full object-cover"
-          />
-          <Image
-            src={images.icaa}
-            alt="ICAA logo"
-            width={120}
-            height={60}
-            className="w-20 h-10 lg:w-30 lg:h-15 rounded-full object-contain"
-          />
+          <a
+            href="https://www.heritageit.edu/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:opacity-90 transition-opacity"
+          >
+            <Image
+              src={images.heritage}
+              alt="Heritage logo"
+              width={60}
+              height={60}
+              className="w-10 h-10 lg:w-15 lg:h-15 rounded-full object-cover"
+            />
+          </a>
+          <Link href="/2027" className="hover:opacity-90 transition-opacity">
+            <Image
+              src={images.icaa}
+              alt="ICAA logo"
+              width={120}
+              height={60}
+              className="w-20 h-10 lg:w-30 lg:h-15 rounded-full object-contain"
+            />
+          </Link>
         </div>
 
         {/* Desktop nav */}
