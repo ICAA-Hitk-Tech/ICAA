@@ -12,7 +12,7 @@ export interface Hotel {
 export const HOTELS: Hotel[] = [
   {
     name: "Vivanta Kolkata EM Bypass",
-    image: images.victoria,
+    image: images.vivanta,
     address:
       "1930, Rash Behari Avnuee, Sector G, East Kolkata Township, Kolkata, West Bengal 700107",
     phone: "+91 33 6666 0000",
@@ -22,7 +22,7 @@ export const HOTELS: Hotel[] = [
   },
   {
     name: "Regenta Orkos Kolkata",
-    image: images.howrah,
+    image: images.regenta,
     address:
       "621, Prantik Pally Rd, Ravindra Pally, Kasba, Kolkata, West Bengal 700107",
     phone: "+91 33 7125 9999",
@@ -32,7 +32,7 @@ export const HOTELS: Hotel[] = [
   },
   {
     name: "Eastern Metropolitan Club, Kolkata",
-    image: images.dakshineshwar,
+    image: images.emc,
     address: "A-73, Purba Diganta, Santoshpur, Kolkata, West Bengal 700075",
     phone: "+91 90078 75828",
     website: "https://www.emckolkata.org/",

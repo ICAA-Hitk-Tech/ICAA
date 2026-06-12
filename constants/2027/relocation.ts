@@ -7,7 +7,8 @@ export const VISA_TRAVEL_ASSISTANCE_TEXT = "International participants with acce
 
 export const CONTACT_HELP_DESK_TEXT = "For further assistance, feel free to contact the conference help desk. Enjoy your stay in Kolkata! (icaa@heritageit.edu)";
 
-export const LOCAL_CUISINE_TEXT = "Don't miss out on Kolkata's culinary delights. Try the famous Bengali sweets like Rasgulla and Sandesh, and savor street foods like Phuchka (pani puri) and Kathi rolls. Restaurants across the city offer a variety of cuisines, including Bengali, Mughlai, and international options.";
+export const LOCAL_CUISINE_TEXT =
+  "Do not miss out the curated culinary delights while awaiting your visit in the 'City of Joy'. Try Bengal's popular syrupy dessert, Rosogolla and freshly curdled milk solids, Sandesh, and the signature street foods like Waterballs famously coined Phuchka (Bengali), Fish Kabiraji, Kathi rolls. Popular restaurants across the city offer wide variety of cuisines, including the authentic Bengali, Mughlai, and various blends of Indo-Chinese food as well. Do not miss out a bite while boarding the event in bytes.";
 
 export const EMERGENCY_CONTACTS = [
   { label: "Police", number: "100" },

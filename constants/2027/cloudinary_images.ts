@@ -20,4 +20,9 @@ export const images = {
     "https://res.cloudinary.com/dbazcvqyt/image/upload/v1781080161/bridge_jip7in.jpg",
   tram: "https://res.cloudinary.com/dbazcvqyt/image/upload/v1781080161/tram_i6zadn.jpg",
   cmt: "https://res.cloudinary.com/dbazcvqyt/image/upload/v1781082241/cmt_jko6jj.png",
+  vivanta:
+    "https://res.cloudinary.com/dbazcvqyt/image/upload/v1781285316/vivanta_occufj.jpg",
+  regenta:
+    "https://res.cloudinary.com/dbazcvqyt/image/upload/v1781285316/regenta_omnupg.jpg",
+  emc: "https://res.cloudinary.com/dbazcvqyt/image/upload/v1781285320/emc_stihwf.jpg",
 };

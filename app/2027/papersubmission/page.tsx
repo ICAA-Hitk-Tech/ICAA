@@ -158,7 +158,7 @@ export default function PaperSubmissionPage() {
           </div>
 
           {/* Dedicated CMT Platform Capsule */}
-          <div className="mt-5 border-2 border-ink bg-surface/40 p-4 shadow-[4px_4px_0px_0px_var(--color-ink)] flex items-center justify-between gap-4">
+          {/* <div className="mt-5 border-2 border-ink bg-surface/40 p-4 shadow-[4px_4px_0px_0px_var(--color-ink)] flex items-center justify-between gap-4">
             <span className="font-mono text-xs font-black text-ink uppercase tracking-wider">
               Platform
             </span>
@@ -171,7 +171,7 @@ export default function PaperSubmissionPage() {
                 className="object-contain"
               />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
