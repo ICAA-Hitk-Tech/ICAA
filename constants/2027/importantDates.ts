@@ -23,7 +23,8 @@ export const IMPORTANT_DATES: ImportantDate[] = [
   },
   {
     event: "Author Registration starts",
-    date: "31 October, 2026"
+    date: "31 October, 2026",
+    note: "AoE"
   },
   {
     event: "Early Bird Registration by",

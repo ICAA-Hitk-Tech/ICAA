@@ -141,9 +141,10 @@ export default function PaperSubmissionPage() {
                   </h3>
                 </div>
                 <p className="text-xs text-ink-dim leading-relaxed font-mono">
-                  The portal is currently offline. Authors are requested to
-                  prepare their manuscripts in accordance with the paper
-                  formatting guidelines before submissions open.
+                  The submission portal is currently offline. Further
+                  information regarding the submission process and timeline will
+                  be announced in due course. Authors are advised to check this
+                  website periodically for updates.
                 </p>
               </div>
 
