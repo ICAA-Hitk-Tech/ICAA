@@ -18,6 +18,7 @@ export const getNavItems = (year: number): NavItem[] => [
   {
     label: "Call for Papers",
     children: [
+      { label: "Call For Papers", href: `/${year}/callforpapers` },
       { label: "Paper Submission", href: `/${year}/papersubmission` },
       { label: "Proceedings", href: `/${year}/proceedings` },
       { label: "Accepted Papers", href: `/${year}/acceptedpapers` },

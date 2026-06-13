@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "ICAA 2027 Program Committee",
-  description:
-    "Information about the program committee for the International Conference on Applied Algorithms (ICAA) 2027.",
+  title: "Program Committee",
+  description: "Meet the program committee members and reviewers of ICAA — experts in algorithms, combinatorics, and theoretical computer science.",
 };
 export default function ProgramCommitteeLayout({
   children,

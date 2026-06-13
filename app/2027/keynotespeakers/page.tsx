@@ -2,7 +2,10 @@ import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa6";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = { title: "ICAA 2027 Keynote Speakers" };
+export const metadata: Metadata = {
+  title: "Keynote Speakers",
+  description: "Keynote speakers and invited lecturers at ICAA — leading researchers presenting cutting-edge work in algorithms and computation.",
+};
 
 export default function KeynoteSpeakersPage() {
   return (

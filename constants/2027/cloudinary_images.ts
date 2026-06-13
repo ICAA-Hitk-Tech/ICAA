@@ -25,4 +25,22 @@ export const images = {
   regenta:
     "https://res.cloudinary.com/dbazcvqyt/image/upload/v1781285316/regenta_omnupg.jpg",
   emc: "https://res.cloudinary.com/dbazcvqyt/image/upload/v1781285320/emc_stihwf.jpg",
+  writers:
+    "https://res.cloudinary.com/dvapbwk7l/image/upload/v1781341644/writers_i16bkh.jpg",
+  museum:
+    "https://res.cloudinary.com/dvapbwk7l/image/upload/v1781344999/museum_pmr3nb.jpg",
+  victoria2:
+    "https://res.cloudinary.com/dvapbwk7l/image/upload/v1781342908/victoria2_g6emwn.jpg",
+  stpauls:
+    "https://res.cloudinary.com/dvapbwk7l/image/upload/v1781343111/cathedral_kj5i1v.jpg",
+  prinsep:
+    "https://res.cloudinary.com/dvapbwk7l/image/upload/v1781344095/prinsep_qpitb1.jpg",
+  birla:
+    "https://res.cloudinary.com/dvapbwk7l/image/upload/v1781343499/birla_uigqbt.jpg",
+  dakshineshwar2:
+    "https://res.cloudinary.com/dvapbwk7l/image/upload/v1781341644/dakshineshwar_tu3n3i.jpg",
+  taxi2:
+    "https://res.cloudinary.com/dvapbwk7l/image/upload/v1781343219/taxi_zp8yti.jpg",
+  howrah2:
+    "https://res.cloudinary.com/dvapbwk7l/image/upload/v1781343322/howrah_hhskxo.jpg",
 };
