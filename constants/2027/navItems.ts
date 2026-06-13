@@ -35,7 +35,7 @@ export const getNavItems = (year: number): NavItem[] => [
     label: "Venue & Travel",
     children: [
       { label: "Venue", href: `/${year}/venue` },
-      { label: "Travel & Relocation", href: `/${year}/relocation` },
+      { label: "Travel & Accomodation", href: `/${year}/relocation` },
       // { label: "Travel & Local Info", href: `/${year}/travel_localinfo` },
       // { label: "Visa Application", href: `/${year}/visa_application` },
     ],
