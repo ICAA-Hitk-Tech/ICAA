@@ -1,7 +1,18 @@
+import type { Metadata } from "next";
 import { DM_Serif_Display, Spline_Sans_Mono, Roboto_Mono } from 'next/font/google';
 import "@/styles/2027/globals.css";
 import Navbar from "@/components/2027/layout/Navbar";
 import Footer from "@/components/2027/layout/Footer";
+import { ACTIVE_YEAR, SITE_URL } from "@/lib/config";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: `/${ACTIVE_YEAR}`,
+  },
+  openGraph: {
+    url: `${SITE_URL}/${ACTIVE_YEAR}`,
+  },
+};
 
 const dmSerif = DM_Serif_Display({
   subsets: ['latin'],
