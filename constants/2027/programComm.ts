@@ -72,7 +72,7 @@ export const PROGRAM_COMMITTEE: ProgramCommitteeMember[] = [
   },
   {
     name: "Mia Persson",
-    institution: "Malmo University, Sweden",
+    institution: "Malmö University, Sweden",
   },
   {
     name: "Michiel Smid",
