@@ -76,7 +76,7 @@ export default function CoverflowGallery({ images }: CoverflowGalleryProps) {
   // ── Autoplay ────────────────────────────────────────────────────────────────
   useEffect(() => {
     if (!isPlaying) return;
-    const id = setInterval(handleNext, 5000);
+    const id = setInterval(handleNext, 2000);
     return () => clearInterval(id);
   }, [isPlaying, activeIndex, totalImages]);
 
@@ -134,7 +134,10 @@ export default function CoverflowGallery({ images }: CoverflowGalleryProps) {
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
-      onMouseLeave={handleMouseUp}
+      onMouseLeave={() => {
+        handleMouseUp();
+        setIsPlaying(true);
+      }}
       onMouseEnter={() => setIsPlaying(false)}
     >
       {/* ── Ambient glow ────────────────────────────────────────────────── */}
@@ -280,10 +283,10 @@ export default function CoverflowGallery({ images }: CoverflowGalleryProps) {
               <button
                 key={i}
                 onClick={() => setActiveIndex(i)}
-                className={`h-2.5 w-2.5 rotate-45 border-2 border-ink transition-all duration-300 cursor-pointer ${
+                className={`h-1.5 w-1.5 rotate-45 border transition-all duration-300 cursor-pointer ${
                   i === activeIndex
-                    ? "bg-grove-600 scale-125"
-                    : "bg-ink/15 hover:bg-ink/30"
+                    ? "bg-grove-600 border-grove-600 scale-110"
+                    : "bg-ink/10 border-ink/20 hover:bg-ink/25 hover:border-ink/45"
                 }`}
                 aria-label={`Go to slide ${i + 1}`}
               />

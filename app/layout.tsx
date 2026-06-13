@@ -5,7 +5,7 @@ import { images } from "@/constants/2027/cloudinary_images";
 const DESCRIPTION = `The International Conference on Applied Algorithms (ICAA) brings together researchers, practitioners, and students interested in all aspects of algorithm design and analysis.`;
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+  metadataBase: new URL(SITE_URL!),
   title: {
     default: `ICAA ${ACTIVE_YEAR}`,
     template: `ICAA ${ACTIVE_YEAR} %s`,
