@@ -25,7 +25,7 @@ export default function RelocationPage() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b-2 border-ink pb-4">
         <div>
           <h1 className="text-4xl md:text-5xl font-serif font-black text-ink mt-3">
-            Travel & Relocation
+            Travel & Accommodation
           </h1>
         </div>
 
