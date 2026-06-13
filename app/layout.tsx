@@ -13,6 +13,11 @@ export const metadata: Metadata = {
   description: DESCRIPTION,
   keywords: [
     "ICAA",
+    "icaa",
+    "icaaa",
+    "Icaa",
+    `Icaa ${ACTIVE_YEAR}`,
+    `icaa ${ACTIVE_YEAR}`,
     `ICAA ${ACTIVE_YEAR}`,
     "International Conference on Applied Algorithms",
     "algorithms",
@@ -26,9 +31,6 @@ export const metadata: Metadata = {
   publisher: "Heritage Institute of Technology, Kolkata",
   alternates: {
     canonical: "/",
-    languages: {
-      "en-US": "/en-US",
-    },
   },
   openGraph: {
     title: `International Conference on Applied Algorithms (ICAA) ${ACTIVE_YEAR}`,
