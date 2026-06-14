@@ -1,8 +1,4 @@
-export interface ProgramCommitteeMember {
-  name: string;
-  institution: string;
-  role?: string;
-}
+import { ProgramCommitteeMember } from "@/lib/types";
 
 export const PROGRAM_COMMITTEE: ProgramCommitteeMember[] = [
   {

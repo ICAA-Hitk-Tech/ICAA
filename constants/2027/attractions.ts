@@ -1,10 +1,5 @@
+import { Attraction } from "@/lib/types";
 import { images } from "./cloudinary_images";
-
-export interface Attraction {
-  url: string;
-  title: string;
-  desc: string;
-}
 
 export const ATTRACTIONS: Attraction[] = [
   {
@@ -63,3 +58,23 @@ export const ATTRACTIONS: Attraction[] = [
     desc: "A landmark colonial-era building in Kolkata that serves as an important seat of government administration.",
   },
 ];
+
+export const CARD = {
+  mobile: { w: 200, h: 260 },
+  tablet: { w: 240, h: 300 },
+  desktop: { w: 300, h: 370 },
+} as const;
+
+export const SIDE_SPREAD = {
+  mobile: 130,
+  tablet: 160,
+  desktop: 200,
+} as const;
+
+export const ARROW_BASE =
+  "flex items-center justify-center border-2 border-ink bg-surface text-ink " +
+  "font-bold shadow-[2px_2px_0px_0px_var(--color-ink)] " +
+  "hover:bg-chrome-400 hover:-translate-x-0.5 hover:-translate-y-0.5 " +
+  "hover:shadow-[3px_3px_0px_0px_var(--color-ink)] " +
+  "active:translate-x-0 active:translate-y-0 active:shadow-none " +
+  "transition-all duration-150 cursor-pointer";
