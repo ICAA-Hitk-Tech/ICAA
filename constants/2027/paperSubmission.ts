@@ -1,7 +1,6 @@
 export const SUBMISSION_INSTRUCTIONS = {
   paragraphs: [
     "Papers presenting original contributions related to the design, analysis, implementation, and experimental evaluation of efficient algorithms and data structures for problems with relevant real-world applications are sought, ideally bridging the gap between academia and industry.",
-    // "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pretium pretium tempor. Ut eget imperdiet neque. In volutpat varius diam. Phasellus ultrices arcu vitae feugiat tristique. Integer dictum congue lacinia.",
   ],
   guidelines: [
     // {

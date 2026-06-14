@@ -1,5 +1,4 @@
-
-export const DISCLAIMER_ACCOMMODATION = "As the organizers, ICAA and Heritage Institute of Technology do not endorse any listed entities. These are provided for informational purposes only. The information provided has been gathered from public sources. ICAA, Heritage Institute of Technology, and the organizers are not responsible for inaccuracies or misinformation. Various accommodation options, including hotels, guest houses, and serviced apartments, are available within 2-4 kilometers of the conference venue, catering to different budgets. For assistance, please contact our help desk.";
+export const DISCLAIMER_ACCOMMODATION = "As the organizers, ICAA and Heritage Institute of Technology do not endorse any listed entities. These are provided for informational purposes only. The information provided has been gathered from public sources. ICAA, Heritage Institute of Technology, and the organizers are not responsible for inaccuracies or misinformation. Various accommodation options, including hotels, guest houses, and serviced apartments, are available within 2-4 kilometers of the conference venue, catering to different budgets.";
 
 export const TRAVEL_CLOSING_TEXT = "These resources should help you plan your trip and make the most of your visit to Kolkata. Enjoy your conference and your time in the city!";
 

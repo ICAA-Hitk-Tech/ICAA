@@ -2,8 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import {images} from "@/constants/2027/cloudinary_images";
 import {
   FaArrowLeft,
   FaCircleInfo,

@@ -1,13 +1,5 @@
+import { Hotel } from "@/lib/types";
 import { images } from "./cloudinary_images";
-
-export interface Hotel {
-  name: string;
-  image: string;
-  address: string;
-  phone: string;
-  website: string;
-  mapEmbedUrl: string;
-}
 
 export const HOTELS: Hotel[] = [
   {
