@@ -40,7 +40,7 @@ export default function HomePage2027() {
 
   const websiteJsonLd = {
     "@context": "https://schema.org",
-    "@type": "Event",
+    "@type": "WebSite",
     url: SITE_URL,
     name: `ICAA ${ACTIVE_YEAR}`,
     description: `The International Conference on Applied Algorithms (ICAA) brings together researchers, practitioners, and students interested in all aspects of algorithm design and analysis.`,
