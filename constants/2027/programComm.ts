@@ -59,6 +59,10 @@ export const PROGRAM_COMMITTEE: ProgramCommitteeMember[] = [
     institution: "Heritage Institute of Technology, Kolkata, India",
   },
   {
+    name: "Elisavet Konstantinou",
+    institution: "University of the Aegean, Greece",
+  },
+  {
     name: "Haider Banka",
     institution: "IIT Dhanbad, India",
   },

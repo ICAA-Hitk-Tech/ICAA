@@ -43,4 +43,9 @@ export const images = {
     "https://res.cloudinary.com/dvapbwk7l/image/upload/v1781343219/taxi_zp8yti.jpg",
   howrah2:
     "https://res.cloudinary.com/dvapbwk7l/image/upload/v1781343322/howrah_hhskxo.jpg",
+  Springer2026:
+    "https://res.cloudinary.com/dvapbwk7l/image/upload/v1781467830/2026_o2iqv3.jpg",
+  Springer2025:
+    "https://res.cloudinary.com/dvapbwk7l/image/upload/v1781467830/2025_zedfr5.jpg",
+  Springer2014: "https://res.cloudinary.com/dvapbwk7l/image/upload/v1781467830/2014_c4cbfw.jpg",
 };

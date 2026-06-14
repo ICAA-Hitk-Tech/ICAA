@@ -114,3 +114,13 @@ export interface ToastProps {
   toastMessage: string;
   setToastMessage: React.Dispatch<React.SetStateAction<string | null>>;
 }
+
+export interface Proceeding {
+  year: number;
+  title: string;
+  volume: string;
+  editors: string;
+  image: string;
+  link: string;
+  description: string;
+}

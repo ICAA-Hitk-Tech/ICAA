@@ -51,20 +51,33 @@ const Footer = () => {
           {/* Logo and About Column */}
           <div className="sm:col-span-2 md:col-span-4 lg:col-span-1 flex flex-col gap-6">
             <div className="flex items-center gap-4">
-              <Image
-                src={images.heritage}
-                alt="Heritage logo"
-                width={64}
-                height={64}
-                className="rounded-full object-cover"
-              />
-              <Image
-                src={images.icaa}
-                alt="ICAA logo"
-                width={120}
-                height={60}
-                className="rounded-full object-contain px-2"
-              />
+              <a
+                href="https://www.heritageit.edu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-90 transition-opacity"
+              >
+                <Image
+                  src={images.heritage}
+                  alt="Heritage logo"
+                  width={64}
+                  height={64}
+                  className="rounded-full object-cover"
+                />
+              </a>
+
+              <a
+                href="/2027"
+                className="hover:opacity-90 transition-opacity"
+              >
+                <Image
+                  src={images.icaa}
+                  alt="ICAA logo"
+                  width={120}
+                  height={60}
+                  className="rounded-full object-contain px-2"
+                />
+              </a>
             </div>
             <div>
               <p className="font-serif text-lg font-bold text-ink leading-snug">

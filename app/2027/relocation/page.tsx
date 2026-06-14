@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import CoverflowGallery from "@/components/2027/relocation/CoverflowGallery";
-import { FaArrowLeft, FaPhone } from "react-icons/fa6";
+import { FaPhone } from "react-icons/fa6";
 import { HOTELS } from "@/constants/2027/hotels";
 import { ATTRACTIONS } from "@/constants/2027/attractions";
 import {
