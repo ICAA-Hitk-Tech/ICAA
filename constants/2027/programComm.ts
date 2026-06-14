@@ -14,6 +14,10 @@ export const PROGRAM_COMMITTEE: ProgramCommitteeMember[] = [
     institution: "Lund University, Sweden",
   },
   {
+    name: "Anirban Bhar",
+    institution: "SRM University, India",
+  },
+  {
     name: "Aniruddha Dasgupta",
     institution: "Bluebell Research, Australia",
   },
@@ -24,6 +28,10 @@ export const PROGRAM_COMMITTEE: ProgramCommitteeMember[] = [
   {
     name: "Anurina Tarafdar",
     institution: "Heritage Institute of Technology, Kolkata, India",
+  },
+  {
+    name: "Arijit Karati",
+    institution: "National Sun Yat-Sen University, Taiwan",
   },
   {
     name: "Bhaskar Dasgupta",
@@ -128,12 +136,24 @@ export const PROGRAM_COMMITTEE: ProgramCommitteeMember[] = [
     institution: "Heritage Institute of Technology, Kolkata, India",
   },
   {
+    name: "S. K. Venkatesan",
+    institution: "CQRL Bits LLP, Chennai, India",
+  },
+  {
     name: "Sabyasachee Banerjee",
     institution: "Heritage Institute of Technology, Kolkata, India",
   },
   {
     name: "Samarjit Chakrabarty",
     institution: "University of North Carolina, USA",
+  },
+  {
+    name: "Sanjoy K. Saha",
+    institution: "Jadavpur University, India",
+  },
+  {
+    name: "Shankho Subhra Pal",
+    institution: "Agentic AI Research, Google, India",
   },
   {
     name: "Sharath Raghvendra",
