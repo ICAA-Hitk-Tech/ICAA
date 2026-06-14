@@ -7,6 +7,12 @@ export type NavItem =
   | { label: string; href: string; children?: never }
   | { label: string; children: NavChild[]; href?: never };
 
+export interface StubProps {
+  page: string;
+  heading: string;
+  description: string;
+}
+
 export interface InfoCardProps {
   icon: ReactNode;
   headerLabel: string;
@@ -102,4 +108,9 @@ export interface CardTransform {
   scale: number;
   opacity: number;
   cardBlur: string;
+}
+
+export interface ToastProps {
+  toastMessage: string;
+  setToastMessage: React.Dispatch<React.SetStateAction<string | null>>;
 }
