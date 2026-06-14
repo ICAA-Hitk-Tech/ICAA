@@ -4,6 +4,8 @@ import { images } from "@/constants/2027/cloudinary_images";
 
 const DESCRIPTION = `The International Conference on Applied Algorithms (ICAA) brings together researchers, practitioners, and students interested in all aspects of algorithm design and analysis.`;
 
+const GOOGLE_VERIFICATION_TOKEN = process.env.GOOGLE_SITE_VERIFICATION_TOKEN;
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL!),
   title: {
@@ -47,6 +49,9 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     images: [images.hero],
   },
+  verification: {
+    google: GOOGLE_VERIFICATION_TOKEN,
+  }
 };
 
 export default function RootLayout({

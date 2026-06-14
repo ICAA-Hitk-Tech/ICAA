@@ -277,7 +277,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav ref={navRef} className="fixed left-0 top-0 w-full z-20">
+    <nav ref={navRef} className="fixed left-0 top-0 w-full z-50">
       {/* Main bar */}
       <div
         className={`w-full text-ink flex items-center justify-between transition-all duration-300 border-b-2 ${

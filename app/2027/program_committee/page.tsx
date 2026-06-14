@@ -1,15 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { FaMagnifyingGlass } from "react-icons/fa6";
+import { PROGRAM_COMMITTEE } from "@/constants/2027/programComm";
+import { ProgramCommitteeMember } from "@/lib/types";
+import BackButton from "@/components/2027/BackButton";
+import ProgramCommitteeCard from "@/components/2027/program_committee/ProgramCommitteeCard";
 
-import { FaArrowLeft, FaMagnifyingGlass } from "react-icons/fa6";
-import {
-  PROGRAM_COMMITTEE,
-  ProgramCommitteeMember,
-} from "@/constants/2027/programComm";
-
-export default function ProgramCommitteePage() {
+const ProgramCommitteePage = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   // Separate Co-Chairs from regular members
@@ -39,14 +37,7 @@ export default function ProgramCommitteePage() {
           </h1>
         </div>
 
-        <div className="hidden md:block shrink-0">
-          <Link href="/2027">
-            <button className="group flex items-center gap-2 px-6 py-3 border-2 border-ink bg-surface text-ink font-bold -translate-x-1 -translate-y-1 shadow-[4px_4px_0px_0px_var(--color-ink)] hover:bg-border active:translate-x-0 active:translate-y-0 active:shadow-none transition-all duration-150 cursor-pointer">
-              <FaArrowLeft className="w-4 h-4 transition-transform duration-200 group-hover:-translate-x-1" />
-              <span>Back to Home</span>
-            </button>
-          </Link>
-        </div>
+        <BackButton />
       </div>
 
       {/* Search Bar */}
@@ -74,22 +65,10 @@ export default function ProgramCommitteePage() {
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {filteredCoChairs.map((member, idx) => (
-                  <article
-                    key={`cochair-${idx}`}
-                    className="group p-6 border border-ink bg-surface shadow-[4px_4px_0px_0px_var(--color-ink)] hover:shadow-[6px_6px_0px_0px_var(--color-ink)] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all duration-200"
-                  >
-                    <div className="flex flex-col gap-2">
-                      <span className="self-start inline-block font-serif text-sm font-bold tracking-widest bg-chrome-400 text-ink px-2.5 py-1 border border-ink shadow-[1px_1px_0px_0px_var(--color-ink)] -rotate-1 group-hover:rotate-[1.5deg] group-hover:-translate-x-1 group-hover:-translate-y-1 duration-300 ">
-                        {member.role}
-                      </span>
-                      <h3 className="font-serif text-xl font-bold text-ink mt-1">
-                        {member.name}
-                      </h3>
-                      <p className="font-mono text-sm text-ink-dim tracking-wider">
-                        {member.institution}
-                      </p>
-                    </div>
-                  </article>
+                  <ProgramCommitteeCard
+                    key={`co-chair-${idx}`}
+                    member={member}
+                  />
                 ))}
               </div>
             </div>
@@ -104,17 +83,10 @@ export default function ProgramCommitteePage() {
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {filteredRegularMembers.map((member, idx) => (
-                  <article
+                  <ProgramCommitteeCard
                     key={`member-${idx}`}
-                    className="group p-5 border border-ink bg-surface/50 shadow-[2px_2px_0px_0px_var(--color-ink)] hover:bg-surface hover:shadow-[4px_4px_0px_0px_var(--color-ink)] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all duration-200"
-                  >
-                    <h3 className="font-serif text-lg font-bold text-ink">
-                      {member.name}
-                    </h3>
-                    <p className="font-mono text-sm text-ink-dim tracking-wider mt-1.5">
-                      {member.institution}
-                    </p>
-                  </article>
+                    member={member}
+                  />
                 ))}
               </div>
             </div>
@@ -133,3 +105,5 @@ export default function ProgramCommitteePage() {
     </div>
   );
 }
+
+export default ProgramCommitteePage;

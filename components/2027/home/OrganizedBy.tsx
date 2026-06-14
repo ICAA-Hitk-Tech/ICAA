@@ -1,13 +1,9 @@
-import Image from "next/image";
 import { FaUniversity, FaLaptopCode } from "react-icons/fa";
 import {
 	SECTION_HEADING,
 	INSTITUTE_NAME,
 	INSTITUTE_TAGLINE,
 	DEPARTMENT_NAME,
-	INSTITUTE_LOGO_SRC,
-	INSTITUTE_LOGO_ALT,
-	INSTITUTE_EST_TAG,
 	INSTITUTE_TEXT,
 	DEPARTMENT_TEXT,
 	DEPARTMENT_VISION_QUOTE,
@@ -15,6 +11,7 @@ import {
 	DEPARTMENT_TAGS,
 } from "../../../constants/2027/organizedBy";
 import InfoCard from "./Infocard";
+import HeritageBadge from "../HeritageBadge";
 
 const OrganizedBy = () => {
 	return (
@@ -32,24 +29,7 @@ const OrganizedBy = () => {
 
 			{/* ── Logo + identity strip ── */}
 			<div className="flex flex-col lg:flex-row items-center justify-center gap-3 lg:gap-10 mb-8">
-				<div className="relative inline-block">
-					<div className="border-2 border-ink bg-surface p-4 shadow-[6px_6px_0px_0px_var(--color-ink)] hover:shadow-[8px_8px_0px_0px_var(--color-ink)] hover:-translate-y-0.5 transition-all duration-200">
-						<div className="relative w-16 h-16 md:w-28 md:h-28 lg:w-35 lg:h-35">
-							<Image
-								src={INSTITUTE_LOGO_SRC}
-								alt={INSTITUTE_LOGO_ALT}
-								fill
-								sizes="(max-width: 768px) 6rem, (max-width: 1024px) 8rem, 10rem"
-								className="object-contain"
-								priority
-							/>
-						</div>
-					</div>
-					{/* Floating accent tag */}
-					<div className="absolute -top-3.5 -right-3.5 bg-chrome-400 text-ink text-[10px] font-mono font-bold px-2 py-1 border border-ink shadow-[2px_2px_0px_0px_var(--color-ink)] rotate-3 uppercase whitespace-nowrap">
-						{INSTITUTE_EST_TAG}
-					</div>
-				</div>
+				<HeritageBadge />
 
 				<div className="text-center mt-2">
 					<p className="font-serif text-2xl md:text-3xl lg:text-4xl font-bold text-ink">

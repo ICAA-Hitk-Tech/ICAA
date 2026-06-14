@@ -1,8 +1,4 @@
-export interface ProgramCommitteeMember {
-  name: string;
-  institution: string;
-  role?: string;
-}
+import { ProgramCommitteeMember } from "@/lib/types";
 
 export const PROGRAM_COMMITTEE: ProgramCommitteeMember[] = [
   {
@@ -61,6 +57,10 @@ export const PROGRAM_COMMITTEE: ProgramCommitteeMember[] = [
   {
     name: "Dinabandhu Bhandari",
     institution: "Heritage Institute of Technology, Kolkata, India",
+  },
+  {
+    name: "Elisavet Konstantinou",
+    institution: "University of the Aegean, Greece",
   },
   {
     name: "Haider Banka",

@@ -31,7 +31,7 @@ export default function HomePage2027() {
     organizer: {
       "@type": "Organization",
       name: "Heritage Institute of Technology, Kolkata",
-      url: "https://heritageit.edu",
+      url: "https://www.heritageit.edu/",
     },
     description: `ICAA ${ACTIVE_YEAR} brings together researchers, practitioners, and students interested in all aspects of algorithm design and analysis.`,
     image: images.hero,
@@ -40,13 +40,10 @@ export default function HomePage2027() {
 
   const websiteJsonLd = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
+    "@type": "Event",
     url: SITE_URL,
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${SITE_URL}/search?q={search_term_string}`,
-      "query-input": "required name=search_term_string",
-    },
+    name: `ICAA ${ACTIVE_YEAR}`,
+    description: `The International Conference on Applied Algorithms (ICAA) brings together researchers, practitioners, and students interested in all aspects of algorithm design and analysis.`,
   };
 
   return (

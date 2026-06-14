@@ -1,9 +1,4 @@
-export interface ImportantDate {
-  event: string;
-  date: string;
-  note?: string;
-  isPassed?: boolean; // We can add optional helper fields if needed
-}
+import { ImportantDate } from "@/lib/types";
 
 export const IMPORTANT_DATES: ImportantDate[] = [
   {
