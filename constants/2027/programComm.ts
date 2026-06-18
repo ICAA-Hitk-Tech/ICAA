@@ -47,6 +47,10 @@ export const PROGRAM_COMMITTEE: ProgramCommitteeMember[] = [
     role: "Co-Chair",
   },
   {
+    name: "C.V. Jawahar",
+    institution: "IIIT Hyderabad, India",
+  },
+  {
     name: "Daniele Frigioni",
     institution: "University of L'Aquila, Via Vetoio, Italy",
   },
