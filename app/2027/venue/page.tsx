@@ -1,11 +1,11 @@
 import Link from "next/link";
-import Image from "next/image";
 import { FaArrowLeft } from "react-icons/fa6";
-import { images } from "@/constants/2027/cloudinary_images";
 import type { Metadata } from "next";
 import { venue } from "@/constants/2027/venue";
 import MapLayoutCard from "@/components/2027/MapLayoutCard";
 import HeritageBadge from "@/components/2027/HeritageBadge";
+import BackButton from "@/components/2027/BackButton";
+
 
 export const metadata: Metadata = {
   title: "Venue",
@@ -24,12 +24,7 @@ export default function VenuePage() {
           </h1>
         </div>
 
-        <Link className="hidden md:block" href="/2027">
-          <button className="group flex items-center gap-2 px-6 py-3 border-2 border-ink bg-surface text-ink font-bold -translate-x-1 -translate-y-1 shadow-[4px_4px_0px_0px_var(--color-ink)] hover:bg-border active:translate-x-0 active:translate-y-0 active:shadow-none transition-all duration-150 cursor-pointer">
-            <FaArrowLeft className="w-4 h-4 transition-transform duration-200 group-hover:-translate-x-1" />
-            <span>Back to Home</span>
-          </button>
-        </Link>
+        <BackButton/>
       </div>
 
       {/* Content Section */}

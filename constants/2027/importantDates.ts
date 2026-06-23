@@ -3,7 +3,7 @@ import { ImportantDate } from "@/lib/types";
 export const IMPORTANT_DATES: ImportantDate[] = [
   {
     event: "Paper Deadline",
-    date: "August 17, 2026",
+    date: "September 01, 2026",
     note: "AoE"
   },
   {

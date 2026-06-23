@@ -1,20 +1,6 @@
 export const SUBMISSION_INSTRUCTIONS = {
   paragraphs: [
-    "Papers presenting original contributions related to the design, analysis, implementation, and experimental evaluation of efficient algorithms and data structures for problems with relevant real-world applications are sought, ideally bridging the gap between academia and industry.",
-  ],
-  guidelines: [
-    // {
-    //   label: "Lorem ipsum dolor",
-    //   desc: "Sit amet, consectetur adipiscing elit.",
-    // },
-    // {
-    //   label: "Donec feugiat",
-    //   desc: "Diam sit amet diam hendrerit, id pulvinar sem tempor.",
-    // },
-    // {
-    //   label: "Nullam egestas",
-    //   desc: "Magna non luctus vehicula, leo lorem molestie mi, id pellentesque arcu magna eget.",
-    // },
+    "Authors are invited to submit papers on original research on Applied Algorithms. Simultaneous submission to a journal or another conference with refereed proceedings is not allowed. Papers must be prepared using LaTeX/LaTeX2e and should not exceed 12 pages in Springer Verlag LNCS style. The LNCS style file must be used without altering margins and font size. The paper must be submitted as a .pdf file using Microsoft CMT. An appendix of a maximum of two pages may be added during submission to include additional results, and this will be read at the discretion of the reviewers.",
   ],
 };
 
@@ -24,14 +10,14 @@ export const TOPICS_OF_INTEREST = [
   "Computational Geometry",
   "Approximation Algorithms",
   "Randomized Algorithms",
-  "Spatial Information and GIS",
+  "Spatial Informatics and GIS",
   "Discrete Geometry",
   "Electronic Design Automation",
   "Algorithmic Microfluidics",
   "Social Network Analysis",
-  "Cryptography & Network Security",
+  "Cryptography  Network Security",
   "Energy Efficient Algorithms",
-  "Quantum Computation",
+  "Quantum Computing",
   "Number Theoretic Algorithms",
   "Machine Learning Algorithms",
   "Deep Learning Algorithms",
