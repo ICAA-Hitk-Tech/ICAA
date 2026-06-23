@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+// import Image from "next/image";
+// import { images } from "@/constants/2027/cloudinary_images";
 import {
   SUBMISSION_INSTRUCTIONS,
   TOPICS_OF_INTEREST,
@@ -60,41 +62,27 @@ const PaperSubmissionPage = () => {
                 {para}
               </p>
             ))}
-
-            {SUBMISSION_INSTRUCTIONS.guidelines.length > 0 && (
-              <div className="space-y-3 mt-6">
-                {SUBMISSION_INSTRUCTIONS.guidelines.map((guide, idx) => {
-                  const g = guide as { label?: string; desc?: string };
-
-                  return (
-                    <div
-                      key={idx}
-                      className="flex gap-3 items-start bg-surface/40 p-4 border border-border shadow-sm hover:border-ink-ghost transition-colors duration-150"
-                    >
-                      <span className="w-2.5 h-2.5 bg-grove-600 border border-ink rotate-45 shrink-0 mt-1.5" />
-                      <div className="text-sm leading-normal">
-                        {g.label ? (
-                          <span className="font-bold text-ink font-mono">
-                            {g.label}:
-                          </span>
-                        ) : null}{" "}
-                        {g.desc ? (
-                          <span className="text-ink-dim">{g.desc}</span>
-                        ) : null}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            )}
           </div>
         </div>
 
         {/* Right Column: Portal Control Card */}
         <div className="flex flex-col justify-start">
-          <SubmissionPannel
-            handleSubButtonClick={handleSubButtonClick}
-          />
+          <SubmissionPannel handleSubButtonClick={handleSubButtonClick} />
+          {/* Dedicated CMT Platform Capsule */}
+          {/* <div className="mt-5 border-2 border-ink bg-surface/40 p-4 shadow-[4px_4px_0px_0px_var(--color-ink)] flex items-center justify-between gap-4">
+            <span className="font-mono text-xs font-black text-ink uppercase tracking-wider">
+              Platform
+            </span>
+            <div className="relative w-28 h-8">
+              <Image
+                src={images.cmt}
+                alt="Microsoft CMT Logo"
+                fill
+                sizes="7rem"
+                className="object-contain"
+              />
+            </div>
+          </div> */}
         </div>
       </div>
 
@@ -113,10 +101,7 @@ const PaperSubmissionPage = () => {
         {/* Unified Topics Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {TOPICS_OF_INTEREST.map((topic, i) => (
-            <TopicCard
-              key={i}
-              topic={topic}
-            />
+            <TopicCard key={i} topic={topic} />
           ))}
         </div>
       </div>
