@@ -8,6 +8,8 @@ import BookCover from "@/components/2027/proceedings/BookCover";
 import BookSpread from "@/components/2027/proceedings/BookSpread";
 import NavigationTabs from "@/components/2027/proceedings/NavigationTabs";
 import PlaybackControls from "@/components/2027/proceedings/PlaybackControls";
+import Image from "next/image";
+import { images } from "@/constants/2027/cloudinary_images";
 
 export default function ProceedingsPage() {
   const [pageIndex, setPageIndex] = useState(0); // 0 = Cover, 1 = 2026, 2 = 2025, 3 = 2014
@@ -101,21 +103,32 @@ export default function ProceedingsPage() {
       </div>
 
       {/* Springer Collaboration Info Section */}
-      <div className="border-2 border-ink bg-surface p-6 md:p-8 shadow-[4px_4px_0px_0px_var(--color-ink)] flex flex-col md:flex-row justify-between items-center gap-6 mt-4">
+      <div className="border border-ink bg-surface p-6 md:p-8 shadow-[4px_4px_0px_0px_var(--color-ink)] flex flex-col md:flex-row justify-between items-center gap-6 mt-4">
         <div className="space-y-3">
           <h2 className="font-serif text-2xl font-black text-ink">
             Official Springer LNCS Series
           </h2>
-          <p className="text-sm text-ink-dim leading-relaxed">
-            All peer-reviewed papers accepted for presentation at ICAA 2026, ICAA 2025, and ICAA 2014 were 
-            published in collaboration with Springer Verlag within the renowned{" "}
-            <strong className="text-ink">
-              Lecture Notes in Computer Science (LNCS)
-            </strong>{" "}
-            series. Volumes are indexed in EI, Scopus, DBLP, and other major
-            indices.
-          </p>
+          <div className="flex flex-col">
+            <p className="text-sm text-ink-dim leading-relaxed text-justify">
+              All peer-reviewed papers accepted for presentation at ICAA 2026,
+              ICAA 2025, and ICAA 2014 were published in collaboration with
+              Springer Verlag within the renowned{" "}
+              <strong className="text-ink">
+                Lecture Notes in Computer Science (LNCS)
+              </strong>{" "}
+              series. Volumes are indexed in EI, Scopus, DBLP, and other major
+              indices.
+            </p>
+          </div>
         </div>
+
+        {/* <Image
+          src={images.springer}
+          alt="Springer Logo"
+          width={140}
+          height={48}
+          className="h-12 w-auto object-contain shrink-0 border border-ink bg-white mt-1 self-end sm:self-auto"
+        /> */}
       </div>
     </div>
   );
