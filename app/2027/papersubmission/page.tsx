@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-// import Image from "next/image";
-// import { images } from "@/constants/2027/cloudinary_images";
+import Image from "next/image";
+import { images } from "@/constants/2027/cloudinary_images";
 import {
   SUBMISSION_INSTRUCTIONS,
   TOPICS_OF_INTEREST,
@@ -63,6 +63,38 @@ const PaperSubmissionPage = () => {
               </p>
             ))}
           </div>
+          {/* <hr className="border-t-2 border-ink/10 my-1" />
+
+          <div className="flex flex-col-reverse sm:flex-row items-end sm:items-start justify-between gap-4">
+            <div className="flex flex-col gap-1 w-full">
+              <span className="font-mono text-xs uppercase tracking-wider text-ink-dim/60 font-bold">
+                Publication
+              </span>
+              <p className="font-serif text-base leading-snug text-ink text-justify sm:text-left">
+                Proceedings of past ICAA conferences were published as part of
+                the{" "}
+                <a
+                  href="https://link.springer.com/conference/icaa"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sea-700 hover:text-sea-700/80 font-black underline decoration-2 underline-offset-2 transition-colors duration-150"
+                >
+                  Springer Verlag LNCS
+                </a>{" "}
+                volume. Proceedings of ICAA 2027 will also be published by
+                Springer.
+              </p>
+            </div>
+            <Image
+              src={images.springer}
+              alt="Springer Logo"
+              width={140}
+              height={48}
+              className="h-12 w-auto object-contain shrink-0 border border-ink bg-white mt-1 self-end sm:self-auto"
+            />
+          </div>
+
+          <hr className="border-t-2 border-ink/10 my-1" /> */}
         </div>
 
         {/* Right Column: Portal Control Card */}
@@ -104,9 +136,21 @@ const PaperSubmissionPage = () => {
             <TopicCard key={i} topic={topic} />
           ))}
         </div>
+
+        {/* <div className="border border-ink bg-surface/40 p-6 shadow-[4px_4px_0px_0px_var(--color-ink)]">
+          <span className="font-mono text-xs uppercase tracking-wider font-bold text-ink-dim">
+            Note
+          </span>
+          <p className="mt-3 text-ink-dim leading-relaxed text-justify">
+            The Microsoft CMT service was used for managing the peer-review
+            process for this conference. This service was provided for free by
+            Microsoft and they bore all expenses, including costs for Azure
+            cloud services as well as for software development and support.
+          </p>
+        </div> */}
       </div>
     </div>
   );
-}
+};
 
 export default PaperSubmissionPage;
