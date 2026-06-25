@@ -148,7 +148,7 @@ const Announcements = () => {
             {/* Centralized View All Button at the bottom (shows on both mobile and desktop) */}
             <div className="mt-10 flex justify-center">
               <Link href="/2027/impdates">
-                <button className="group flex items-center relative px-8 py-3 border-2 border-ink bg-surface text-ink font-mono font-bold text-xs uppercase tracking-widest transition-all duration-150 cursor-pointer hover:bg-border shadow-[2px_2px_0px_0px_var(--color-ink)] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0 active:translate-y-0 active:shadow-none">
+                <button className="group flex items-center relative px-8 py-3 border border-ink bg-surface text-ink font-mono font-bold text-xs uppercase tracking-widest transition-all duration-150 cursor-pointer hover:bg-border shadow-[2px_2px_0px_0px_var(--color-ink)] active:translate-x-0 active:translate-y-0 active:shadow-none">
                   <BiCalendar className="w-5 h-5 mr-2" />
                   <span>View All Important Dates</span>
                   <FaArrowRight className="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1" />

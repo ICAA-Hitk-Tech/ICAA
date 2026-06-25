@@ -29,7 +29,7 @@ const PaperSubmissionPage = () => {
   }, [toastMessage]);
 
   return (
-    <div className="min-h-screen bg-paper text-ink px-6 pt-24 pb-24 max-w-7xl mx-auto flex flex-col gap-16 relative">
+    <div className="min-h-screen bg-paper text-ink px-6 pt-24 pb-24 max-w-7xl mx-auto flex flex-col gap-8 relative">
       {/* Toast Notification */}
       {toastMessage && (
         <CustomToast
