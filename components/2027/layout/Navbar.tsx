@@ -37,7 +37,6 @@ function DesktopDropdown({
       <button
         className="relative text-sm font-bold uppercase tracking-widest text-ink flex items-center gap-1 group focus:outline-none cursor-pointer"
         onClick={() => setOpen((v) => !v)}
-        aria-expanded={open}
       >
         <span className="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-grove-600 after:transition-all after:duration-200 group-hover:after:w-full">
           {item.label}
@@ -292,14 +291,13 @@ const Navbar = () => {
             href="https://www.heritageit.edu/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:opacity-90 transition-opacity"
           >
             <Image
               src={images.heritage}
               alt="Heritage logo"
               width={60}
               height={60}
-              className="w-10 h-10 lg:w-15 lg:h-15 rounded-full object-cover"
+              className="w-11 h-11 lg:w-15 lg:h-15 object-cover"
             />
           </a>
           <Link href="/2027" className="hover:opacity-90 transition-opacity">
@@ -308,9 +306,23 @@ const Navbar = () => {
               alt="ICAA logo"
               width={120}
               height={60}
-              className="w-20 h-10 lg:w-30 lg:h-15 rounded-full object-contain"
+              className="w-25 h-10 lg:w-30 lg:h-15 object-contain"
             />
           </Link>
+          <a
+            href="https://www.springer.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:opacity-90 transition-opacity"
+          >
+            <Image
+              src={images.springer}
+              alt="Springer logo"
+              width={140}
+              height={60}
+              className="w-20 h-10 lg:w-28 lg:h-15 object-contain"
+            />
+          </a>
         </div>
 
         {/* Desktop nav */}

@@ -60,22 +60,19 @@ const Footer = () => {
                 <Image
                   src={images.heritage}
                   alt="Heritage logo"
-                  width={64}
-                  height={64}
-                  className="rounded-full object-cover"
+                  width={60}
+                  height={60}
+                  className="w-13 h-13 lg:w-15 lg:h-15 object-cover"
                 />
               </a>
 
-              <a
-                href="/2027"
-                className="hover:opacity-90 transition-opacity"
-              >
+              <a href="/2027" className="hover:opacity-90 transition-opacity">
                 <Image
                   src={images.icaa}
                   alt="ICAA logo"
                   width={120}
                   height={60}
-                  className="rounded-full object-contain px-2"
+                  className="w-28 h-13 lg:w-32 lg:h-18 object-contain"
                 />
               </a>
             </div>

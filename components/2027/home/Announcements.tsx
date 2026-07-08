@@ -132,7 +132,7 @@ const Announcements = () => {
                         key={i}
                         type="button"
                         onClick={() => setCurrentPage(i)}
-                        className={`h-2.5 w-2.5 rotate-45 border-2 border-ink transition-all duration-300 cursor-pointer ${
+                        className={`h-2 w-2 rotate-45 border-2 border-ink transition-all duration-300 cursor-pointer ${
                           i === currentPage
                             ? "bg-grove-600 scale-125"
                             : "bg-ink/10 hover:bg-ink/30"

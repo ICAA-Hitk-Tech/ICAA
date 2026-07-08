@@ -122,13 +122,13 @@ export default function ProceedingsPage() {
           </div>
         </div>
 
-        {/* <Image
+        <Image
           src={images.springer}
           alt="Springer Logo"
           width={140}
           height={48}
           className="h-12 w-auto object-contain shrink-0 border border-ink bg-white mt-1 self-end sm:self-auto"
-        /> */}
+        />
       </div>
     </div>
   );

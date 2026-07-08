@@ -1,7 +1,7 @@
 export const images = {
   heritage:
-    "https://res.cloudinary.com/dbazcvqyt/image/upload/q_auto/f_auto/v1781079617/heritage_lvmkid.png",
-  icaa: "https://res.cloudinary.com/dbazcvqyt/image/upload/v1781079219/icaa_d3q68i.png",
+    "https://res.cloudinary.com/dbazcvqyt/image/upload/v1783495289/heritage_logo.png",
+  icaa: "https://res.cloudinary.com/dbazcvqyt/image/upload/v1783491948/icaa_logo.png",
   footer:
     "https://res.cloudinary.com/dbazcvqyt/image/upload/v1781079219/footer_ldogms.png",
   springer:
@@ -47,5 +47,6 @@ export const images = {
     "https://res.cloudinary.com/dvapbwk7l/image/upload/v1781467830/2026_o2iqv3.jpg",
   Springer2025:
     "https://res.cloudinary.com/dvapbwk7l/image/upload/v1781467830/2025_zedfr5.jpg",
-  Springer2014: "https://res.cloudinary.com/dvapbwk7l/image/upload/v1781467830/2014_c4cbfw.jpg",
+  Springer2014:
+    "https://res.cloudinary.com/dvapbwk7l/image/upload/v1781467830/2014_c4cbfw.jpg",
 };
