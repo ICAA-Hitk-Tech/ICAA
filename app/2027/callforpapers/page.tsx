@@ -44,7 +44,7 @@ export default function CallForPapersPage() {
             </p>
           </div>
 
-          {/* <hr className="border-t-2 border-ink/10 my-1" />
+          <hr className="border-t-2 border-ink/10 my-1" />
 
           <div className="flex flex-row items-start justify-between gap-4">
             <div className="flex flex-col gap-1">
@@ -73,7 +73,7 @@ export default function CallForPapersPage() {
             />
           </div>
 
-          <hr className="border-t-2 border-ink/10 my-1" /> */}
+          <hr className="border-t-2 border-ink/10 my-1" />
 
           {/* Prominent Call to Action - Download CFP */}
           <div className="bg-surface border border-ink p-6 md:p-8 shadow-[4px_4px_0px_0px_var(--color-ink)] flex flex-col md:flex-row items-center justify-between gap-6">

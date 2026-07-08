@@ -2,10 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { FaEnvelope } from "react-icons/fa6";
 import { images } from "@/constants/2027/cloudinary_images";
 import {
   SUBMISSION_INSTRUCTIONS,
   TOPICS_OF_INTEREST,
+  IMPORTANT_POINTS,
 } from "@/constants/2027/paperSubmission";
 import BackButton from "@/components/2027/BackButton";
 import CustomToast from "@/components/2027/CustomToast";
@@ -63,9 +65,9 @@ const PaperSubmissionPage = () => {
               </p>
             ))}
           </div>
-          {/* <hr className="border-t-2 border-ink/10 my-1" />
+          <hr className="border-t-2 border-ink/10 my-1" />
 
-          <div className="flex flex-col-reverse sm:flex-row items-end sm:items-start justify-between gap-4">
+          <div className="flex flex-col sm:flex-row items-end sm:items-start justify-between gap-4">
             <div className="flex flex-col gap-1 w-full">
               <span className="font-mono text-xs uppercase tracking-wider text-ink-dim/60 font-bold">
                 Publication
@@ -94,7 +96,7 @@ const PaperSubmissionPage = () => {
             />
           </div>
 
-          <hr className="border-t-2 border-ink/10 my-1" /> */}
+          <hr className="border-t-2 border-ink/10 my-1" />
         </div>
 
         {/* Right Column: Portal Control Card */}
@@ -148,6 +150,74 @@ const PaperSubmissionPage = () => {
             cloud services as well as for software development and support.
           </p>
         </div> */}
+      </div>
+
+      {/* Important Points Section */}
+      <div className="flex flex-col gap-8 border-t-2 border-ink pt-12">
+        <h2 className="font-serif text-3xl font-bold text-ink">
+          Important Points To Be Noted
+        </h2>
+
+        <ol className="flex flex-col gap-5 list-decimal list-inside marker:font-bold marker:text-ink">
+          {IMPORTANT_POINTS.map((point, idx) => (
+            <li
+              key={idx}
+              className="text-ink-dim leading-relaxed text-justify pl-1"
+            >
+              <span className="text-ink">{point.text}</span>
+              {point.link && (
+                <>
+                  {" "}
+                  <a
+                    href={point.link.url}
+                    target={
+                      point.link.url.startsWith("mailto:")
+                        ? undefined
+                        : "_blank"
+                    }
+                    rel={
+                      point.link.url.startsWith("mailto:")
+                        ? undefined
+                        : "noopener noreferrer"
+                    }
+                    className="text-sea-700 hover:text-sea-700/80 font-black underline decoration-2 underline-offset-2 transition-colors duration-150"
+                  >
+                    {point.link.label}
+                  </a>
+                  .
+                </>
+              )}
+
+              {point.subPoints && (
+                <ol className="mt-3 flex flex-col gap-2 list-[lower-alpha] list-inside pl-4">
+                  {point.subPoints.map((sub, subIdx) => (
+                    <li
+                      key={subIdx}
+                      className="text-ink-dim leading-relaxed text-justify"
+                    >
+                      {sub.text}
+                    </li>
+                  ))}
+                </ol>
+              )}
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      {/* Email Conference Help Desk */}
+      <div className="pt-2 flex flex-col items-center gap-4">
+        <p className="text-ink-dim text-sm md:text-base leading-relaxed text-center max-w-2xl">
+          For assistance, please contact our help desk.
+        </p>
+
+        <a
+          href="mailto:icaa@heritageit.edu"
+          className="group inline-flex items-center gap-2 px-6 py-3 border border-ink bg-chrome-400 text-ink font-mono font-bold text-xs uppercase tracking-widest hover:bg-paper transition-all duration-150 shadow-[3px_3px_0px_0px_var(--color-ink)] hover:shadow-[5px_5px_0px_0px_var(--color-ink)] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0 active:translate-y-0 active:shadow-none text-center"
+        >
+          <FaEnvelope className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
+          <span>Email Conference Help Desk</span>
+        </a>
       </div>
     </div>
   );
