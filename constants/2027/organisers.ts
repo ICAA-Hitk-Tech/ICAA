@@ -39,7 +39,7 @@ export const ADVISORS: OrganiserMember[] = [
 export const STEERING_COMMITTEE_CHAIRS: OrganiserMember[] = [
   {
     name: "Bhargab B. Bhattacharya",
-    institution: "Indian Statistical Institute, Kolkata",
+    institution: " IIEST Shibpur, Howrah, India",
   },
   {
     name: "Sandeep Sen",
@@ -67,14 +67,14 @@ export const PUBLICITY_CHAIRS: OrganiserMember[] = [
     institution: "Heritage Institute of Technology, Kolkata, India",
   },
   {
-    name: "Poulami Das",
+    name: "Nilanjana G. Basu",
     institution: "Heritage Institute of Technology, Kolkata, India",
   },
 ];
 
 export const REGISTRATION_CHAIRS: OrganiserMember[] = [
   {
-    name: "Nilanjana G. Basu",
+    name: "Poulami Das",
     institution: "Heritage Institute of Technology, Kolkata, India",
   },
   {

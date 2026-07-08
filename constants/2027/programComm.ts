@@ -156,6 +156,10 @@ export const PROGRAM_COMMITTEE: ProgramCommitteeMember[] = [
     institution: "Heritage Institute of Technology, Kolkata, India",
   },
   {
+    name: "Saladi Rahul",
+    institution: "IISc Bangalore, India",
+  },
+  {
     name: "Samarjit Chakrabarty",
     institution: "University of North Carolina, USA",
   },
@@ -211,6 +215,10 @@ export const PROGRAM_COMMITTEE: ProgramCommitteeMember[] = [
   {
     name: "Uroš Čibej",
     institution: "University of Ljubljana, Slovenia",
+  },
+  {
+    name: "Vikas Malviya",
+    institution: "MIE-SPPU Institute of Higher Education, Doha, Qatar",
   },
   {
     name: "Vikas Upadhyaya",
