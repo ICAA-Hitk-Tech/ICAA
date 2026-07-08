@@ -46,13 +46,14 @@ export default function CallForPapersPage() {
 
           <hr className="border-t-2 border-ink/10 my-1" />
 
-          <div className="flex flex-row items-start justify-between gap-4">
-            <div className="flex flex-col gap-1">
+          <div className="flex flex-col sm:flex-row items-end sm:items-start justify-between gap-4">
+            <div className="flex flex-col gap-1 w-full">
               <span className="font-mono text-xs uppercase tracking-wider text-ink-dim/60 font-bold">
                 Publication
               </span>
-              <p className="font-serif text-base leading-snug text-ink">
-                Proceedings of ICAA 2027 will be published as part of the{" "}
+              <p className="font-serif text-base leading-snug text-ink text-justify sm:text-left">
+                Proceedings of ICAA 2027 will be published as part of the
+                {" "}
                 <a
                   href="https://link.springer.com/conference/icaa"
                   target="_blank"
@@ -69,7 +70,7 @@ export default function CallForPapersPage() {
               alt="Springer Logo"
               width={140}
               height={48}
-              className="h-12 w-auto object-contain shrink-0 border border-ink bg-white mt-1"
+              className="h-12 w-auto object-contain shrink-0 border border-ink bg-white mt-1 self-end sm:self-auto"
             />
           </div>
 
