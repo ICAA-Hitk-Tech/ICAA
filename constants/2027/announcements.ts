@@ -12,7 +12,7 @@ export const ANNOUNCEMENTS: Announcement[] = [
   },
   {
     header: "ICAA 27 Proceedings",
-    date: "08 July, 2026",
+    date: "Jul 08, 2026",
     desc: "Proceedings of ICAA 2027 will be published as part of the Springer Verlag LNCS volume.",
   },
   {
