@@ -6,7 +6,7 @@ export interface OrganiserMember {
 export const ADVISORS: OrganiserMember[] = [
   {
     name: "H. K. Chaudhary",
-    institution: "Chairman, Kalyan Bharati Trust",
+    institution: "Chairman, Kalyan Bharti Trust",
   },
   {
     name: "P R Agarwala",
@@ -15,7 +15,7 @@ export const ADVISORS: OrganiserMember[] = [
   },
   {
     name: "P. K. Agarwal",
-    institution: "CEO, Kalyan Bharati Trust",
+    institution: "CEO, Kalyan Bharti Trust",
   },
   {
     name: "Basab Chaudhuri",
@@ -27,7 +27,7 @@ export const ADVISORS: OrganiserMember[] = [
   },
   {
     name: "Souvik Bhattacharyya",
-    institution: "Principal Advisor, Higher Education, Kalyan Bharati Trust",
+    institution: "Principal Advisor, Higher Education, Kalyan Bharti Trust",
   },
   {
     name: "Amitava Bagchi",
