@@ -1,6 +1,6 @@
 export const ACTIVE_YEAR = 2027;
-export const PREVIOUS_YEARS = [2014, 2025, 2026];
-export const SITE_URL = process.env.SITE_URL || "https://www.icaa.co.in";
+export const PREVIOUS_YEARS = [2026, 2025, 2014];
+export const SITE_URL = process.env.SITE_URL
 
 // Custom external/internal links for each conference year
 export const YEAR_LINKS: Record<number, string> = {
