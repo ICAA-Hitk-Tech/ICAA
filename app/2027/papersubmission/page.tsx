@@ -18,7 +18,7 @@ const PaperSubmissionPage = () => {
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   const handleSubButtonClick = () => {
-    setToastMessage("Paper submission to open soon.");
+    setToastMessage("Paper submission opens on August 01, 2026. Please check back then.");
   };
 
   useEffect(() => {
@@ -139,7 +139,7 @@ const PaperSubmissionPage = () => {
           ))}
         </div>
 
-        {/* <div className="border border-ink bg-surface/40 p-6 shadow-[4px_4px_0px_0px_var(--color-ink)]">
+        <div className="border border-ink bg-surface/40 p-6 shadow-[4px_4px_0px_0px_var(--color-ink)]">
           <span className="font-mono text-xs uppercase tracking-wider font-bold text-ink-dim">
             Note
           </span>
@@ -149,7 +149,7 @@ const PaperSubmissionPage = () => {
             Microsoft and they bore all expenses, including costs for Azure
             cloud services as well as for software development and support.
           </p>
-        </div> */}
+        </div>
       </div>
 
       {/* Important Points Section */}
