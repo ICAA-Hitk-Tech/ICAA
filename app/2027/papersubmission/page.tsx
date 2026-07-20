@@ -50,7 +50,9 @@ const PaperSubmissionPage = () => {
 
         <BackButton />
       </div>
-
+      <p>
+        The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
+      </p>
       {/* Submission Instructions & Portal Status Card */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
         {/* Left Column: Instructions */}
@@ -139,17 +141,14 @@ const PaperSubmissionPage = () => {
           ))}
         </div>
 
-        <div className="border border-ink bg-surface/40 p-6 shadow-[4px_4px_0px_0px_var(--color-ink)]">
+        {/* <div className="border border-ink bg-surface/40 p-6 shadow-[4px_4px_0px_0px_var(--color-ink)]">
           <span className="font-mono text-xs uppercase tracking-wider font-bold text-ink-dim">
             Note
           </span>
-          <p className="mt-3 text-ink-dim leading-relaxed text-justify">
-            The Microsoft CMT service was used for managing the peer-review
-            process for this conference. This service was provided for free by
-            Microsoft and they bore all expenses, including costs for Azure
-            cloud services as well as for software development and support.
+          <p className="mt-3 text-ink-dim text-justify">
+            The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
           </p>
-        </div>
+        </div> */}
       </div>
 
       {/* Important Points Section */}
