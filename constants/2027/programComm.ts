@@ -210,7 +210,7 @@ export const PROGRAM_COMMITTEE: ProgramCommitteeMember[] = [
   },
   {
     name: "Trupil Limbasiya",
-    institution: "Bennet University, India",
+    institution: "University of Aberdeen, Mumbai, India",
   },
   {
     name: "Uroš Čibej",
