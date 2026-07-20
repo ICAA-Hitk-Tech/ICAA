@@ -6,14 +6,19 @@ export type Announcement = {
 
 export const ANNOUNCEMENTS: Announcement[] = [
   {
-    header: "ICAA 27 Paper Submission Deadline",
-    date: "Sept 01, 2026",
+    header: "ICAA 27 Paper Submission Portal Opens",
+    date: "Aug 01, 2026",
     desc: "Papers presenting original contributions related to the design, analysis, and implementation of algorithms are sought.",
   },
   {
     header: "ICAA 27 Proceedings",
     date: "Jul 08, 2026",
     desc: "Proceedings of ICAA 2027 will be published as part of the Springer Verlag LNCS volume.",
+  },
+  {
+    header: "ICAA 27 Paper Submission Deadline",
+    date: "Sept 01, 2026",
+    desc: "Papers presenting original contributions related to the design, analysis, and implementation of algorithms are sought.",
   },
   {
     header: "Welcome to ICAA 2027!",
