@@ -18,7 +18,7 @@ const PaperSubmissionPage = () => {
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   const handleSubButtonClick = () => {
-    setToastMessage("Paper submission opens on August 01, 2026. Please check back then.");
+    setToastMessage("Paper submission portal opens on August 01, 2026. Please check back then.");
   };
 
   useEffect(() => {
@@ -50,9 +50,10 @@ const PaperSubmissionPage = () => {
 
         <BackButton />
       </div>
-      <p>
+      {/* This strip will be required in future also when CMT would require to crawl the page; when the page is submitted for the 1st time for aproval by CMT */}
+      {/* <p>
         The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
-      </p>
+      </p> */}
       {/* Submission Instructions & Portal Status Card */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
         {/* Left Column: Instructions */}
@@ -105,7 +106,7 @@ const PaperSubmissionPage = () => {
         <div className="flex flex-col justify-start">
           <SubmissionPannel handleSubButtonClick={handleSubButtonClick} />
           {/* Dedicated CMT Platform Capsule */}
-          {/* <div className="mt-5 border-2 border-ink bg-surface/40 p-4 shadow-[4px_4px_0px_0px_var(--color-ink)] flex items-center justify-between gap-4">
+          <div className="mt-5 border-2 border-ink bg-surface/40 p-4 shadow-[4px_4px_0px_0px_var(--color-ink)] flex items-center justify-between gap-4">
             <span className="font-mono text-xs font-black text-ink uppercase tracking-wider">
               Platform
             </span>
@@ -118,7 +119,7 @@ const PaperSubmissionPage = () => {
                 className="object-contain"
               />
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
 
@@ -141,14 +142,14 @@ const PaperSubmissionPage = () => {
           ))}
         </div>
 
-        {/* <div className="border border-ink bg-surface/40 p-6 shadow-[4px_4px_0px_0px_var(--color-ink)]">
+        <div className="border border-ink bg-surface/40 p-6 shadow-[3px_3px_0px_0px_var(--color-ink)]">
           <span className="font-mono text-xs uppercase tracking-wider font-bold text-ink-dim">
             Note
           </span>
           <p className="mt-3 text-ink-dim text-justify">
             The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
           </p>
-        </div> */}
+        </div>
       </div>
 
       {/* Important Points Section */}
