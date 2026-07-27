@@ -14,6 +14,10 @@ export const PROGRAM_COMMITTEE: ProgramCommitteeMember[] = [
     institution: "Lund University, Sweden",
   },
   {
+    name: "Anindya Halder",
+    institution: "North Eastern Hill University, India",
+  },
+  {
     name: "Anirban Bhar",
     institution: "SRM University, India",
   },
@@ -32,6 +36,10 @@ export const PROGRAM_COMMITTEE: ProgramCommitteeMember[] = [
   {
     name: "Arijit Karati",
     institution: "National Sun Yat-Sen University, Taiwan",
+  },
+  {
+    name: "B. Uma Shankar",
+    institution: "ISI Kolkata, India",
   },
   {
     name: "Bhaskar Dasgupta",
@@ -53,6 +61,10 @@ export const PROGRAM_COMMITTEE: ProgramCommitteeMember[] = [
   {
     name: "Daniele Frigioni",
     institution: "University of L'Aquila, Via Vetoio, Italy",
+  },
+  {
+    name: "Deba Prasad Mandal",
+    institution: "ISI Kolkata, India",
   },
   {
     name: "Debranjan Sarkar",
@@ -136,6 +148,10 @@ export const PROGRAM_COMMITTEE: ProgramCommitteeMember[] = [
     role: "Co-Chair",
   },
   {
+    name: "Rajat K. De",
+    institution: "ISI Kolkata, India",
+  },
+  {
     name: "Ram Narayan Yadav",
     institution: "IITRAM, Ahmedabad, India",
   },
@@ -201,8 +217,16 @@ export const PROGRAM_COMMITTEE: ProgramCommitteeMember[] = [
     institution: "Heritage Institute of Technology, Kolkata, India",
   },
   {
+    name: "Suman Kundu",
+    institution: "IIT Madras, India",
+  },
+  {
     name: "Suman Sanyal",
     institution: "Goa Institute of Management, India",
+  },
+  {
+    name: "Swarup K. Roy",
+    institution: "Tezpur University, India",
   },
   {
     name: "Tathagata Bhattacharya",
