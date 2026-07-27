@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FaMagnifyingGlass } from "react-icons/fa6";
+import { FaMagnifyingGlass, FaXmark } from "react-icons/fa6";
 import { PROGRAM_COMMITTEE } from "@/constants/2027/programComm";
 import { ProgramCommitteeMember } from "@/lib/types";
 import BackButton from "@/components/2027/BackButton";
@@ -28,7 +28,7 @@ const ProgramCommitteePage = () => {
   const totalResults = filteredCoChairs.length + filteredRegularMembers.length;
 
   return (
-    <div className="min-h-screen bg-paper text-ink px-6 pt-24 pb-24 max-w-6xl mx-auto flex flex-col gap-12">
+    <div className="min-h-screen bg-paper text-ink px-6 pt-24 pb-24 max-w-6xl mx-auto flex flex-col gap-6">
       {/* Header section */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b-2 border-ink pb-8">
         <div>
@@ -41,17 +41,35 @@ const ProgramCommitteePage = () => {
       </div>
 
       {/* Search Bar */}
-      <div className="w-full max-w-md relative">
-        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-ink-dim">
-          <FaMagnifyingGlass className="w-4 h-4" />
+      <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+        <div className="w-full sm:max-w-md relative">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-ink-dim">
+            <FaMagnifyingGlass className="w-4 h-4" />
+          </div>
+          <input
+            type="text"
+            placeholder="Search by name or institution..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full pl-10 pr-10 py-3 border border-ink bg-surface text-ink font-sans text-sm focus:outline-none focus:bg-paper shadow-[3px_3px_0px_0px_var(--color-ink)] transition-all duration-150"
+          />
+          {searchTerm && (
+            <button
+              type="button"
+              onClick={() => setSearchTerm("")}
+              aria-label="Clear search"
+              className="absolute inset-y-0 right-0 pr-3 flex items-center text-ink-dim hover:text-ink transition-colors duration-150"
+            >
+              <FaXmark className="w-4 h-4" />
+            </button>
+          )}
         </div>
-        <input
-          type="text"
-          placeholder="Search by name or institution..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full pl-10 pr-4 py-3 border-2 border-ink bg-surface text-ink font-sans text-sm focus:outline-none focus:bg-paper shadow-[3px_3px_0px_0px_var(--color-ink)] transition-all duration-150"
-        />
+
+        {searchTerm && (
+          <span className="font-mono text-xs uppercase tracking-widest text-ink-dim shrink-0">
+            {totalResults} {totalResults === 1 ? "result" : "results"}
+          </span>
+        )}
       </div>
 
       {totalResults > 0 ? (
@@ -83,10 +101,7 @@ const ProgramCommitteePage = () => {
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {filteredRegularMembers.map((member, idx) => (
-                  <ProgramCommitteeCard
-                    key={`member-${idx}`}
-                    member={member}
-                  />
+                  <ProgramCommitteeCard key={`member-${idx}`} member={member} />
                 ))}
               </div>
             </div>
@@ -104,6 +119,6 @@ const ProgramCommitteePage = () => {
       )}
     </div>
   );
-}
+};
 
 export default ProgramCommitteePage;
