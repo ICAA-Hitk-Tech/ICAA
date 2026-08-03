@@ -94,7 +94,7 @@ const PaperSubmissionPage = () => {
           </div>
           <hr className="border-t-2 border-ink/10 my-1" />
           {/* Redesigned Publication Block */}
-          <div className="flex flex-col-reverse sm:flex-row items-end sm:items-start justify-between gap-4">
+          <div className="flex flex-col sm:flex-row items-end sm:items-start justify-between gap-4">
             <div className="flex flex-col gap-1 w-full">
               <span className="font-mono text-xs uppercase tracking-wider text-ink-dim/60 font-bold">
                 Publication
