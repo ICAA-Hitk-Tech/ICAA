@@ -14,11 +14,38 @@ import CustomToast from "@/components/2027/CustomToast";
 import SubmissionPannel from "@/components/2027/paper_submission/SubmissionPannel";
 import TopicCard from "@/components/2027/paper_submission/TopicCard";
 
+// Manual portal state control — no date/time automation.
+// Precedence: IS_CLOSED > IS_LIVE > upcoming (both false).
+const IS_LIVE = true;
+const IS_CLOSED = false;
+
+const TOAST_MESSAGES = {
+  closed: "The submission portal is now closed.",
+  upcoming: "The submission portal has not opened yet.",
+  misconfigured: "Submission link is not configured in the environment.",
+};
+
 const PaperSubmissionPage = () => {
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   const handleSubButtonClick = () => {
-    setToastMessage("Paper submission portal opens on August 01, 2026. Please check back then.");
+    if (IS_CLOSED) {
+      setToastMessage(TOAST_MESSAGES.closed);
+      return;
+    }
+
+    if (!IS_LIVE) {
+      setToastMessage(TOAST_MESSAGES.upcoming);
+      return;
+    }
+
+    const submissionUrl = process.env.NEXT_PUBLIC_SUBMISSION_URL;
+
+    if (submissionUrl) {
+      window.open(submissionUrl, "_blank", "noopener,noreferrer");
+    } else {
+      setToastMessage(TOAST_MESSAGES.misconfigured);
+    }
   };
 
   useEffect(() => {
@@ -31,7 +58,7 @@ const PaperSubmissionPage = () => {
   }, [toastMessage]);
 
   return (
-    <div className="min-h-screen bg-paper text-ink px-6 pt-24 pb-24 max-w-7xl mx-auto flex flex-col gap-8 relative">
+    <div className="min-h-screen bg-paper text-ink px-6 pt-24 pb-24 max-w-7xl mx-auto flex flex-col gap-16 relative">
       {/* Toast Notification */}
       {toastMessage && (
         <CustomToast
@@ -50,10 +77,7 @@ const PaperSubmissionPage = () => {
 
         <BackButton />
       </div>
-      {/* This strip will be required in future also when CMT would require to crawl the page; when the page is submitted for the 1st time for aproval by CMT */}
-      {/* <p>
-        The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
-      </p> */}
+
       {/* Submission Instructions & Portal Status Card */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
         {/* Left Column: Instructions */}
@@ -69,8 +93,8 @@ const PaperSubmissionPage = () => {
             ))}
           </div>
           <hr className="border-t-2 border-ink/10 my-1" />
-
-          <div className="flex flex-col sm:flex-row items-end sm:items-start justify-between gap-4">
+          {/* Redesigned Publication Block */}
+          <div className="flex flex-col-reverse sm:flex-row items-end sm:items-start justify-between gap-4">
             <div className="flex flex-col gap-1 w-full">
               <span className="font-mono text-xs uppercase tracking-wider text-ink-dim/60 font-bold">
                 Publication
@@ -79,7 +103,7 @@ const PaperSubmissionPage = () => {
                 Proceedings of past ICAA conferences were published as part of
                 the{" "}
                 <a
-                  href="https://link.springer.com/conference/icaa"
+                  href="https://www.springer.com/gp/computer-science/lncs"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sea-700 hover:text-sea-700/80 font-black underline decoration-2 underline-offset-2 transition-colors duration-150"
@@ -98,13 +122,16 @@ const PaperSubmissionPage = () => {
               className="h-12 w-auto object-contain shrink-0 border border-ink bg-white mt-1 self-end sm:self-auto"
             />
           </div>
-
           <hr className="border-t-2 border-ink/10 my-1" />
         </div>
 
         {/* Right Column: Portal Control Card */}
         <div className="flex flex-col justify-start">
-          <SubmissionPannel handleSubButtonClick={handleSubButtonClick} />
+          <SubmissionPannel
+            handleSubButtonClick={handleSubButtonClick}
+            isLive={IS_LIVE}
+            isClosed={IS_CLOSED}
+          />
           {/* Dedicated CMT Platform Capsule */}
           <div className="mt-5 border-2 border-ink bg-surface/40 p-4 shadow-[4px_4px_0px_0px_var(--color-ink)] flex items-center justify-between gap-4">
             <span className="font-mono text-xs font-black text-ink uppercase tracking-wider">
@@ -147,7 +174,10 @@ const PaperSubmissionPage = () => {
             Note
           </span>
           <p className="mt-3 text-ink-dim text-justify">
-            The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
+            The Microsoft CMT service was used for managing the peer-reviewing
+            process for this conference. This service was provided for free by
+            Microsoft and they bore all expenses, including costs for Azure
+            cloud services as well as for software development and support.
           </p>
         </div>
       </div>
