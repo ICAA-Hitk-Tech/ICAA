@@ -95,6 +95,10 @@ export const PROGRAM_COMMITTEE: ProgramCommitteeMember[] = [
     institution: "IIT Dhanbad, India",
   },
   {
+    name: "Krishnendu Ghosh",
+    institution: "College of Charleston, USA",
+  },
+  {
     name: "Kushal Shah",
     institution: "UTMT Bhopal, India",
   },
@@ -202,6 +206,10 @@ export const PROGRAM_COMMITTEE: ProgramCommitteeMember[] = [
   {
     name: "Subhajit Datta",
     institution: "Heritage Institute of Technology, Kolkata, India",
+  },
+  {
+    name: "Subhamoy Maitra",
+    institution: "ISI Kolkata, India",
   },
   {
     name: "Subhashis Majumder",
