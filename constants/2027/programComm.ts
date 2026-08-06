@@ -120,7 +120,8 @@ export const PROGRAM_COMMITTEE: ProgramCommitteeMember[] = [
   },
   {
     name: "Nilanjana G. Basu",
-    institution: "Heritage Institute of Technology, Kolkata, India",
+    institution:
+      "Institute of Engineering and Management, Salt Lake, Kolkata, India",
   },
   {
     name: "Nilina Bera",
