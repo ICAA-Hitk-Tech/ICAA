@@ -43,7 +43,7 @@ export const STEERING_COMMITTEE_CHAIRS: OrganiserMember[] = [
   },
   {
     name: "Sandeep Sen",
-    institution: "Ashoka University, Sonepat, Haryana",
+    institution: "Indraprastha Institute of Information Technology (IIIT) Delhi, India",
   },
 ];
 
@@ -68,7 +68,7 @@ export const PUBLICITY_CHAIRS: OrganiserMember[] = [
   },
   {
     name: "Nilanjana G. Basu",
-    institution: "Heritage Institute of Technology, Kolkata, India",
+    institution: "Institute of Engineering and Management, Salt Lake, Kolkata, India",
   },
 ];
 

@@ -38,6 +38,10 @@ export const PROGRAM_COMMITTEE: ProgramCommitteeMember[] = [
     institution: "National Sun Yat-Sen University, Taiwan",
   },
   {
+    name: "Asit Kumar Das",
+    institution: "IIEST Shibpur, Howrah, India",
+  },
+  {
     name: "B. Uma Shankar",
     institution: "ISI Kolkata, India",
   },
