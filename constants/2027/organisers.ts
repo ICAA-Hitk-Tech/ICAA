@@ -43,7 +43,8 @@ export const STEERING_COMMITTEE_CHAIRS: OrganiserMember[] = [
   },
   {
     name: "Sandeep Sen",
-    institution: "Indraprastha Institute of Information Technology (IIIT) Delhi, India",
+    institution:
+      "Indraprastha Institute of Information Technology (IIIT) Delhi, India",
   },
 ];
 
@@ -68,7 +69,12 @@ export const PUBLICITY_CHAIRS: OrganiserMember[] = [
   },
   {
     name: "Nilanjana G. Basu",
-    institution: "Institute of Engineering and Management, Salt Lake, Kolkata, India",
+    institution:
+      "Institute of Engineering & Management, SaltLake, Kolkata, India",
+  },
+  {
+    name: "Reshma Roychoudhuri",
+    institution: "Heritage Institute of Technology, Kolkata, India",
   },
 ];
 
