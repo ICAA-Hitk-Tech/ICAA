@@ -8,4 +8,4 @@ export const CFP_PUBLICATION_NOTE =
 
 /** Relative path for the downloadable PDF — place the file in /public */
 export const CFP_PDF_PATH =
-  "https://drive.google.com/file/d/13PUyL9VseiokjiYgA9mA20cvOWj9ZNp_/view?usp=sharing";
+  "https://drive.google.com/file/d/1j3xnUyzf0HerIXCYZ43ozDk6TqGYKFz9/view?usp=sharing";

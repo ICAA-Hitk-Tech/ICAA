@@ -99,6 +99,10 @@ export const PROGRAM_COMMITTEE: ProgramCommitteeMember[] = [
     institution: "IIT Dhanbad, India",
   },
   {
+    name: "Joydeep Das",
+    institution: "The Heritage Academy, Kolkata, India",
+  },
+  {
     name: "Krishnendu Ghosh",
     institution: "College of Charleston, USA",
   },
