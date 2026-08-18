@@ -14,7 +14,7 @@ export default function KeynoteSpeakersPage() {
   const hasSpeakers = KEYNOTE_SPEAKERS.length > 0;
 
   return (
-    <div className="min-h-screen bg-paper text-ink px-4 md:px-6 pt-24 pb-16 max-w-6xl mx-auto flex flex-col gap-10">
+    <div className="bg-paper text-ink px-4 md:px-6 pt-24 pb-16 max-w-6xl mx-auto flex flex-col gap-10">
       {/* ── Header ──────────────────────────────────────────────────────────── */}
       <div className="flex justify-between items-center border-b-2 border-ink pb-4">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-black text-ink">
@@ -25,6 +25,7 @@ export default function KeynoteSpeakersPage() {
 
       {/* ── Content (n * 2 Grid) ────────────────────────────────────────────── */}
       {hasSpeakers ? (
+        <>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {KEYNOTE_SPEAKERS.map((speaker, idx) => {
             return (
@@ -109,6 +110,19 @@ export default function KeynoteSpeakersPage() {
             );
           })}
         </div>
+      {/* More speakers announcement banner */}
+          <div className="flex items-center gap-4 max-w-3xl mx-auto w-full border-2 border-ink bg-surface shadow-[3px_3px_0px_0px_var(--color-ink)] px-5 py-4 md:px-6 md:py-5">
+            <div className="flex flex-col">
+              <p className="font-serif text-sm md:text-base font-bold text-ink">
+                More Keynote Speakers Coming Soon
+              </p>
+              <p className="font-sans text-xs md:text-sm text-ink-dim leading-relaxed">
+                Additional keynote speakers for ICAA 2027 are being finalised and will be revealed
+                shortly. Stay tuned for further updates.
+              </p>
+            </div>
+      </div>
+      </>
       ) : (
         <div className="min-h-32 flex flex-col items-center justify-center gap-4 p-8 text-center border-2 border-ink bg-surface shadow-[4px_4px_0px_0px_var(--color-ink)]">
           <h3 className="text-2xl font-serif font-bold text-ink">
