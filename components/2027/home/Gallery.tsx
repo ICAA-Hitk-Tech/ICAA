@@ -188,6 +188,26 @@ function LensFrame() {
   );
 }
 
+// ─── Section intro ─────────────────────────────────────────────────────────────
+
+function GalleryIntro() {
+  return (
+    <div className="flex flex-col items-center gap-3 mb-8 text-center">
+      <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-black text-ink leading-tight">
+        Welcome to ICAA 2027
+      </h2>
+      <div className="flex items-center gap-2">
+        <div className="h-1 w-16 bg-abyss-500 border border-ink" />
+        <div className="h-1 w-3 bg-chrome-400 border border-ink" />
+      </div>
+      <p className="font-sans text-sm sm:text-base text-ink-dim max-w-xl">
+        Enjoy your stay in the City of Joy. Here&apos;s a glimpse of what
+        the city has in store for you.
+      </p>
+    </div>
+  );
+}
+
 // ─── Main component ───────────────────────────────────────────────────────────
 
 const Gallery: React.FC<GalleryProps> = ({ images }) => {
@@ -396,6 +416,8 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
 
   return (
     <section className="w-full px-4 sm:px-6 md:px-12 lg:px-16 py-8 mb-10">
+      <GalleryIntro />
+
       <div
         ref={containerRef}
         className="relative w-full border-2 overflow-hidden aspect-4/3 sm:aspect-video lg:aspect-16/7"

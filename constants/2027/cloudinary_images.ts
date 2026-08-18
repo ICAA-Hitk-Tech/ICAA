@@ -49,4 +49,11 @@ export const images = {
     "https://res.cloudinary.com/dvapbwk7l/image/upload/v1781467830/2025_zedfr5.jpg",
   Springer2014:
     "https://res.cloudinary.com/dvapbwk7l/image/upload/v1781467830/2014_c4cbfw.jpg",
+  Sourav:
+    "https://res.cloudinary.com/dvapbwk7l/image/upload/v1787068860/Sourav_Chakraborty_q1j1ov.jpg",
+  Janos:
+    "https://res.cloudinary.com/dvapbwk7l/image/upload/v1787068865/Janos_Pach_bc7omi.jpg",
+  isi: "https://res.cloudinary.com/dvapbwk7l/image/upload/v1787074838/isi_qczzlr.jpg",
+  reyni:
+    "https://res.cloudinary.com/dvapbwk7l/image/upload/v1787075207/renyi_nf7wgy.jpg",
 };
