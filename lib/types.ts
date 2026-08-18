@@ -66,6 +66,8 @@ export interface KeynoteSpeaker {
   university: string;
   image: string;
   profileUrl: string;
+  bannerImage?: string;
+  talkTitle?: string;
 }
 
 export interface ProgramCommitteeMember {
