@@ -9,7 +9,7 @@ export const KEYNOTE_SPEAKERS: KeynoteSpeaker[] = [
     university: "Indian Statistical Institute, Kolkata, India",
     image: images.Sourav,
     profileUrl: "https://www.isical.ac.in/~sourav/",
-    talkTitle: "Approximation Frontiers in Network Routing Problems",
+    // talkTitle: "Approximation Frontiers in Network Routing Problems",
     bannerImage: images.isi,
   },
   {
@@ -17,7 +17,7 @@ export const KEYNOTE_SPEAKERS: KeynoteSpeaker[] = [
     university: "Rényi Institute Budapest (Hungary) and EPFL (Switzerland)",
     image: images.Janos,
     profileUrl: "https://en.wikipedia.org/wiki/J%C3%A1nos_Pach",
-    talkTitle: "Computational Geometry in Modern Geographic Systems",
+    // talkTitle: "Computational Geometry in Modern Geographic Systems",
     bannerImage: images.reyni,
   },
 ];
