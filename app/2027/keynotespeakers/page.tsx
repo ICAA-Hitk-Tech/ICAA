@@ -68,8 +68,8 @@ export default function KeynoteSpeakersPage() {
                       </h2>
 
                       {/* Headline / Designation */}
-                      <p className="font-sans text-sm text-ink leading-snug">
-                        {speaker.university}
+                      <p className="font-sans text-sm text-ink leading-snug whitespace-pre-line">
+                        {speaker.university.replace(/<br\s*\/?>/gi, "\n")}
                       </p>
                     </div>
 
@@ -117,7 +117,7 @@ export default function KeynoteSpeakersPage() {
                 More Keynote Speakers Coming Soon
               </p>
               <p className="font-sans text-xs md:text-sm text-ink-dim leading-relaxed">
-                Additional keynote speakers for ICAA 2027 are being finalised and will be revealed
+                Further keynote speakers for ICAA 2027 are being finalised and will be revealed
                 shortly. Stay tuned for further updates.
               </p>
             </div>
