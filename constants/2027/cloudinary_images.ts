@@ -56,4 +56,6 @@ export const images = {
   isi: "https://res.cloudinary.com/dvapbwk7l/image/upload/v1787074838/isi_qczzlr.jpg",
   reyni:
     "https://res.cloudinary.com/dvapbwk7l/image/upload/v1787075207/renyi_nf7wgy.jpg",
+  sumanta:
+    "https://res.cloudinary.com/dvapbwk7l/image/upload/v1787245336/Sumanta_Ghosh_wczr2r.jpg",
 };
