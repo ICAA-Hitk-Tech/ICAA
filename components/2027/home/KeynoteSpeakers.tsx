@@ -10,7 +10,7 @@ const KeynoteSpeakers = () => {
     <section className="w-full px-4 md:px-10 py-16 bg-paper text-ink max-w-7xl mx-auto flex flex-col gap-10">
       <div className="flex flex-col items-center gap-3">
         <h2 className="font-serif text-4xl md:text-5xl font-black text-ink text-center leading-tight">
-          Confirmed Invited Speakers
+          Keynote Speakers
         </h2>
         <div className="flex items-center gap-2 mt-1">
           <div className="h-1 w-16 bg-abyss-500 border border-ink" />
@@ -20,12 +20,12 @@ const KeynoteSpeakers = () => {
 
       {hasSpeakers ? (
         <>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-xs sm:max-w-sm md:max-w-6xl mx-auto w-full">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-8 w-full">
             {KEYNOTE_SPEAKERS.map((speaker) => (
               <Link
                 key={speaker.name}
                 href={speaker.profileUrl}
-                className="block group"
+                className="block group w-full max-w-xs sm:w-80 md:w-72 lg:w-80"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -36,7 +36,7 @@ const KeynoteSpeakers = () => {
                       src={speaker.image}
                       alt={speaker.name}
                       fill
-                      sizes="(max-width: 640px) 320px, (max-width: 768px) 384px, 33vw"
+                      sizes="(max-width: 640px) 320px, 320px"
                       className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
                     />
                   </div>
@@ -46,8 +46,8 @@ const KeynoteSpeakers = () => {
                     <h3 className="font-serif text-base md:text-xl font-bold text-ink leading-snug">
                       {speaker.name}
                     </h3>
-                    <p className="font-sans text-xs md:text-sm text-ink-dim leading-relaxed">
-                      {speaker.university}
+                    <p className="font-sans text-sm text-ink leading-snug whitespace-pre-line">
+                      {speaker.university.replace(/<br\s*\/?>/gi, "")}
                     </p>
 
                     {/* Arrow tied to a label, not floating alone */}
@@ -69,11 +69,11 @@ const KeynoteSpeakers = () => {
           <div className="flex items-center gap-4 max-w-3xl mx-auto w-full border-2 border-ink bg-surface shadow-[3px_3px_0px_0px_var(--color-ink)] px-5 py-4 md:px-6 md:py-5">
             <div className="flex flex-col">
               <p className="font-serif text-sm md:text-base font-bold text-ink">
-                More Keynote Speakers Coming Soon
+                Further Speakers to Be Announced Soon
               </p>
               <p className="font-sans text-xs md:text-sm text-ink-dim leading-relaxed">
-                Additional keynote speakers for ICAA 2027 are being finalised
-                and will be revealed shortly. Stay tuned for further updates.
+                Further keynote speakers for ICAA 2027 are being finalised and
+                will be revealed shortly. Stay tuned for further updates.
               </p>
             </div>
           </div>

@@ -13,8 +13,8 @@ export const KEYNOTE_SPEAKERS: KeynoteSpeaker[] = [
     bannerImage: images.isi,
   },
   {
-    name: "Prof. Janos Pach",
-    university: "Rényi Institute Budapest (Hungary) and EPFL (Switzerland)",
+    name: "Prof. János Pach",
+    university: "Rényi Institute Budapest (Hungary) <br>and EPFL (Switzerland)",
     image: images.Janos,
     profileUrl: "https://en.wikipedia.org/wiki/J%C3%A1nos_Pach",
     // talkTitle: "Computational Geometry in Modern Geographic Systems",
