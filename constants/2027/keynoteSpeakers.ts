@@ -24,7 +24,7 @@ export const KEYNOTE_SPEAKERS: KeynoteSpeaker[] = [
     name: "Prof. Sumanta Ghosh",
     university: "Indian Statistical Institute, Kolkata, India",
     image: images.sumanta,
-    profileUrl: "https://www.isical.ac.in/people/profile?id=208",
+    profileUrl: "https://sites.google.com/view/sumghosh/home",
     // talkTitle: "Computational Geometry in Modern Geographic Systems",
     bannerImage: images.isi,
   },
