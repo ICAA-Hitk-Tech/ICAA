@@ -20,4 +20,12 @@ export const KEYNOTE_SPEAKERS: KeynoteSpeaker[] = [
     // talkTitle: "Computational Geometry in Modern Geographic Systems",
     bannerImage: images.reyni,
   },
+  {
+    name: "Prof. Sumanta Ghosh",
+    university: "Indian Statistical Institute, Kolkata, India",
+    image: images.sumanta,
+    profileUrl: "https://www.isical.ac.in/people/profile?id=208",
+    // talkTitle: "Computational Geometry in Modern Geographic Systems",
+    bannerImage: images.isi,
+  },
 ];
