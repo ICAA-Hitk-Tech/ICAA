@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { FaEnvelope, FaTriangleExclamation } from "react-icons/fa6";
+import { FaEnvelope } from "react-icons/fa6";
 import { images } from "@/constants/2027/cloudinary_images";
 import {
   SUBMISSION_INSTRUCTIONS,
