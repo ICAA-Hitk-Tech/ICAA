@@ -132,6 +132,16 @@ const PaperSubmissionPage = () => {
             isLive={IS_LIVE}
             isClosed={IS_CLOSED}
           />
+          {/* Edit Submission Note */}
+          <div className="mt-5 border-2 border-ink bg-surface/40 p-4 shadow-[4px_4px_0px_0px_var(--color-ink)] flex items-start gap-3">
+            {/* <div className="w-8 h-8 shrink-0 border border-ink bg-chrome-400 flex items-center justify-center shadow-[2px_2px_0px_0px_var(--color-ink)]">
+              <FaTriangleExclamation className="w-3.5 h-3.5 text-ink" />
+            </div> */}
+            <p className="text-xs text-ink leading-relaxed font-mono">
+              For editing a submission, authors are advised to first delete the
+              original file (not the submission) and then upload the fresh file.
+            </p>
+          </div>
           {/* Dedicated CMT Platform Capsule */}
           <div className="mt-5 border-2 border-ink bg-surface/40 p-4 shadow-[4px_4px_0px_0px_var(--color-ink)] flex items-center justify-between gap-4">
             <span className="font-mono text-xs font-black text-ink uppercase tracking-wider">
