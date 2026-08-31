@@ -8,6 +8,7 @@ export const IMPORTANT_DATES: ImportantDate[] = [
   },
   {
     event: "Paper Deadline",
+    // oldDate: "September 01, 2026",
     date: "September 01, 2026",
     note: "AoE",
   },

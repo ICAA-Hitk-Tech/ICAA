@@ -57,6 +57,7 @@ export interface Attraction {
 export interface ImportantDate {
   event: string;
   date: string;
+  oldDate?: string;
   note?: string;
   isPassed?: boolean;
 }
