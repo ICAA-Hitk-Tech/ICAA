@@ -32,6 +32,14 @@ const KeynoteSpeakers = () => {
                 <article className="h-full flex flex-col border border-ink bg-surface shadow-[2px_2px_0px_0px_var(--color-ink)] hover:shadow-[4px_4px_0px_0px_var(--color-ink)] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all duration-200 overflow-hidden">
                   {/* Full-bleed photo — stays 1:1, just scales with the card */}
                   <div className="relative w-full aspect-square border-b border-ink bg-ink/5 overflow-hidden">
+                    {speaker.isOnline && (
+                      <div className="absolute top-3 right-3 z-20 flex items-center gap-1.5 border border-ink bg-ink/90 backdrop-blur-sm text-paper px-2.5 py-1 shadow-[2px_2px_0px_0px_var(--color-ink)]">
+                        <span className="w-1.5 h-1.5 rounded-full bg-grove-400 animate-pulse" />
+                        <span className="font-mono text-[9px] font-bold uppercase tracking-widest">
+                          Online
+                        </span>
+                      </div>
+                    )}
                     <Image
                       src={speaker.image}
                       alt={speaker.name}

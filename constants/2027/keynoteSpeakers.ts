@@ -21,7 +21,7 @@ export const KEYNOTE_SPEAKERS: KeynoteSpeaker[] = [
     bannerImage: images.reyni,
   },
   {
-    name: "Prof. Sumanta Ghosh",
+    name: "Dr. Sumanta Ghosh",
     university: "Indian Statistical Institute, Kolkata, India",
     image: images.sumanta,
     profileUrl: "https://sites.google.com/view/sumghosh/home",
@@ -35,5 +35,15 @@ export const KEYNOTE_SPEAKERS: KeynoteSpeaker[] = [
     profileUrl: "https://www.linkedin.com/in/maharaj-mukherjee-4307561/",
     // talkTitle: "Computational Geometry in Modern Geographic Systems",
     bannerImage: images.bank,
+    isOnline: true,
+  },
+  {
+    name: "Prof. Danilo Pelusi",
+    university: "University of Teramo, Italy",
+    image: images.daniel,
+    profileUrl: "https://www.unite.it/UniTE/Home/Docenti/Docente/Doc/dpelusi",
+    // talkTitle: "Computational Geometry in Modern Geographic Systems",
+    bannerImage: images.teramo,
+    isOnline: true,
   },
 ];

@@ -61,4 +61,8 @@ export const images = {
   maharaj:
     "https://res.cloudinary.com/dvapbwk7l/image/upload/v1788243025/maharaj_ychk8h.jpg",
   bank: "https://res.cloudinary.com/dvapbwk7l/image/upload/v1788242716/bank_bi3twj.jpg",
+  daniel:
+    "https://res.cloudinary.com/dvapbwk7l/image/upload/v1788255161/daniel_k7ppaw.jpg",
+  teramo:
+    "https://res.cloudinary.com/dvapbwk7l/image/upload/v1788255261/teramo_wxtrdv.jpg",
 };
