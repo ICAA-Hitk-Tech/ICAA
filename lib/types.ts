@@ -69,6 +69,7 @@ export interface KeynoteSpeaker {
   profileUrl: string;
   bannerImage?: string;
   talkTitle?: string;
+  isOnline?: boolean;
 }
 
 export interface ProgramCommitteeMember {

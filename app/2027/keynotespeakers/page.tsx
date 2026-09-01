@@ -33,6 +33,16 @@ export default function KeynoteSpeakersPage() {
                   key={speaker.name}
                   className="group relative border-2 border-ink bg-surface shadow-[2px_2px_0px_0px_var(--color-ink)] flex flex-col overflow-hidden transition-all duration-300 hover:shadow-[4px_4px_0px_0px_var(--color-ink)] hover:-translate-x-0.5 hover:-translate-y-0.5"
                 >
+                  {/* Online Badge */}
+                  {speaker.isOnline && (
+                    <div className="absolute top-3 right-3 z-20 flex items-center gap-1.5 border border-ink bg-ink/90 backdrop-blur-sm text-paper px-2.5 py-1 shadow-[2px_2px_0px_0px_var(--color-ink)]">
+                      <span className="w-1.5 h-1.5 rounded-full bg-grove-400 animate-pulse" />
+                      <span className="font-mono text-[9px] font-bold uppercase tracking-widest">
+                        Online
+                      </span>
+                    </div>
+                  )}
+
                   {/* 1. Header Banner */}
                   <div className="relative h-32 w-full border-b border-ink bg-surface overflow-hidden">
                     {speaker.bannerImage && (
