@@ -28,4 +28,12 @@ export const KEYNOTE_SPEAKERS: KeynoteSpeaker[] = [
     // talkTitle: "Computational Geometry in Modern Geographic Systems",
     bannerImage: images.isi,
   },
+  {
+    name: "Dr. Maharaj Mukherjee",
+    university: "Bank of America, New York, USA",
+    image: images.maharaj,
+    profileUrl: "https://www.linkedin.com/in/maharaj-mukherjee-4307561/",
+    // talkTitle: "Computational Geometry in Modern Geographic Systems",
+    bannerImage: images.bank,
+  },
 ];
