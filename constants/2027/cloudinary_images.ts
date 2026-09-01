@@ -58,4 +58,7 @@ export const images = {
     "https://res.cloudinary.com/dvapbwk7l/image/upload/v1787075207/renyi_nf7wgy.jpg",
   sumanta:
     "https://res.cloudinary.com/dvapbwk7l/image/upload/v1787245336/Sumanta_Ghosh_wczr2r.jpg",
+  maharaj:
+    "https://res.cloudinary.com/dvapbwk7l/image/upload/v1788241730/Maharaj_bmjdh3.webp",
+  bank: "https://res.cloudinary.com/dvapbwk7l/image/upload/v1788242716/bank_bi3twj.jpg",
 };
