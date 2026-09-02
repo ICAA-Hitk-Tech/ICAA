@@ -5,15 +5,7 @@ export const KEYNOTE_SPEAKERS_HEADING = "Keynote Speakers";
 
 export const KEYNOTE_SPEAKERS: KeynoteSpeaker[] = [
   {
-    name: "Prof. Sourav Chakraborty",
-    university: "Indian Statistical Institute, Kolkata, India",
-    image: images.Sourav,
-    profileUrl: "https://www.isical.ac.in/~sourav/",
-    // talkTitle: "Approximation Frontiers in Network Routing Problems",
-    bannerImage: images.isi,
-  },
-  {
-    name: "Prof. János Pach",
+    name: "János Pach",
     university: "Rényi Institute Budapest (Hungary) <br>and EPFL (Switzerland)",
     image: images.Janos,
     profileUrl: "https://en.wikipedia.org/wiki/J%C3%A1nos_Pach",
@@ -21,7 +13,15 @@ export const KEYNOTE_SPEAKERS: KeynoteSpeaker[] = [
     bannerImage: images.reyni,
   },
   {
-    name: "Dr. Sumanta Ghosh",
+    name: "Sourav Chakraborty",
+    university: "Indian Statistical Institute, Kolkata, India",
+    image: images.Sourav,
+    profileUrl: "https://www.isical.ac.in/~sourav/",
+    // talkTitle: "Approximation Frontiers in Network Routing Problems",
+    bannerImage: images.isi,
+  },
+  {
+    name: "Sumanta Ghosh",
     university: "Indian Statistical Institute, Kolkata, India",
     image: images.sumanta,
     profileUrl: "https://sites.google.com/view/sumghosh/home",
@@ -29,7 +29,7 @@ export const KEYNOTE_SPEAKERS: KeynoteSpeaker[] = [
     bannerImage: images.isi,
   },
   {
-    name: "Dr. Maharaj Mukherjee",
+    name: "Maharaj Mukherjee",
     university: "Bank of America, New York, USA",
     image: images.maharaj,
     profileUrl: "https://www.linkedin.com/in/maharaj-mukherjee-4307561/",
@@ -38,7 +38,7 @@ export const KEYNOTE_SPEAKERS: KeynoteSpeaker[] = [
     isOnline: true,
   },
   {
-    name: "Prof. Danilo Pelusi",
+    name: "Danilo Pelusi",
     university: "University of Teramo, Italy",
     image: images.daniel,
     profileUrl: "https://www.unite.it/UniTE/Home/Docenti/Docente/Doc/dpelusi",

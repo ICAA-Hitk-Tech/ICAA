@@ -23,15 +23,21 @@ export default function KeynoteSpeakersPage() {
         <BackButton />
       </div>
 
-      {/* ── Content (n * 2 Grid) ────────────────────────────────────────────── */}
+      {/* ── Content ─────────────────────────────────────────────────────────── */}
       {hasSpeakers ? (
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {KEYNOTE_SPEAKERS.map((speaker, idx) => {
+              const isLastOdd =
+                KEYNOTE_SPEAKERS.length % 2 !== 0 &&
+                idx === KEYNOTE_SPEAKERS.length - 1;
+
               return (
                 <article
                   key={speaker.name}
-                  className="group relative border-2 border-ink bg-surface shadow-[2px_2px_0px_0px_var(--color-ink)] flex flex-col overflow-hidden transition-all duration-300 hover:shadow-[4px_4px_0px_0px_var(--color-ink)] hover:-translate-x-0.5 hover:-translate-y-0.5"
+                  className={`group relative border-2 border-ink bg-surface shadow-[2px_2px_0px_0px_var(--color-ink)] flex flex-col overflow-hidden transition-all duration-300 hover:shadow-[4px_4px_0px_0px_var(--color-ink)] hover:-translate-x-0.5 hover:-translate-y-0.5 ${
+                    isLastOdd ? "md:col-span-2 md:w-1/2 md:mx-auto" : ""
+                  }`}
                 >
                   {/* Online Badge */}
                   {speaker.isOnline && (
@@ -69,29 +75,24 @@ export default function KeynoteSpeakersPage() {
                     />
                   </div>
 
-                  {/* 3. Details (Pushed down to respect absolute avatar spacing) */}
+                  {/* 3. Details */}
                   <div className="pt-20 pb-6 px-6 flex flex-col gap-4 flex-1 justify-between">
                     <div className="space-y-4">
                       <div className="space-y-1">
                         <h2 className="font-sans text-xl font-bold text-ink tracking-tight">
                           {speaker.name}
                         </h2>
-
-                        {/* Headline / Designation */}
                         <p className="font-sans text-sm text-ink leading-snug whitespace-pre-line">
                           {speaker.university.replace(/<br\s*\/?>/gi, "\n")}
                         </p>
                       </div>
 
-                      {/* Talk Section (Simulating LinkedIn experience/talk block) */}
-                      {/* Keynote Talk */}
                       {/* Keynote Talk */}
                       {speaker.talkTitle && (
                         <div className="border-t border-ink/15 pt-3">
                           <p className="font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-ink-dim/70 mb-1.5">
                             Title of the Talk
                           </p>
-
                           <h4 className="font-serif text-[15px] font-bold leading-snug text-ink">
                             {speaker.talkTitle}
                           </h4>
@@ -99,7 +100,7 @@ export default function KeynoteSpeakersPage() {
                       )}
                     </div>
 
-                    {/* Profile Link (Card Ender) */}
+                    {/* Profile Link */}
                     <div className="pt-3 border-t border-ink/15 flex items-center justify-end w-full mt-auto">
                       <a
                         href={speaker.profileUrl}
@@ -120,6 +121,7 @@ export default function KeynoteSpeakersPage() {
               );
             })}
           </div>
+
           {/* More speakers announcement banner */}
           <div className="flex items-center gap-4 max-w-3xl mx-auto w-full border-2 border-ink bg-surface shadow-[3px_3px_0px_0px_var(--color-ink)] px-5 py-4 md:px-6 md:py-5">
             <div className="flex flex-col">
