@@ -14,7 +14,7 @@ export const IMPORTANT_DATES: ImportantDate[] = [
   },
   {
     event: "Notification of Acceptance",
-    date: "25 October, 2026",
+    date: "25 October, 2026 onwards",
     note: "AoE",
   },
   {
