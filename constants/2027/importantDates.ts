@@ -14,27 +14,27 @@ export const IMPORTANT_DATES: ImportantDate[] = [
   },
   {
     event: "Notification of Acceptance",
-    date: "27 October, 2026 onwards",
+    date: "October 27, 2026 onwards",
     note: "AoE",
   },
   {
     event: "Camera Ready Papers due",
-    date: "31 October, 2026",
+    date: "October 31, 2026",
     note: "AoE",
   },
   {
     event: "Author Registration starts",
-    date: "31 October, 2026",
+    date: " October 31, 2026",
     note: "AoE",
   },
   {
     event: "Early Bird Registration by",
-    date: "15 November, 2026",
+    date: "November 15, 2026",
     note: "AoE",
   },
   {
     event: "Conference Starts",
-    date: "06 January, 2027",
+    date: "January 06, 2027",
   },
 ];
 
