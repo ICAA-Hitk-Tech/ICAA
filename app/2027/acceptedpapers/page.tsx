@@ -13,25 +13,7 @@ import {
   type PaperType,
 } from "@/constants/2027/acceptedPapers";
 
-// ── Filter types ───────────────────────────────────────────────────────────────
-
-type FilterMode = "all" | "id" | "title" | "author";
-
-const ALL_FILTER_OPTIONS: { label: string; value: FilterMode }[] = [
-  { label: "All", value: "all" },
-  { label: "ID", value: "id" },
-  { label: "Title", value: "title" },
-  { label: "Author", value: "author" },
-];
-
 type TypeView = "all" | PaperType;
-
-// Author filter is only offered once at least one paper has authors listed.
-const HAS_AUTHORS = ACCEPTED_PAPERS.some((p) => (p.authors?.length ?? 0) > 0);
-
-const FILTER_OPTIONS = ALL_FILTER_OPTIONS.filter(
-  (o) => o.value !== "author" || HAS_AUTHORS,
-);
 
 // ── Paper section (ledger list for one paper type) ────────────────────────────
 
@@ -113,8 +95,6 @@ function PaperSection({
 
 export default function AcceptedPapersPage() {
   const [query, setQuery] = useState("");
-  const [filter, setFilter] = useState<FilterMode>("all");
-  const [filtersOpen, setFiltersOpen] = useState(false);
   const [typeView, setTypeView] = useState<TypeView>("all");
 
   const hasPapers = ACCEPTED_PAPERS.length > 0;
@@ -122,17 +102,14 @@ export default function AcceptedPapersPage() {
   // React Compiler memoizes this automatically, so no useMemo is needed.
   const term = query.toLowerCase().trim().replace(/^#/, "");
 
+  // Search by paper ID, title, or author name.
   const matches = (p: AcceptedPaper) => {
     if (!term) return true;
-    const inId = p.pid.toLowerCase().includes(term);
-    const inTitle = p.title.toLowerCase().includes(term);
-    const inAuthors = (p.authors ?? []).some((a) =>
-      a.toLowerCase().includes(term),
+    return (
+      p.pid.toLowerCase().includes(term) ||
+      p.title.toLowerCase().includes(term) ||
+      (p.authors ?? []).some((a) => a.toLowerCase().includes(term))
     );
-    if (filter === "id") return inId;
-    if (filter === "title") return inTitle;
-    if (filter === "author") return inAuthors;
-    return inId || inTitle || inAuthors;
   };
 
   const filteredFull = FULL_PAPERS.filter(matches);
@@ -206,131 +183,38 @@ export default function AcceptedPapersPage() {
             })}
           </div>
 
-          {/* ── Controls — single row ─────────────────────────────────────────── */}
-          <div className="flex items-stretch gap-2">
-            {/* Search input (hidden on mobile while the filter picker is open) */}
-            <div
-              className={`relative flex-1 ${filtersOpen ? "hidden sm:block" : ""}`}
-            >
-              <input
-                type="text"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder={
-                  filter === "all" ? "Search papers…" : `Search by ${filter}…`
-                }
-                className="w-full h-full font-mono text-[11px] border-2 border-ink bg-surface text-ink-soft pl-3 pr-8 py-2 focus:outline-none focus:bg-paper transition-colors duration-100 placeholder:text-ink-dim/40"
-              />
-              {query && (
-                <button
-                  onClick={() => setQuery("")}
-                  aria-label="Clear search"
-                  className="absolute right-0 top-0 bottom-0 px-2.5 flex items-center text-ink-dim hover:text-ink-soft transition-colors duration-100 cursor-pointer"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="11"
-                    height="11"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
-                    <line x1="18" y1="6" x2="6" y2="18" />
-                    <line x1="6" y1="6" x2="18" y2="18" />
-                  </svg>
-                </button>
-              )}
-            </div>
-
-            {/* Mobile — segmented filter picker, replaces the search bar inline */}
-            {filtersOpen && (
-              <div
-                role="radiogroup"
-                aria-label="Search filter"
-                className="sm:hidden flex flex-1 border-2 border-ink bg-paper"
+          {/* ── Search ────────────────────────────────────────────────────────── */}
+          <div className="relative">
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search by Paper ID or Title..."
+              className="w-full font-mono text-[11px] border-2 border-ink bg-surface text-ink-soft pl-3 pr-8 py-2.5 focus:outline-none focus:bg-paper transition-colors duration-100 placeholder:text-ink-dim/40"
+            />
+            {query && (
+              <button
+                onClick={() => setQuery("")}
+                aria-label="Clear search"
+                className="absolute right-0 top-0 bottom-0 px-2.5 flex items-center text-ink-dim hover:text-ink-soft transition-colors duration-100 cursor-pointer"
               >
-                {FILTER_OPTIONS.map((opt, i) => (
-                  <button
-                    key={opt.value}
-                    role="radio"
-                    aria-checked={filter === opt.value}
-                    onClick={() => {
-                      setFilter(opt.value);
-                      setFiltersOpen(false);
-                    }}
-                    className={`flex-1 font-mono text-[10px] font-bold uppercase tracking-[0.08em] py-2 transition-colors duration-100 cursor-pointer border-ink ${
-                      i > 0 ? "border-l-2" : ""
-                    } ${
-                      filter === opt.value
-                        ? "bg-ink text-paper"
-                        : "bg-paper text-ink-soft active:bg-border"
-                    }`}
-                  >
-                    {opt.label}
-                  </button>
-                ))}
-              </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="11"
+                  height="11"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </button>
             )}
-
-            {/* Mobile — toggle button (hamburger ⇄ close) */}
-            <button
-              onClick={() => setFiltersOpen((v) => !v)}
-              aria-label={
-                filtersOpen ? "Close filters" : "Toggle search filters"
-              }
-              aria-expanded={filtersOpen}
-              className={`sm:hidden shrink-0 font-mono text-[10px] font-bold uppercase tracking-[0.08em] border-2 border-ink px-2.5 transition-colors duration-100 cursor-pointer flex items-center justify-center gap-1.5 whitespace-nowrap ${
-                filtersOpen ? "bg-ink text-paper" : "bg-paper text-ink-soft"
-              }`}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="12"
-                height="12"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                {filtersOpen ? (
-                  <>
-                    <line x1="18" y1="6" x2="6" y2="18" />
-                    <line x1="6" y1="6" x2="18" y2="18" />
-                  </>
-                ) : (
-                  <>
-                    <line x1="3" y1="6" x2="21" y2="6" />
-                    <line x1="3" y1="12" x2="21" y2="12" />
-                    <line x1="3" y1="18" x2="21" y2="18" />
-                  </>
-                )}
-              </svg>
-              {!filtersOpen && (filter !== "all" ? filter : "Filter")}
-            </button>
-
-            {/* Desktop — pills inline */}
-            <div className="hidden sm:flex items-center gap-1.5 shrink-0">
-              {FILTER_OPTIONS.map((opt) => (
-                <button
-                  key={opt.value}
-                  onClick={() => setFilter(opt.value)}
-                  className={`font-mono text-[10px] font-bold uppercase tracking-[0.08em] border-2 border-ink px-2.5 py-2 transition-colors duration-100 cursor-pointer whitespace-nowrap ${
-                    filter === opt.value
-                      ? "bg-ink text-paper"
-                      : "bg-paper text-ink-soft hover:bg-border"
-                  }`}
-                >
-                  {opt.label}
-                </button>
-              ))}
-            </div>
           </div>
 
           {/* ── Paper sections ────────────────────────────────────────────────── */}
@@ -350,12 +234,11 @@ export default function AcceptedPapersPage() {
                 No papers found
               </h3>
               <p className="font-mono text-[10px] uppercase tracking-widest text-ink-dim">
-                Try a different search term or filter
+                Try a different search term
               </p>
               <button
                 onClick={() => {
                   setQuery("");
-                  setFilter("all");
                   setTypeView("all");
                 }}
                 className="mt-2 font-mono text-[10px] uppercase tracking-widest border-2 border-ink px-4 py-2 bg-paper text-ink-soft hover:bg-border transition-colors duration-150 cursor-pointer"
