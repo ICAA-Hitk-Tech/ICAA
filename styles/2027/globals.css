@@ -11,6 +11,7 @@
   --color-ink:         #151510;   /* warm near-black body text    */
   --color-ink-dim:     #4A4940;   /* secondary / captions         */
   --color-ink-ghost:   #9A9888;   /* placeholder / disabled       */
+  --color-ink-soft:    #36352D;   /* softened text, easier on the eyes */
 
   /* ── Forest · Dark Greens ────────────────── */
   --color-grove-950:   #0B2018;   /* near-black green             */
