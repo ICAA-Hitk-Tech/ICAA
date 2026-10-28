@@ -1,36 +1,45 @@
+// constants/2027/importantDates.ts
+
 import { ImportantDate } from "@/lib/types";
 
 export const IMPORTANT_DATES: ImportantDate[] = [
   {
     event: "Submission Portal Opens",
     date: "August 01, 2026",
-    note: "AoE",
   },
   {
     event: "Paper Deadline (Final)",
     oldDate: "September 01, 2026",
     date: "September 16, 2026",
-    note: "AoE",
   },
   {
     event: "Notification of Acceptance",
     date: "October 27, 2026 onwards",
-    note: "AoE",
+  },
+  {
+    event: "Early Bird Registration (Authors) Starts",
+    date: "October 29, 2026",
+    time: "00:00 AM IST",
+  },
+  {
+    event: "Early Bird Registration (Authors) Ends",
+    date: "November 03, 2026",
+    time: "06:00 PM IST",
+  },
+  {
+    event: "Late Registration (Authors) Ends",
+    date: "November 05, 2026",
+    time: "06:00 PM IST",
   },
   {
     event: "Camera Ready Papers due",
-    date: "October 31, 2026",
-    note: "AoE",
+    date: "November 06, 2026",
+    time: "06:00 PM IST",
   },
   {
-    event: "Author Registration starts",
-    date: " October 31, 2026",
-    note: "AoE",
-  },
-  {
-    event: "Early Bird Registration by",
-    date: "November 15, 2026",
-    note: "AoE",
+    event: "Due Date for Alt Text Files",
+    date: "November 12, 2026",
+    time: "06:00 PM IST",
   },
   {
     event: "Conference Starts",
@@ -38,5 +47,7 @@ export const IMPORTANT_DATES: ImportantDate[] = [
   },
 ];
 
-export const DEADLINE_NOTE = "All deadlines are 11:59 PM AoE";
-export const TIMEZONE_INFO = "AoE stands for Anywhere on Earth timezone (UTC -12).";
+export const DEADLINE_NOTE =
+  "All deadlines are 11:59 PM AoE unless stated otherwise";
+export const TIMEZONE_INFO =
+  "AoE stands for Anywhere on Earth timezone (UTC −12). IST is Indian Standard Time (UTC +5:30).";
