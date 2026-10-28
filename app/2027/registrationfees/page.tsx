@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { FaArrowRight, FaEnvelope } from "react-icons/fa6";
+import { FaArrowRight, FaEnvelope, FaClock } from "react-icons/fa6";
 import BackButton from "@/components/2027/BackButton";
 import {
   AUTHOR_FEES,
@@ -10,7 +10,8 @@ import {
 } from "@/constants/2027/registrationFees";
 import {
   IMPORTANT_DATES,
-  DEADLINE_NOTE,
+  // DEADLINE_NOTE,
+  // TIMEZONE_INFO,
 } from "@/constants/2027/importantDates";
 
 export const metadata: Metadata = {
@@ -20,7 +21,15 @@ export const metadata: Metadata = {
 };
 
 // Key dates we surface on the Registration Fees page (subset of full important dates)
-const REGISTRATION_KEY_DATES = IMPORTANT_DATES.slice(2, 5);
+const REGISTRATION_KEY_DATES = IMPORTANT_DATES.filter((d) =>
+  [
+    "Early Bird Registration (Authors) Starts",
+    "Early Bird Registration (Authors) Ends",
+    "Late Registration (Authors) Ends",
+    "Camera Ready Papers due",
+    // "Due Date for Alt Text Files",
+  ].includes(d.event),
+);
 
 // ── Shared cell styles ────────────────────────────────────────────────────────
 
@@ -286,21 +295,21 @@ export default function RegistrationFeesPage() {
       </div>
 
       {/* ── Notes + CTA ────────────────────────────────────────────────────────── */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-2">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-2 items-start">
         {/* Notes */}
-        <div className="lg:col-span-2 border border-ink bg-surface shadow-[4px_4px_0px_0px_var(--color-ink)]">
-          <div className="border-b border-ink px-5 py-3 bg-ink text-paper">
+        <div className="lg:col-span-2 border border-ink bg-surface shadow-[3px_3px_0px_0px_var(--color-ink)] h-fit">
+          <div className="border-b-2 border-ink px-4 sm:px-5 py-3 bg-ink text-paper">
             <span className="font-mono text-xs uppercase tracking-widest font-bold">
               Important Notes
             </span>
           </div>
-          <ul className="divide-y-2 divide-ink/10">
+          <ul className="divide-y divide-ink/10">
             {FEE_NOTES.map((note, i) => (
-              <li key={i} className="flex items-start gap-3 px-5 py-3.5">
+              <li key={i} className="flex items-start gap-3 px-4 sm:px-5 py-3.5">
                 <span className="font-mono text-[10px] font-bold text-ink-dim mt-0.5 shrink-0 uppercase tracking-widest">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <p className="font-sans text-sm text-ink-dim leading-relaxed">
+                <p className="font-sans text-sm text-ink-dim leading-relaxed text-justify">
                   {note}
                 </p>
               </li>
@@ -333,13 +342,26 @@ export default function RegistrationFeesPage() {
             </div>
             <div className="divide-y-2 divide-ink">
               {REGISTRATION_KEY_DATES.map((d, i) => (
-                <div key={i} className="px-5 py-4 flex flex-col gap-0.5">
-                  <span className="font-mono text-[10px] text-ink-dim uppercase tracking-widest">
+                <div key={i} className="px-5 py-3.5 flex flex-col gap-0.5">
+                  <span className="font-mono text-[10px] text-ink-dim uppercase tracking-widest font-semibold">
                     {d.event}
                   </span>
-                  <span className="font-serif text-base font-black text-ink">
-                    {d.date}
-                  </span>
+                  <div className="flex items-baseline gap-2 flex-wrap">
+                    {d.oldDate && (
+                      <span className="font-mono text-xs text-ink-dim/60 line-through decoration-2 decoration-ink-dim/60">
+                        {d.oldDate}
+                      </span>
+                    )}
+                    <span className="font-serif text-base font-black text-ink">
+                      {d.date}
+                    </span>
+                  </div>
+                  {d.time && (
+                    <span className="font-mono text-[11px] text-ink-dim/90 flex items-center gap-1.5 mt-0.5">
+                      <FaClock className="w-3 h-3 text-ink-dim/70 shrink-0" />
+                      {d.time}
+                    </span>
+                  )}
                   {d.note && (
                     <span className="font-mono text-[10px] text-grove-600 font-bold">
                       {d.note}
@@ -348,11 +370,14 @@ export default function RegistrationFeesPage() {
                 </div>
               ))}
             </div>
-            <div className="border-t-2 border-ink px-5 py-3">
+            {/* <div className="border-t-2 border-ink px-5 py-3 flex flex-col gap-1">
               <p className="font-mono text-[10px] text-ink-dim/80 uppercase tracking-wider">
                 {DEADLINE_NOTE}
               </p>
-            </div>
+              <p className="font-mono text-[9px] text-ink-dim/60 leading-relaxed">
+                {TIMEZONE_INFO}
+              </p>
+            </div> */}
           </div>
         </div>
       </div>

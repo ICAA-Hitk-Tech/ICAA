@@ -50,7 +50,7 @@ export const IMPORTANT_DATES: ImportantDate[] = [
   },
 ];
 
-export const DEADLINE_NOTE =
-  "All deadlines are 11:59 PM AoE unless stated otherwise";
-export const TIMEZONE_INFO =
-  "AoE stands for Anywhere on Earth timezone (UTC −12). IST is Indian Standard Time (UTC +5:30).";
+// export const DEADLINE_NOTE =
+//   "All deadlines are 11:59 PM AoE unless stated otherwise";
+// export const TIMEZONE_INFO =
+//   "AoE stands for Anywhere on Earth timezone (UTC −12). IST is Indian Standard Time (UTC +5:30).";
