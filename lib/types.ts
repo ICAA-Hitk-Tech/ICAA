@@ -58,6 +58,7 @@ export interface ImportantDate {
   event: string;
   date: string;
   oldDate?: string;
+  time?: string;
   note?: string;
   isPassed?: boolean;
 }
