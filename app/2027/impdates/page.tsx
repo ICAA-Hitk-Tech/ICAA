@@ -25,7 +25,7 @@ const ImpDatesPage = () => {
       </div>
 
       {/* Retro Info Banner */}
-      <div className="border border-ink bg-surface/30 p-5 shadow-[4px_4px_0px_0px_var(--color-ink)] flex items-start gap-4">
+      {/* <div className="border border-ink bg-surface/30 p-5 shadow-[4px_4px_0px_0px_var(--color-ink)] flex items-start gap-4">
         <div className="w-10 h-10 shrink-0 border border-ink bg-chrome-400 flex items-center justify-center font-bold text-lg shadow-[2px_2px_0px_0px_var(--color-ink)]">
           <FaClock className="w-4 h-4 text-ink" />
         </div>
@@ -37,7 +37,7 @@ const ImpDatesPage = () => {
             {TIMEZONE_INFO}
           </p>
         </div>
-      </div>
+      </div> */}
 
       {/* Vertical Timeline Roster */}
       <div className="relative border-l-2 border-ink/50 pl-8 ml-4 sm:ml-6 space-y-10 py-4">
