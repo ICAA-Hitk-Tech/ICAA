@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { FaClock, FaFileLines } from "react-icons/fa6";
+import { FaFileLines, FaCalendarDays } from "react-icons/fa6";
 import type { Metadata } from "next";
-import { IMPORTANT_DATES, DEADLINE_NOTE, TIMEZONE_INFO } from "@/constants/2027/importantDates";
+import { IMPORTANT_DATES } from "@/constants/2027/importantDates";
 import BackButton from "@/components/2027/BackButton";
 import TimelineCard from "@/components/2027/impdates/TimelineCard";
 
@@ -24,20 +24,20 @@ const ImpDatesPage = () => {
         <BackButton />
       </div>
 
-      {/* Retro Info Banner */}
-      {/* <div className="border border-ink bg-surface/30 p-5 shadow-[4px_4px_0px_0px_var(--color-ink)] flex items-start gap-4">
-        <div className="w-10 h-10 shrink-0 border border-ink bg-chrome-400 flex items-center justify-center font-bold text-lg shadow-[2px_2px_0px_0px_var(--color-ink)]">
-          <FaClock className="w-4 h-4 text-ink" />
+      {/* Timeline Overview Banner */}
+      <div className="-mt-4 border border-ink bg-surface p-4 sm:p-5 shadow-[4px_4px_0px_0px_var(--color-ink)] flex items-start sm:items-center gap-3.5 sm:gap-4">
+        <div className="w-9 h-9 sm:w-10 sm:h-10 shrink-0 border border-ink bg-chrome-400 flex items-center justify-center text-ink shadow-[2px_2px_0px_0px_var(--color-ink)] mt-0.5 sm:mt-0">
+          <FaCalendarDays className="w-4 h-4 text-ink" />
         </div>
-        <div>
-          <h4 className="font-serif text-lg font-bold text-ink">
-            {DEADLINE_NOTE}
-          </h4>
-          <p className="font-mono text-xs text-ink-dim/90 mt-1">
-            {TIMEZONE_INFO}
+        <div className="space-y-1 sm:space-y-0.5">
+          <h2 className="font-serif text-lg font-bold text-ink leading-snug">
+            Conference Deadlines
+          </h2>
+          <p className="font-mono text-xs text-ink-dim leading-relaxed">
+            Track key submission phases, author registration windows, and conference dates below.
           </p>
         </div>
-      </div> */}
+      </div>
 
       {/* Vertical Timeline Roster */}
       <div className="relative border-l-2 border-ink/50 pl-8 ml-4 sm:ml-6 space-y-10 py-4">
