@@ -45,6 +45,11 @@ export const IMPORTANT_DATES: ImportantDate[] = [
     time: "06:00 PM IST",
   },
   {
+    event: "Registration for Additional Authors and General Participants Ends",
+    date: "November 15, 2026",
+    time: "06:00 PM IST",
+  },
+  {
     event: "Conference Starts",
     date: "January 06, 2027",
   },
