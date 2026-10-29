@@ -42,6 +42,7 @@ const REGISTRATION_KEY_DATES = IMPORTANT_DATES.filter((d) =>
     "Late Registration (Authors) Ends",
     "Camera Ready Papers due",
     // "Due Date for Alt Text Files",
+    "Additional Authors and General Participants Registration Ends",
   ].includes(d.event),
 );
 
