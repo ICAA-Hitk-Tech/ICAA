@@ -69,6 +69,7 @@ export const FEE_NOTES: string[] = [
   "In case of multiple papers by the same author, each additional paper (maximum of 2 papers) would be subjected to additional registration charge at reduced rate.",
   "In the case of over-length papers (those exceeding the 12-page limit), each additional page - up to a maximum of two pages, will incur an additional charge of ₹2000 per page.",
   "Early-Bird registration deadline is November 03, 2026.",
+  "Registration for additional authors and general participants deadline is November 15, 2026.",
 ];
 
 export const CURRENCY_NOTE =
