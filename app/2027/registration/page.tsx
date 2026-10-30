@@ -24,10 +24,10 @@ import {
 
 // ── Manual portal state control — no date/time automation ──────────────────
 // Precedence: IS_CLOSED > IS_LIVE > upcoming (both false).
-const IS_LIVE = false;
+const IS_LIVE = true;
 const IS_CLOSED = false;
 
-const REGISTRATION_URL = "";
+const REGISTRATION_URL = "https://www.theheritage.ac.in/events/icaa.aspx";
 
 const TOAST_MESSAGES = {
   closed: "The registration portal is now closed.",
