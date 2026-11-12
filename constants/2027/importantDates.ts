@@ -37,7 +37,7 @@ export const IMPORTANT_DATES: ImportantDate[] = [
   },
   {
     event: "Due Date for Alt Text Files",
-    date: "November 12, 2026",
+    date: "November 14, 2026",
     time: "06:00 PM IST",
   },
   {
