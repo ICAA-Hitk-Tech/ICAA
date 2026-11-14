@@ -48,7 +48,7 @@ export async function POST(req: Request) {
   const vol = name
     ? await d.collection<VolunteerDoc>("volunteers").findOne({ name })
     : null;
-  const hash = vol?.passwordHash || vol?.pinHash || DUMMY;
+  const hash = vol?.passwordHash || DUMMY;
   const passwordOk = verifyPassword(password, hash);
 
   if (!vol || !vol.active || !passwordOk) {

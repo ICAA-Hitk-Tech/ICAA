@@ -95,7 +95,7 @@ export async function GET() {
   // 7. Volunteers list
   const volunteers = await db
     .collection("volunteers")
-    .find({}, { projection: { passwordHash: 0, pinHash: 0 } })
+    .find({}, { projection: { passwordHash: 0 } })
     .sort({ name: 1 })
     .toArray();
 
@@ -195,7 +195,6 @@ export async function POST(req: NextRequest) {
     await db.collection("volunteers").insertOne({
       name: cleanName,
       passwordHash,
-      pinHash: passwordHash,
       role: "volunteer",
       active: true,
       createdAt: new Date(),
