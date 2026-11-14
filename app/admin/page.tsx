@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
-import type { AdminStatsData as StatsData } from "@/lib/storage/types";
+import type { AdminStatsData as StatsData } from "@/lib/types";
 
 const SLOTS = ["D1_LUNCH", "D2_LUNCH", "D2_DINNER", "D3_LUNCH"] as const;
 type Slot = (typeof SLOTS)[number];

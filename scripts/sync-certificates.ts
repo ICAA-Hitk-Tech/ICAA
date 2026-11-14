@@ -53,7 +53,15 @@ async function main() {
     if (!DRY) {
       await users.updateOne(
         { _id: user._id },
-        { $set: { [`certs.${pid}`]: f.id } },
+        {
+          $set: {
+            [`certs.${pid}`]: {
+              fileId: f.id,
+              fileName: f.name,
+              syncedAt: new Date(),
+            },
+          },
+        },
       );
     }
   }

@@ -1,17 +1,16 @@
-import { randomBytes, scryptSync, timingSafeEqual } from "node:crypto";
+import bcrypt from "bcryptjs";
 
-/** Hashes a volunteer password using scrypt with a unique 16-byte salt. */
+const SALT_ROUNDS = 10;
+
+/** Hashes a volunteer password using bcrypt. */
 export function hashPassword(password: string): string {
-  const salt = randomBytes(16);
-  return `${salt.toString("hex")}:${scryptSync(password, salt, 32).toString("hex")}`;
+  return bcrypt.hashSync(password, SALT_ROUNDS);
 }
 
-/** Verifies a plaintext password against a stored scrypt hash in constant time. */
+/** Verifies a plaintext password against a stored bcrypt hash. */
 export function verifyPassword(password: string, stored: string): boolean {
   try {
-    const [salt, hash] = stored.split(":");
-    const calc = scryptSync(password, Buffer.from(salt, "hex"), 32);
-    return timingSafeEqual(calc, Buffer.from(hash, "hex"));
+    return bcrypt.compareSync(password, stored);
   } catch {
     return false;
   }

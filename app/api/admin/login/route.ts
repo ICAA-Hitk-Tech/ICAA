@@ -14,7 +14,7 @@ const bodySchema = z.object({
   pin: z.string().optional(),
 });
 
-const DUMMY = `${"00".repeat(16)}:${"00".repeat(32)}`;
+const DUMMY = "$2a$10$abcdefghijklmnopqrstuuABCDEFGHIJKLMNOPQRSTUVWXYZ012";
 
 export async function POST(req: Request) {
   const ctErr = requireJson(req);

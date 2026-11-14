@@ -51,7 +51,9 @@ export async function GET(
   if (!user || !user.PIDs || n >= user.PIDs.length) return notFound();
 
   const pid = user.PIDs[n];
-  const fileId = user.certs?.[pid];
+  const certEntry = user.certs?.[pid];
+  const fileId =
+    typeof certEntry === "string" ? certEntry : certEntry?.fileId;
   if (!fileId) return notFound();
 
   const released = await certificatesReleased();

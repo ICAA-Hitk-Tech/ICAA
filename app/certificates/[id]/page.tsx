@@ -31,12 +31,15 @@ export default async function CertificatesPage({
   const certs = user.PIDs.map((pid, idx) => {
     const p = parsePid(pid);
     if (!p) return null;
+    const certEntry = user.certs?.[pid];
+    const fileId =
+      typeof certEntry === "string" ? certEntry : certEntry?.fileId;
     return {
       index: idx,
       pid,
       label: CATEGORIES[p.cat].certificate,
       role: CATEGORIES[p.cat].role,
-      ready: released && Boolean(user.certs?.[pid]),
+      ready: released && Boolean(fileId),
     };
   }).filter((c): c is NonNullable<typeof c> => c !== null);
 

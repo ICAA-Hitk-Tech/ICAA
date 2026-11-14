@@ -43,7 +43,7 @@ async function main() {
   const d = client.db(dbName);
 
   if (!DRY) {
-    await ensureIndexes(d);
+    await ensureIndexes();
   }
 
   const users = d.collection<UserDoc>("users");

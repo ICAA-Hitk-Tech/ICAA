@@ -26,7 +26,7 @@ import type {
   ScanResult as Result,
   SlotStats as Stats,
   SearchUserResult as SearchUser,
-} from "@/lib/storage/types";
+} from "@/lib/types";
 
 const ist = (iso?: string) =>
   iso

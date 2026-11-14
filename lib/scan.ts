@@ -1,6 +1,6 @@
 import { MEAL_SLOTS, slotIsActive } from "../constants/2027/mealSlots";
 import { ID_RE } from "./ids";
-import type { ScanStatus, ScanResult } from "./storage/types";
+import type { ScanStatus, ScanResult } from "./types";
 
 export type { ScanStatus, ScanResult };
 

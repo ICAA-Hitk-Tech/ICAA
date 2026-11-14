@@ -35,7 +35,6 @@ async function main() {
     {
       $set: {
         passwordHash: hashedPassword,
-        pinHash: hashedPassword,
         role: role as VolunteerDoc["role"],
         active: true,
       },
@@ -47,7 +46,7 @@ async function main() {
   console.log(`\nVolunteer account successfully created!`);
   console.log(`  Volunteer Name: ${normName}`);
   console.log(`  Role:           ${role}`);
-  console.log(`  Password:       [Securely hashed with scrypt]`);
+  console.log(`  Password:       [Securely hashed with bcrypt]`);
   console.log(
     `\nThey can now sign in at the scanner app with this username and password.`,
   );
